@@ -79,6 +79,14 @@ h2 em,h1 em{font-style:italic;color:var(--gold-xl);font-weight:400}
 @keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 @media(max-width:900px){.hero .wrap{grid-template-columns:1fr}#trident{max-height:46vh;order:-1;margin-top:-20px}.hero{padding-top:120px}}
 
+/* video modal */
+.btn.play svg{width:14px;height:14px}
+.vm{position:fixed;inset:0;z-index:80;background:rgba(3,10,22,.92);display:none;align-items:center;justify-content:center;padding:20px}
+.vm.open{display:flex}
+.vm .box{width:min(1100px,100%);aspect-ratio:16/9;background:#000;border:1px solid var(--line);box-shadow:0 40px 120px -30px rgba(0,0,0,.9);position:relative}
+.vm iframe{width:100%;height:100%;border:0;display:block}
+.vm .x{position:absolute;top:-46px;right:0;background:none;border:1px solid var(--line);color:var(--gold-xl);font-family:var(--imp);letter-spacing:.2em;text-transform:uppercase;font-size:.66rem;padding:.6em 1em;cursor:pointer}
+.vm .cap{position:absolute;left:0;top:-46px;font-family:var(--imp);letter-spacing:.24em;text-transform:uppercase;font-size:.62rem;color:var(--gold);line-height:34px}
 /* marquee */
 .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:var(--deep);padding:14px 0;font-family:var(--imp);text-transform:uppercase;letter-spacing:.3em;font-size:.78rem;white-space:nowrap}
 .marquee div{display:inline-block;animation:mq 42s linear infinite}
@@ -260,7 +268,7 @@ footer small{display:block;font-family:var(--imp);letter-spacing:.3em;text-trans
       <p class="lead sub rv d2">A 52-week leadership operating system for your whole company. Your managers watch, execute and debrief every week, on your rhythm, until running the place without you is the default.</p>
       <div class="ctas rv d3">
         <a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-        <a class="btn ghost" href="#year">See how the year runs</a>
+        <button class="btn ghost play" type="button" data-watch="ada4fd66-bd62-4abc-b40e-e0af1f440ae9"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg>Watch Brandon explain it · 4 min</button>
       </div>
       <div class="credential rv d3"><span>Built by <b>Brandon Thornhill</b></span><span>Former <b>Navy SEAL</b></span><span><b>Nine-figure</b> sales architect</span></div>
     </div>
@@ -403,6 +411,7 @@ footer small{display:block;font-family:var(--imp);letter-spacing:.3em;text-trans
   <div><small>Casualness Creates Casualties</small>© <span id="yr"></span> Lead Elite Academy · Elite Leadership Consulting Group</div>
   <div class="fl"><a href="index.html">Home</a><a href="https://portal.leadeliteacademy.com">Member login</a><a href="mailto:admin@leadeliteacademy.com">Contact</a><a href="https://brandonthornhill.com" target="_blank" rel="noopener">brandonthornhill.com</a></div>
 </div></footer>
+<div class="vm" id="vm" role="dialog" aria-modal="true" aria-label="Video"><div class="box"><div class="cap">Brandon Thornhill · The Lead Elite Academy</div><button class="x" id="vmx">Close ✕</button><iframe id="vmf" src="about:blank" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy" title="Brandon Thornhill explains the Lead Elite Academy"></iframe></div></div>
 <div class="sticky"><a class="btn" href="#call" data-book>Book a call</a></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -427,6 +436,14 @@ const LEA = {
   tabs.forEach((b,i)=>b.onclick=()=>pick(i));
   const byHash=()=>{ const h=location.hash.replace('#',''); const hi=tabs.findIndex(b=>b.dataset.id===h); if(hi>=0){ pick(hi); document.getElementById('who').scrollIntoView(); return true; } return false; };
   if(!byHash()) pick(0); addEventListener('hashchange',byHash);
+
+  // video modal (Bunny Stream)
+  const vm=document.getElementById('vm'), vmf=document.getElementById('vmf');
+  const openV=g=>{ vmf.src='https://iframe.mediadelivery.net/embed/728526/'+g+'?autoplay=true&preload=true'; vm.classList.add('open'); document.body.style.overflow='hidden'; if(window.fbq) fbq('trackCustom','WatchPitch'); };
+  const closeV=()=>{ vm.classList.remove('open'); vmf.src='about:blank'; document.body.style.overflow=''; };
+  document.querySelectorAll('[data-watch]').forEach(b=>b.addEventListener('click',()=>openV(b.dataset.watch)));
+  document.getElementById('vmx').onclick=closeV; vm.addEventListener('click',e=>{ if(e.target===vm) closeV(); });
+  addEventListener('keydown',e=>{ if(e.key==='Escape' && vm.classList.contains('open')) closeV(); });
 
   document.getElementById('yr').textContent = new Date().getFullYear();
 
