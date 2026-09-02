@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lead Elite Academy — Build leaders who don’t need you</title>
+<meta name="description" content="A 52-week leadership operating system for companies, built by former Navy SEAL and nine-figure sales architect Brandon Thornhill.">
+<meta property="og:title" content="Lead Elite Academy — Build leaders who don’t need you">
+<meta property="og:description" content="A 52-week leadership operating system for companies, built by former Navy SEAL and nine-figure sales architect Brandon Thornhill.">
+<meta name="theme-color" content="#081A33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Oswald:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#081A33; --deep:#050F1F; --abyss:#030A16; --gold:#C8A34B; --gold-l:#D9BC77; --gold-xl:#EAD9AC; --cream:#EFEAE1; --cream-70:rgba(239,234,225,.7); --cream-45:rgba(239,234,225,.45);
+  --line:rgba(200,163,75,.22);
+  --display:'Playfair Display',Georgia,serif; --imp:'Oswald','Arial Narrow',sans-serif; --body:'Source Sans 3','Segoe UI',system-ui,sans-serif;
+  --max:1180px; --pad:clamp(20px,5vw,64px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--navy);color:var(--cream);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--gold);color:var(--abyss)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.eyebrow{font-family:var(--imp);font-weight:500;letter-spacing:.32em;text-transform:uppercase;font-size:.72rem;color:var(--gold)}
+.eyebrow::before{content:"";display:inline-block;width:22px;height:1px;background:var(--gold);vertical-align:middle;margin-right:12px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;letter-spacing:-.01em}
+h2{font-size:clamp(2rem,4.2vw,3.4rem);margin:.6rem 0 1.2rem}
+h2 em,h1 em{font-style:italic;color:var(--gold-xl);font-weight:400}
+.lead{font-size:clamp(1.05rem,1.4vw,1.25rem);color:var(--cream-70);max-width:58ch}
+.btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--imp);font-weight:500;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;padding:1.05em 1.9em;border:1px solid var(--gold);color:var(--abyss);background:linear-gradient(180deg,var(--gold-l),var(--gold));transition:transform .25s,box-shadow .25s,background .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px rgba(200,163,75,.6)}
+.btn.ghost{background:transparent;color:var(--gold-xl)}
+.btn.ghost:hover{background:rgba(200,163,75,.08)}
+.btn svg{width:14px;height:14px}
+
+/* slogan strip */
+.strip{position:fixed;top:0;left:0;right:0;z-index:60;height:34px;display:flex;align-items:center;justify-content:center;background:var(--abyss);border-bottom:1px solid var(--line);font-family:var(--imp);letter-spacing:.38em;text-transform:uppercase;font-size:.66rem;color:var(--gold);transition:transform .4s,opacity .4s}
+.strip span{color:var(--gold-xl);font-weight:400;margin:0 .35em}
+.strip.hide{transform:translateY(-100%);opacity:0}
+/* nav */
+.nav{position:fixed;top:34px;left:0;right:0;z-index:50;transition:top .4s,background .4s,border-color .4s;border-bottom:1px solid transparent}
+.nav.stuck{top:0;background:rgba(3,10,22,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--imp);letter-spacing:.22em;text-transform:uppercase;font-size:.8rem;color:var(--cream)}
+.brand .mark{width:30px;height:30px}
+.brand b{color:var(--gold);font-weight:600}
+.links{display:flex;gap:2.2em;font-family:var(--imp);letter-spacing:.16em;text-transform:uppercase;font-size:.72rem;color:var(--cream-70)}
+.links a{position:relative;padding:4px 0}
+.links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--gold);transition:right .3s}
+.links a:hover::after{right:0}
+.nav .btn{padding:.8em 1.3em;font-size:.7rem}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--cream);width:42px;height:42px;font-size:1.1rem}
+@media(max-width:900px){.links,.nav .cta{display:none}.burger{display:block}}
+.mobile{position:fixed;inset:0;z-index:70;background:var(--abyss);display:none;flex-direction:column;justify-content:center;align-items:center;gap:2rem;font-family:var(--display);font-size:1.8rem}
+.mobile.open{display:flex}
+.mobile .x{position:absolute;top:18px;right:18px;font-size:1.4rem;background:none;border:0;color:var(--gold);padding:10px}
+
+/* hero */
+.hero{position:relative;min-height:min(100svh,960px);display:grid;align-items:center;padding-top:110px;padding-bottom:60px;overflow:hidden;isolation:isolate}
+.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3;filter:saturate(.7) brightness(.62)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(3,10,22,.92) 0%,rgba(8,26,51,.78) 45%,rgba(8,26,51,.35) 100%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(3,10,22,.2),transparent 30%,transparent 70%,var(--navy))}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;width:100%}
+.hero h1{font-size:clamp(2.6rem,6vw,5.2rem);max-width:12ch}
+.hero .sub{margin:1.4rem 0 2.2rem;max-width:52ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px}
+.credential{margin-top:2.6rem;display:flex;gap:1.6rem;flex-wrap:wrap;font-family:var(--imp);letter-spacing:.2em;text-transform:uppercase;font-size:.66rem;color:var(--cream-45)}
+.credential b{color:var(--gold-xl);font-weight:500}
+#trident{width:100%;aspect-ratio:1;max-height:70vh;position:relative}
+#trident canvas{width:100%!important;height:100%!important;display:block}
+#trident .fallback{position:absolute;inset:10%;background:center/contain no-repeat}
+.hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-family:var(--imp);letter-spacing:.3em;text-transform:uppercase;font-size:.6rem;color:var(--cream-45);display:flex;flex-direction:column;align-items:center;gap:8px}
+.hint i{display:block;width:1px;height:36px;background:linear-gradient(var(--gold),transparent);animation:drop 2s infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}#trident{max-height:46vh;order:-1;margin-top:-20px}.hero{padding-top:120px}}
+
+/* marquee */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:var(--deep);padding:14px 0;font-family:var(--imp);text-transform:uppercase;letter-spacing:.3em;font-size:.78rem;white-space:nowrap}
+.marquee div{display:inline-block;animation:mq 42s linear infinite}
+.marquee span{margin:0 1.6em;color:var(--gold)}
+.marquee span.o{color:transparent;-webkit-text-stroke:1px var(--gold-l)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:clamp(72px,10vw,140px) 0;position:relative}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,6rem);align-items:center}
+@media(max-width:900px){.two{grid-template-columns:1fr}}
+.photo{position:relative}
+.photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;filter:saturate(.85)}
+.photo::after{content:"";position:absolute;inset:0;transform:translate(16px,16px);border:1px solid var(--gold);z-index:-1}
+.photo .chip{position:absolute;left:18px;bottom:18px;background:rgba(3,10,22,.8);border:1px solid var(--line);padding:.5em .9em;font-family:var(--imp);letter-spacing:.2em;text-transform:uppercase;font-size:.62rem;color:var(--gold-xl)}
+
+/* problem */
+.problem{background:var(--abyss)}
+.problem .quote{font-family:var(--display);font-style:italic;font-size:clamp(1.15rem,1.7vw,1.4rem);color:var(--gold-xl);border-left:2px solid var(--gold);padding-left:1.2rem;margin:1.6rem 0}
+.problem p{color:var(--cream-70);margin-bottom:1rem}
+
+/* ELITE */
+.elite{background:radial-gradient(60% 50% at 50% 0%,rgba(200,163,75,.09),transparent),var(--navy)}
+.elite .head{text-align:center;max-width:70ch;margin:0 auto 3.5rem}
+.elite .head .lead{margin:0 auto}
+.pillars{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line)}
+.pillar{padding:2rem 1.4rem 2.2rem;border-right:1px solid var(--line);position:relative;transition:background .35s}
+.pillar:last-child{border-right:0}
+.pillar:hover{background:rgba(200,163,75,.06)}
+.pillar .letter{font-family:var(--display);font-size:clamp(3.4rem,6vw,5.6rem);line-height:1;color:var(--gold);font-weight:700;transition:transform .35s}
+.pillar:hover .letter{transform:translateY(-6px)}
+.pillar h3{font-family:var(--imp);font-weight:500;letter-spacing:.2em;text-transform:uppercase;font-size:.78rem;margin:.8rem 0 .7rem;color:var(--cream)}
+.pillar p{font-size:.95rem;color:var(--cream-70)}
+@media(max-width:900px){.pillars{grid-template-columns:1fr}.pillar{border-right:0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:70px 1fr;column-gap:1rem;align-items:start}.pillar .letter{font-size:3rem;grid-row:span 2}.pillar h3{margin-top:.2rem}}
+
+/* year / rhythm */
+.year{background:var(--deep)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:2.6rem 0}
+.stat{background:var(--deep);padding:1.6rem 1.4rem}
+.stat b{display:block;font-family:var(--display);font-size:clamp(2.2rem,4vw,3.2rem);color:var(--gold-xl);line-height:1}
+.stat span{font-family:var(--imp);letter-spacing:.2em;text-transform:uppercase;font-size:.64rem;color:var(--cream-45)}
+@media(max-width:700px){.stats{grid-template-columns:1fr 1fr}}
+.rhythm{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:1rem}
+.step{padding:1.6rem;border:1px solid var(--line);background:rgba(8,26,51,.5)}
+.step .k{font-family:var(--imp);letter-spacing:.3em;text-transform:uppercase;font-size:.62rem;color:var(--gold)}
+.step h3{font-size:1.5rem;margin:.5rem 0 .6rem}
+.step p{color:var(--cream-70);font-size:.98rem}
+.muster{margin-top:1.4rem;padding:1.4rem 1.6rem;border:1px dashed var(--line);display:flex;gap:1.4rem;align-items:center;flex-wrap:wrap}
+.muster .k{font-family:var(--imp);letter-spacing:.3em;text-transform:uppercase;font-size:.62rem;color:var(--gold);white-space:nowrap}
+.muster p{color:var(--cream-70)}
+@media(max-width:800px){.rhythm{grid-template-columns:1fr}}
+.roles{display:flex;flex-wrap:wrap;gap:10px;margin-top:1.4rem}
+.roles span{font-family:var(--imp);letter-spacing:.16em;text-transform:uppercase;font-size:.66rem;padding:.55em 1em;border:1px solid var(--line);color:var(--gold-xl)}
+
+/* portal */
+.portal ul{list-style:none;margin-top:1.6rem;display:grid;gap:1rem}
+.portal li{display:grid;grid-template-columns:26px 1fr;gap:.9rem;color:var(--cream-70)}
+.portal li b{color:var(--cream);font-weight:600;display:block}
+.portal li svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.4;margin-top:4px}
+
+/* trainer */
+.trainer{background:var(--abyss);overflow:hidden}
+.trainer .two{align-items:end}
+.trainer .cut{position:relative;min-height:640px}
+.trainer .cut img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:100%;width:auto;max-width:none;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+.trainer .cut::before{content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:120%;height:70%;background:radial-gradient(50% 60% at 50% 100%,rgba(200,163,75,.28),transparent 70%);z-index:0}
+.trainer .cut img{z-index:1}
+.trainer .cut .big{position:absolute;left:0;right:0;top:8%;text-align:center;font-family:var(--imp);font-weight:600;font-size:clamp(4rem,12vw,9rem);letter-spacing:.06em;color:transparent;-webkit-text-stroke:1px rgba(200,163,75,.35);line-height:1;pointer-events:none;z-index:0}
+.trainer .copy{padding-bottom:3rem}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem 2rem;margin:1.8rem 0}
+.facts div{border-top:1px solid var(--line);padding-top:.7rem}
+.facts b{display:block;font-family:var(--display);font-size:1.5rem;color:var(--gold-xl)}
+.facts span{font-size:.9rem;color:var(--cream-70)}
+.social{display:flex;gap:14px;flex-wrap:wrap;margin-top:1.4rem}
+.social a{display:inline-flex;align-items:center;gap:.5em;font-family:var(--imp);letter-spacing:.16em;text-transform:uppercase;font-size:.64rem;color:var(--cream-70);border:1px solid var(--line);padding:.6em 1em;transition:color .2s,border-color .2s}
+.social a:hover{color:var(--gold-xl);border-color:var(--gold)}
+.social svg{width:14px;height:14px;fill:currentColor}
+@media(max-width:900px){.trainer .cut{min-height:420px;order:-1}.facts{grid-template-columns:1fr 1fr}}
+
+/* book */
+.book{background:var(--navy)}
+#book3d{width:100%;aspect-ratio:1;max-height:560px;position:relative}
+#book3d canvas{width:100%!important;height:100%!important}
+#book3d .fallback{position:absolute;inset:10% 25%;background:center/contain no-repeat}
+.book .quote{font-family:var(--display);font-style:italic;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.3;color:var(--gold-xl);margin:1.4rem 0}
+.book .quote small{display:block;font-family:var(--imp);font-style:normal;letter-spacing:.24em;text-transform:uppercase;font-size:.62rem;color:var(--cream-45);margin-top:.9rem}
+.rating{display:flex;align-items:center;gap:10px;font-family:var(--imp);letter-spacing:.18em;text-transform:uppercase;font-size:.66rem;color:var(--cream-70);margin-bottom:1.4rem}
+.rating .stars{color:var(--gold);letter-spacing:.1em;font-size:.9rem}
+
+/* testimonials */
+.voices{background:var(--deep)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.4rem}
+.card{border:1px solid var(--line);padding:1.8rem;background:rgba(8,26,51,.5);display:flex;flex-direction:column;gap:1.2rem}
+.card q{quotes:"“" "”";font-family:var(--display);font-size:1.12rem;line-height:1.45;color:var(--cream)}
+.card q::before{color:var(--gold);font-size:1.6em;line-height:0;vertical-align:-.3em;margin-right:.1em}
+.card .who{margin-top:auto;font-family:var(--imp);letter-spacing:.18em;text-transform:uppercase;font-size:.64rem;color:var(--gold-xl)}
+.card .who span{display:block;color:var(--cream-45);letter-spacing:.12em;margin-top:.2em}
+@media(max-width:900px){.cards{grid-template-columns:1fr}}
+
+/* who — industry tabs */
+.who{background:var(--navy)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:2.2rem}
+.tabs button{font-family:var(--imp);letter-spacing:.16em;text-transform:uppercase;font-size:.66rem;padding:.7em 1.1em;border:1px solid var(--line);background:transparent;color:var(--cream-70);cursor:pointer;transition:all .25s}
+.tabs button:hover{color:var(--gold-xl);border-color:var(--gold)}
+.tabs button[aria-selected="true"]{background:var(--gold);color:var(--abyss);border-color:var(--gold)}
+.panel{display:none;margin-top:1.6rem;border:1px solid var(--line);background:rgba(3,10,22,.5)}
+.panel.on{display:grid;grid-template-columns:1.1fr .9fr}
+.panel .txt{padding:2.2rem}
+.panel h3{font-size:clamp(1.6rem,2.6vw,2.3rem);margin:.4rem 0 .8rem}
+.panel h3 em{font-style:italic;color:var(--gold-xl);font-weight:400}
+.panel p{color:var(--cream-70);max-width:52ch}
+.panel .roles{margin-top:1.4rem}
+.panel .map{border-left:1px solid var(--line);padding:2.2rem;display:grid;gap:.9rem;align-content:start}
+.panel .map .k{font-family:var(--imp);letter-spacing:.3em;text-transform:uppercase;font-size:.62rem;color:var(--gold);margin-bottom:.4rem}
+.panel .map div{display:grid;grid-template-columns:150px 1fr;gap:1rem;border-top:1px solid var(--line);padding-top:.7rem;font-size:.95rem}
+.panel .map div b{font-family:var(--imp);font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:.66rem;color:var(--gold-xl);padding-top:.2em}
+.panel .map div span{color:var(--cream-70)}
+.panel .txt .btn{margin-top:1.6rem}
+@media(max-width:900px){.panel.on{grid-template-columns:1fr}.panel .map{border-left:0;border-top:1px solid var(--line)}.panel .map div{grid-template-columns:1fr}}
+
+/* final */
+.final{background:var(--abyss);text-align:center;overflow:hidden}
+.final::before{content:"";position:absolute;inset:0;background:url(assets/boardroom.webp) center/cover;opacity:.18;filter:saturate(.6)}
+.final .wrap{position:relative}
+.final h2{font-size:clamp(2.4rem,5.4vw,4.4rem);max-width:16ch;margin:.6rem auto 1.2rem}
+.final .lead{margin:0 auto 2.2rem}
+.final .ctas{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.lockup{margin-top:5rem;display:flex;flex-direction:column;align-items:center;gap:14px}
+.lockup .rule{width:60px;height:1px;background:var(--gold)}
+.lockup .mark{width:34px;height:34px}
+.lockup .slogan{font-family:var(--imp);letter-spacing:.4em;text-transform:uppercase;font-size:clamp(.95rem,2vw,1.5rem);color:var(--gold)}
+.lockup .slogan span{color:var(--gold-xl);font-weight:400}
+
+footer{background:var(--abyss);border-top:1px solid var(--line);padding:2.4rem 0;font-size:.85rem;color:var(--cream-45)}
+footer .wrap{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;align-items:center}
+footer .fl{display:flex;gap:1.6em;font-family:var(--imp);letter-spacing:.16em;text-transform:uppercase;font-size:.62rem}
+footer .fl a:hover{color:var(--gold-xl)}
+footer small{display:block;font-family:var(--imp);letter-spacing:.3em;text-transform:uppercase;font-size:.6rem;color:var(--gold);margin-bottom:.4em}
+
+/* sticky mobile CTA */
+.sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:55;padding:10px 14px;background:rgba(3,10,22,.9);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+.sticky .btn{width:100%;justify-content:center}
+@media(max-width:900px){.sticky{display:block}body{padding-bottom:64px}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.marquee div{animation:none}.hint i{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="strip" id="strip">Casualness <span>Creates</span> Casualties</div>
+<nav class="nav" id="nav"><div class="wrap">
+  <a class="brand" href="index.html"><svg class="mark" viewBox="0 0 40 40" fill="none" stroke="#C8A34B" stroke-width="1.6" stroke-linecap="round"><path d="M20 6v28M12 12v8c0 3 3 5 8 5s8-2 8-5v-8M20 12c-3 0-4 2-4 4M20 12c3 0 4 2 4 4M12 12l-2-3M28 12l2-3"/><path d="M16 34h8"/></svg><span>Lead <b>Elite</b> Academy</span></a>
+  <div class="links"><a href="#elite">The framework</a><a href="#year">The year</a><a href="#trainer">Brandon</a><a href="#book">The book</a><a href="#who">Who it’s for</a></div>
+  <a class="btn ghost cta" href="https://portal.leadeliteacademy.com">Member login</a>
+  <button class="burger" id="burger" aria-label="Open menu">☰</button>
+</div></nav>
+<div class="mobile" id="mobile"><button class="x" id="mx" aria-label="Close menu">✕</button><a href="#elite">The framework</a><a href="#year">The year</a><a href="#trainer">Brandon</a><a href="#book">The book</a><a href="#who">Who it’s for</a><a href="https://portal.leadeliteacademy.com" style="font-family:var(--imp);font-size:1rem;letter-spacing:.2em;color:var(--gold)">MEMBER LOGIN</a></div>
+
+<header class="hero" id="top">
+  <video autoplay muted loop playsinline poster="assets/hero-poster.jpg" aria-hidden="true"><source src="assets/hero-loop.mp4" type="video/mp4"></video>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow rv">The Lead Elite Academy</div>
+      <h1 class="rv d1">Build leaders who <em>don’t need you.</em></h1>
+      <p class="lead sub rv d2">A 52-week leadership operating system for your whole company. Your managers watch, execute and debrief every week, on your rhythm, until running the place without you is the default.</p>
+      <div class="ctas rv d3">
+        <a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        <a class="btn ghost" href="#year">See how the year runs</a>
+      </div>
+      <div class="credential rv d3"><span>Built by <b>Brandon Thornhill</b></span><span>Former <b>Navy SEAL</b></span><span><b>Nine-figure</b> sales architect</span></div>
+    </div>
+    <div id="trident" aria-hidden="true"><div class="fallback" style="background-image:url(assets/trident.webp)"></div></div>
+  </div>
+  <div class="hint">Scroll<i></i></div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div>
+  <span>Casualness Creates Casualties</span><span class="o">Systems Over Hope</span><span>Standards Over Feelings</span><span class="o">Duplicate Yourself</span><span>Execute Without You</span><span class="o">Built by a Navy SEAL</span>
+  <span>Casualness Creates Casualties</span><span class="o">Systems Over Hope</span><span>Standards Over Feelings</span><span class="o">Duplicate Yourself</span><span>Execute Without You</span><span class="o">Built by a Navy SEAL</span>
+</div></div>
+
+<section class="problem" id="problem"><div class="wrap two">
+  <div class="photo rv"><img src="assets/boardroom.webp" alt="Empty boardroom at night" loading="lazy"><span class="chip">Everything still runs through you</span></div>
+  <div>
+    <div class="eyebrow rv">The problem</div>
+    <h2 class="rv d1">You’re the most capable person in your company. <em>That’s exactly the problem.</em></h2>
+    <p class="rv d2">Every fire, every next step, every real decision still lands on your desk. Your managers are good people who were never trained to lead, so they escalate. You’re not running a company, you’re babysitting one, and it stops growing at the edge of your calendar.</p>
+    <div class="quote rv d2">“You don't rise to the level of your motivation. You default to the strength of your systems.”</div>
+    <p class="rv d3">The academy replaces motivation with a system: one weekly rhythm, one set of standards, run by your leaders in your business, with a record of who did the work.</p>
+  </div>
+</div></section>
+
+<section class="elite" id="elite"><div class="wrap">
+  <div class="head">
+    <div class="eyebrow rv">The framework</div>
+    <h2 class="rv d1">Five pillars. One operating system. <em>The ELITE Blueprint.</em></h2>
+    <p class="lead rv d2">Every week of the program trains one of these. Together they turn a team that waits for you into a team that runs without you.</p>
+  </div>
+  <div class="pillars">
+    <div class="pillar rv"><div class="letter">E</div><h3>Empowerment</h3><p>Ownership is given on purpose, with clear limits, so people stop asking permission and start making decisions.</p></div>
+    <div class="pillar rv d1"><div class="letter">L</div><h3>Leadership</h3><p>Leaders are duplicated, not hoarded. Your best people learn to build the next layer beneath them.</p></div>
+    <div class="pillar rv d2"><div class="letter">I</div><h3>Inspiration</h3><p>Standards are set by example and reinforced in rhythm, not by a speech once a quarter.</p></div>
+    <div class="pillar rv d3"><div class="letter">T</div><h3>Trust</h3><p>Controlled autonomy replaces micromanagement. Trust is earned through repeatable execution, then extended.</p></div>
+    <div class="pillar rv d3"><div class="letter">E</div><h3>Execution</h3><p>Weekly orders, debriefs and a monthly muster make follow-through the default, not the exception.</p></div>
+  </div>
+</div></section>
+
+<section class="year" id="year"><div class="wrap">
+  <div class="two" style="align-items:start">
+    <div>
+      <div class="eyebrow rv">How the year runs</div>
+      <h2 class="rv d1">52 weeks. 13 missions. <em>One rhythm.</em></h2>
+      <p class="lead rv d2">Every week your leaders watch a short lesson from Brandon, execute one order in the business, and debrief what happened. Every fourth week the whole company musters. Nothing is theory. Everything is done in the field.</p>
+      <div class="roles rv d3"><span>Management</span><span>Sales</span><span>Customer Service</span><span>Operations</span><span>Admin &amp; Back Office</span></div>
+    </div>
+    <div class="stats rv d1" style="margin:0">
+      <div class="stat"><b>52</b><span>Weeks</span></div>
+      <div class="stat"><b>13</b><span>Missions</span></div>
+      <div class="stat"><b>5</b><span>Roles trained</span></div>
+      <div class="stat"><b>1</b><span>Company rhythm</span></div>
+    </div>
+  </div>
+  <div class="rhythm">
+    <div class="step rv"><div class="k">Each week · Step 1</div><h3>Watch</h3><p>A lesson from Brandon, and the matching chapter from the book, read or listened to in his own voice.</p></div>
+    <div class="step rv d1"><div class="k">Each week · Step 2</div><h3>Execute</h3><p>One Execution Order, specific to the role. Something a manager does on the floor this week, not something they think about.</p></div>
+    <div class="step rv d2"><div class="k">Each week · Step 3</div><h3>Debrief</h3><p>What happened, what got in the way, what changes next week. Written, visible to the leader above them.</p></div>
+  </div>
+  <div class="muster rv d2"><div class="k">Every 4th week</div><p><b style="color:var(--cream)">Muster.</b> The company closes a mission together: results on the table, standards reset, next mission briefed.</p></div>
+</div></section>
+
+<section class="portal" id="portal"><div class="wrap two">
+  <div>
+    <div class="eyebrow rv">Inside the academy</div>
+    <h2 class="rv d1">Your leaders log in. <em>You see everything.</em></h2>
+    <p class="lead rv d2">Each company gets its own private academy. Seats for your people, a dashboard for whoever runs the place, and a record of who is actually doing the work.</p>
+    <ul class="rv d3">
+      <li><svg viewBox="0 0 24 24"><path d="M4 5h16v11H4zM8 20h8M12 16v4"/></svg><div><b>Weekly video lessons</b>Brandon on camera, one mission at a time, released on schedule.</div></li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 4h9l5 5v11H5zM14 4v5h5"/></svg><div><b>The book, built in</b>The ELITE Leadership Blueprint, chapter by chapter, plus the audiobook narrated in Brandon's voice.</div></li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 19h16M7 16V9M12 16V5M17 16v-6"/></svg><div><b>Leader dashboard</b>Seats filled, weeks completed, debriefs submitted, per person and per company.</div></li>
+      <li><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg><div><b>Role-specific orders</b>Sales, service, operations, admin and management each get their own execution rider.</div></li>
+    </ul>
+    <div style="margin-top:2rem" class="rv d3"><a class="btn ghost" href="https://portal.leadeliteacademy.com">Member login <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+  </div>
+  <div class="photo rv d1"><img src="assets/mezzanine.webp" alt="Looking down over a company floor at dusk" loading="lazy"><span class="chip">Every role. Every week.</span></div>
+</div></section>
+
+<section class="trainer" id="trainer"><div class="wrap two">
+  <div class="cut rv"><div class="big">THORNHILL</div><img src="assets/brandon-stage.png" alt="Brandon Thornhill speaking on stage"></div>
+  <div class="copy">
+    <div class="eyebrow rv">The trainer</div>
+    <h2 class="rv d1">Brandon Thornhill</h2>
+    <p class="lead rv d2">Former Navy SEAL and nine-figure sales architect. Fourteen years in the Navy, twelve of them as a SEAL, three combat deployments, and three years teaching First Phase at BUD/S, the course that decides who becomes a SEAL. Then he left and built a sales organization that produced more than $100 million in revenue, using the same systems.</p>
+    <div class="facts rv d2">
+      <div><b>SEAL Team Two</b><span>Iraq, Afghanistan, European SOF liaison</span></div>
+      <div><b>BUD/S instructor</b><span>First Phase, three years</span></div>
+      <div><b>$100M+</b><span>Sales organization built after service</span></div>
+      <div><b>21,000+</b><span>Following his leadership work on Instagram</span></div>
+    </div>
+    <p class="rv d3" style="color:var(--cream-70)">Author of <em>The ELITE Leadership Blueprint</em>. Host of <em>The Journey to Win</em> podcast. Consults for sales and executive teams from startups to nine-figure enterprises.</p>
+    <div class="social rv d3">
+      <a href="https://www.instagram.com/thebrandonthornhill/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.4 1.4 0 100 2.9 1.4 1.4 0 000-2.9z"/></svg>@thebrandonthornhill</a>
+      <a href="https://www.youtube.com/@thebrandonthornhill" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg>YouTube</a>
+      <a href="https://www.linkedin.com/in/brandonthornhill/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M20.4 20.4h-3.5v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6c.5-.9 1.6-1.9 3.3-1.9 3.6 0 4.2 2.4 4.2 5.4v6.3zM5.3 7.4a2.1 2.1 0 110-4.1 2.1 2.1 0 010 4.1zM7.1 20.4H3.6V9h3.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>LinkedIn</a>
+      <a href="https://podcasts.apple.com/us/podcast/the-journey-to-win/id1680958209" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-3.6 19.3l.4-2.4A7.6 7.6 0 1112 19.6l.4 2.4A10 10 0 0012 2zm0 5.3a4.7 4.7 0 00-1.9 9l.3-2.1a2.6 2.6 0 113.2 0l.3 2.1a4.7 4.7 0 00-1.9-9zM12 13a1.7 1.7 0 00-1.7 1.8L11 22h2l.7-7.2A1.7 1.7 0 0012 13z"/></svg>The Journey to Win</a>
+    </div>
+  </div>
+</div></section>
+
+<section class="book" id="book"><div class="wrap two">
+  <div>
+    <div class="eyebrow rv">The book behind the program</div>
+    <h2 class="rv d1">The ELITE Leadership <em>Blueprint</em></h2>
+    <div class="rating rv d2"><span class="stars">★★★★★</span><span>5.0 on Amazon</span></div>
+    <p class="lead rv d2">A Navy SEAL's proven system to duplicate leaders, scale ownership, and build teams that execute without you. Written for readers of <em>Extreme Ownership</em>, <em>Atomic Habits</em> and <em>The 5 Levels of Leadership</em> who are done with theory.</p>
+    <div class="quote rv d3">“You're the most capable person on your team. And that's the problem. You didn't build your business to babysit it. You built it to scale.”<small>From the back cover</small></div>
+    <div class="ctas rv d3" style="display:flex;gap:14px;flex-wrap:wrap"><a class="btn ghost" href="https://www.amazon.com/dp/B0FHHLFDYL" target="_blank" rel="noopener">Get the book on Amazon <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+  </div>
+  <div id="book3d" aria-hidden="true"><div class="fallback" style="background-image:url(assets/bookcover.webp)"></div></div>
+</div></section>
+
+<section class="voices" id="voices"><div class="wrap">
+  <div class="eyebrow rv">Working with Brandon</div>
+  <h2 class="rv d1">What leaders say <em>after.</em></h2>
+  <div class="cards">
+    <div class="card rv"><q>Brandon helped us earn six figures in six months while balancing work and parenting.</q><div class="who">Traci Peterson<span>RN &amp; network marketer</span></div></div>
+    <div class="card rv d1"><q>Brandon helped me match twenty years of military income in a few months.</q><div class="who">Jovon Quarles<span>Retired Navy SEAL</span></div></div>
+    <div class="card rv d2"><q>It's like every single thing I preached in the military. Stop barking orders and start duplicating yourself.</q><div class="who">Verified reader<span>Amazon review, The ELITE Leadership Blueprint</span></div></div>
+  </div>
+</div></section>
+
+<section class="who" id="who"><div class="wrap">
+  <div class="eyebrow rv">Who it's built for</div>
+  <h2 class="rv d1">Any company where <em>the leader is the bottleneck.</em></h2>
+  <p class="lead rv d2">The five roles exist in every business: management, sales, customer service, operations, and the back office. Pick your industry to see how the year maps onto your floor.</p>
+  <div class="tabs rv d2" role="tablist" id="tabs"><button role="tab" data-id="dealerships" aria-selected="false">Car dealerships</button><button role="tab" data-id="trades" aria-selected="false">Trades & home services</button><button role="tab" data-id="solar" aria-selected="false">Solar & energy</button><button role="tab" data-id="insurance" aria-selected="false">Insurance & financial</button><button role="tab" data-id="sales" aria-selected="false">Sales organizations</button><button role="tab" data-id="manufacturing" aria-selected="false">Manufacturing & logistics</button><button role="tab" data-id="healthcare" aria-selected="false">Healthcare & practices</button><button role="tab" data-id="realestate" aria-selected="false">Real estate & property</button><button role="tab" data-id="franchise" aria-selected="false">Franchises & multi-location</button><button role="tab" data-id="professional" aria-selected="false">Professional services & everyone else</button></div>
+  <div id="panels" class="rv d3"><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Car dealerships</div><h3>Your best closer became a manager. <em>Now the floor has no closer and no leader.</em></h3><p>Sales floor, service drive, F&I, BDC, parts. Turnover eats the store because managers were promoted for numbers, not trained to lead. The GM is the only person who can make a decision and everyone knows it.</p><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>GM, GSM, fixed-ops director</span></div><div><b>Sales</b><span>Desk managers, sales managers, BDC leads</span></div><div><b>Customer service</b><span>Service advisors, service managers</span></div><div><b>Operations</b><span>Shop foreman, parts, recon, lot</span></div><div><b>Back office</b><span>F&I, title, accounting, HR</span></div></div></div><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Trades & home services</div><h3>Great technicians. <em>Nobody trained the foreman to run people.</em></h3><p>Roofing, HVAC, plumbing, electrical, landscaping, pest control. Crews run on whoever showed up, dispatch fights the office, and the owner is still the one answering every escalation from the truck.</p><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>Owner, GM, branch managers</span></div><div><b>Sales</b><span>Estimators, in-home closers, inside sales</span></div><div><b>Customer service</b><span>CSRs, dispatch, warranty</span></div><div><b>Operations</b><span>Foremen, crew leads, install, fleet</span></div><div><b>Back office</b><span>Billing, permits, scheduling, admin</span></div></div></div><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Solar & energy</div><h3>Setters set. Closers close. <em>Then the install backlog kills the referral.</em></h3><p>Door-to-door and inside teams scale fast and burn out faster. The handoff from sales to permitting to install is where customers get lost, and the only person who sees the whole chain is you.</p><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>Owner, regional and office managers</span></div><div><b>Sales</b><span>Setters, closers, team leads</span></div><div><b>Customer service</b><span>Project coordinators, customer success</span></div><div><b>Operations</b><span>Install crews, site survey, electricians</span></div><div><b>Back office</b><span>Permitting, interconnection, finance, admin</span></div></div></div><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Insurance & financial</div><h3>The agency grows exactly as fast as <em>the owner can personally close.</em></h3><p>Agencies, brokerages, advisors, mortgage and lending teams. Producers get promoted to team lead with zero leadership training, retention is a coin flip, and compliance lands on one desk.</p><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>Agency owner, sales director, team leads</span></div><div><b>Sales</b><span>Producers, advisors, loan officers</span></div><div><b>Customer service</b><span>Account managers, client service, claims</span></div><div><b>Operations</b><span>Underwriting support, processing, licensing</span></div><div><b>Back office</b><span>Compliance, admin, bookkeeping</span></div></div></div><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Sales organizations</div><h3>Direct sales, inside sales, field sales. <em>The manager still carries the number.</em></h3><p>Any org where front-line managers were the best reps last year. They coach by doing the deal themselves, the team never learns, and the number depends on three people not quitting.</p><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>VP sales, sales directors, managers</span></div><div><b>Sales</b><span>SDRs, AEs, field reps, team leads</span></div><div><b>Customer service</b><span>Onboarding, account management</span></div><div><b>Operations</b><span>Sales ops, enablement, CRM</span></div><div><b>Back office</b><span>Commissions, admin, HR</span></div></div></div><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Manufacturing & logistics</div><h3>Shift leads promoted for skill on the line, <em>never trained to lead the line.</em></h3><p>Plants, warehouses, fleets, distribution. Supervisors inherit a shift and a clipboard. Safety, quality and throughput all come down to whether that supervisor can hold a standard without the plant manager standing there.</p><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>Plant manager, ops directors, supervisors</span></div><div><b>Sales</b><span>Account reps, inside sales, customer teams</span></div><div><b>Customer service</b><span>Order desk, dispatch, support</span></div><div><b>Operations</b><span>Shift leads, maintenance, drivers, quality</span></div><div><b>Back office</b><span>Scheduling, purchasing, HR, safety admin</span></div></div></div><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Healthcare & practices</div><h3>Multi-location clinics where <em>the office manager is holding the whole thing together.</em></h3><p>Dental, med-spa, chiropractic, physical therapy, veterinary, urgent care. Providers produce, front desks turn over, and the practice owner is the only leader in the building.</p><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>Practice owner, regional and office managers</span></div><div><b>Sales</b><span>Treatment coordinators, membership, front desk closers</span></div><div><b>Customer service</b><span>Front desk, patient coordinators</span></div><div><b>Operations</b><span>Clinical leads, assistants, techs</span></div><div><b>Back office</b><span>Billing, insurance, scheduling, HR</span></div></div></div><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Real estate & property</div><h3>Top producer opens a brokerage. <em>Now nobody is producing and nobody is leading.</em></h3><p>Brokerages, teams, property management. Agents are independent, managers are former agents, and culture is whatever the last team meeting happened to be.</p><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>Broker-owner, team leaders, regional</span></div><div><b>Sales</b><span>Agents, ISAs, leasing</span></div><div><b>Customer service</b><span>Transaction coordinators, tenant relations</span></div><div><b>Operations</b><span>Property ops, maintenance, marketing</span></div><div><b>Back office</b><span>Compliance, accounting, admin</span></div></div></div><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Franchises & multi-location</div><h3>The same standard in every location, <em>visible from one dashboard.</em></h3><p>Restaurants, fitness, retail, auto service, salons. Every location is a copy of the founder until the founder cannot be in every location. Store managers need the same weekly rhythm, and you need to see who is running it.</p><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>Owner, district and store managers</span></div><div><b>Sales</b><span>Membership, front-of-house, upsell</span></div><div><b>Customer service</b><span>Front line, guest experience</span></div><div><b>Operations</b><span>Shift leads, kitchen, floor, inventory</span></div><div><b>Back office</b><span>Payroll, scheduling, compliance, admin</span></div></div></div><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Professional services & everyone else</div><h3>Law, accounting, agencies, construction, tech, non-profits. <em>Same five roles. Same problem.</em></h3><p>If you have managers who run the day and you run the managers, the program fits. Partners, principals and founders all hit the same wall: the business stops growing at the edge of their calendar.</p><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>Partners, principals, department heads</span></div><div><b>Sales</b><span>Business development, account leads</span></div><div><b>Customer service</b><span>Client service, account management</span></div><div><b>Operations</b><span>Project managers, delivery, production</span></div><div><b>Back office</b><span>Finance, HR, admin, IT</span></div></div></div></div>
+</div></section>
+
+<section class="final" id="call"><div class="wrap">
+  <div class="eyebrow rv">Next step</div>
+  <h2 class="rv d1">Stop being the <em>bottleneck.</em></h2>
+  <p class="lead rv d2">One call. Brandon and the team walk you through how the year runs, what your leaders will actually do each week, and what it costs for your company. No deck to sit through.</p>
+  <div class="ctas rv d3"><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a><a class="btn ghost" href="https://portal.leadeliteacademy.com">Member login</a></div>
+  <div class="lockup rv d3"><div class="rule"></div><svg class="mark" viewBox="0 0 40 40" fill="none" stroke="#C8A34B" stroke-width="1.6" stroke-linecap="round"><path d="M20 6v28M12 12v8c0 3 3 5 8 5s8-2 8-5v-8M20 12c-3 0-4 2-4 4M20 12c3 0 4 2 4 4M12 12l-2-3M28 12l2-3"/><path d="M16 34h8"/></svg><div class="slogan">Casualness <span>Creates</span> Casualties</div></div>
+</div></section>
+
+<footer><div class="wrap">
+  <div><small>Casualness Creates Casualties</small>© <span id="yr"></span> Lead Elite Academy · Elite Leadership Consulting Group</div>
+  <div class="fl"><a href="index.html">Home</a><a href="https://portal.leadeliteacademy.com">Member login</a><a href="mailto:admin@leadeliteacademy.com">Contact</a><a href="https://brandonthornhill.com" target="_blank" rel="noopener">brandonthornhill.com</a></div>
+</div></footer>
+<div class="sticky"><a class="btn" href="#call" data-book>Book a call</a></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ===== CONFIG — the only block that needs editing at launch ===== */
+const LEA = {
+  BOOKING_URL: "",                       // Calendly / GHL link. Empty = email fallback.
+  CONTACT_EMAIL: "admin@leadeliteacademy.com",
+  META_PIXEL_ID: ""                      // optional
+};
+/* =============================================================== */
+(function(){
+  // booking fallback
+  const mail = "mailto:"+LEA.CONTACT_EMAIL+"?subject="+encodeURIComponent("Lead Elite Academy — book a call")+"&body="+encodeURIComponent("Company:\nLocations / team size:\nBest time to call:\n");
+  document.querySelectorAll('[data-book]').forEach(a=>{ a.href = LEA.BOOKING_URL || mail; if(LEA.BOOKING_URL){a.target="_blank";a.rel="noopener";}
+    a.addEventListener('click',()=>{ if(window.fbq) fbq('track','Lead'); }); });
+  if(LEA.META_PIXEL_ID){ !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init',LEA.META_PIXEL_ID); fbq('track','PageView'); }
+
+  // industry tabs
+  const tabs=[...document.querySelectorAll('#tabs button')], panels=[...document.querySelectorAll('#panels .panel')];
+  const pick=i=>{ tabs.forEach((b,j)=>b.setAttribute('aria-selected',i===j)); panels.forEach((p,j)=>p.classList.toggle('on',i===j)); };
+  tabs.forEach((b,i)=>b.onclick=()=>pick(i));
+  const h=location.hash.replace('#',''); const hi=tabs.findIndex(b=>b.dataset.id===h); pick(hi>=0?hi:0);
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // strip + nav
+  const strip=document.getElementById('strip'), nav=document.getElementById('nav');
+  const onScroll=()=>{ const y=window.scrollY; strip.classList.toggle('hide',y>40); nav.classList.toggle('stuck',y>40); };
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  // mobile menu
+  const mob=document.getElementById('mobile');
+  document.getElementById('burger').onclick=()=>mob.classList.add('open');
+  document.getElementById('mx').onclick=()=>mob.classList.remove('open');
+  mob.querySelectorAll('a').forEach(a=>a.onclick=()=>mob.classList.remove('open'));
+
+  // reveal
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // hero video: don't fight reduced-motion users
+  const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const vid=document.querySelector('.hero video'); if(vid && rm){ vid.pause(); vid.removeAttribute('autoplay'); }
+
+  /* ===================== 3D ===================== */
+  if(!window.THREE) return;
+  let glOK=true; try{ const c=document.createElement('canvas'); glOK=!!(c.getContext('webgl')||c.getContext('experimental-webgl')); }catch(e){glOK=false}
+  if(!glOK) return;
+
+  // procedural environment: navy sky, gold floor glow — gives the metal something to reflect
+  function makeEnv(){
+    const size=128, faces=[];
+    for(let i=0;i<6;i++){
+      const cv=document.createElement('canvas'); cv.width=cv.height=size; const g=cv.getContext('2d');
+      let grad;
+      if(i===2){ grad=g.createRadialGradient(size/2,size/2,4,size/2,size/2,size*.7); grad.addColorStop(0,'#fff4d6'); grad.addColorStop(.35,'#c8a34b'); grad.addColorStop(1,'#0b1f3f'); }
+      else if(i===3){ grad=g.createRadialGradient(size/2,size/2,4,size/2,size/2,size*.7); grad.addColorStop(0,'#7a5f24'); grad.addColorStop(1,'#03070f'); }
+      else { grad=g.createLinearGradient(0,0,0,size); grad.addColorStop(0,'#1a3a6e'); grad.addColorStop(.5,'#081a33'); grad.addColorStop(1,'#03070f'); }
+      g.fillStyle=grad; g.fillRect(0,0,size,size);
+      // a couple of soft "studio lights"
+      g.globalAlpha=.55; g.fillStyle='#ead9ac';
+      const lx=(i*37)%size, ly=(i*53)%size; g.beginPath(); g.ellipse(lx,ly,size*.22,size*.08,0,0,Math.PI*2); g.fill();
+      faces.push(cv);
+    }
+    const tex=new THREE.CubeTexture(faces); tex.needsUpdate=true; return tex;
+  }
+  const env=makeEnv();
+  const gold=()=>new THREE.MeshStandardMaterial({color:0xC8A34B, metalness:1, roughness:.28, envMap:env, envMapIntensity:1.4});
+
+  function scene(el){
+    const r=new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:'high-performance'}); r.setPixelRatio(Math.min(devicePixelRatio,2)); r.outputEncoding=THREE.sRGBEncoding;
+    el.appendChild(r.domElement); el.querySelector('.fallback')?.remove();
+    const s=new THREE.Scene(); const cam=new THREE.PerspectiveCamera(32,1,.1,100); cam.position.set(0,0,9);
+    s.add(new THREE.AmbientLight(0x33456a,.9));
+    const key=new THREE.DirectionalLight(0xfff1cc,1.6); key.position.set(4,6,6); s.add(key);
+    const rim=new THREE.DirectionalLight(0xc8a34b,1.2); rim.position.set(-6,-2,-4); s.add(rim);
+    const fill=new THREE.PointLight(0x5b7fc0,.8,30); fill.position.set(-4,3,4); s.add(fill);
+    const size=()=>{ const w=el.clientWidth, h=el.clientHeight||w; r.setSize(w,h,false); cam.aspect=w/h; cam.updateProjectionMatrix(); };
+    size(); addEventListener('resize',size);
+    let vis=true; new IntersectionObserver(e=>{vis=e[0].isIntersecting},{threshold:0}).observe(el);
+    return {r,s,cam,isVisible:()=>vis};
+  }
+
+  // pointer (shared)
+  const P={x:0,y:0,tx:0,ty:0}; addEventListener('pointermove',e=>{P.tx=(e.clientX/innerWidth-.5)*2; P.ty=(e.clientY/innerHeight-.5)*2;},{passive:true});
+  addEventListener('deviceorientation',e=>{ if(e.gamma!=null){P.tx=Math.max(-1,Math.min(1,e.gamma/30)); P.ty=Math.max(-1,Math.min(1,(e.beta-45)/30));} },{passive:true});
+
+  /* ---- TRIDENT ---- */
+  const tEl=document.getElementById('trident');
+  let trident=null;
+  if(tEl){
+    const T=scene(tEl); T.cam.position.set(0,0,12.5); const g=new THREE.Group(); T.s.add(g);
+    const m=gold();
+    const add=(geo,x,y,z,rx,ry,rz)=>{ const mesh=new THREE.Mesh(geo,m); mesh.position.set(x,y,z); if(rx!=null) mesh.rotation.set(rx,ry,rz); g.add(mesh); return mesh; };
+    // shaft
+    add(new THREE.CylinderGeometry(.10,.15,4.4,28), 0,-1.4,0);
+    add(new THREE.ConeGeometry(.15,.6,28), 0,-3.9,0, Math.PI,0,0);      // butt spike
+    add(new THREE.TorusGeometry(.19,.055,12,36), 0,-.35,0, Math.PI/2,0,0);   // collars
+    add(new THREE.TorusGeometry(.19,.055,12,36), 0,-2.6,0, Math.PI/2,0,0);
+    add(new THREE.SphereGeometry(.2,24,16), 0,.9,0);                      // junction knuckle
+    // outer prongs: curved tubes that sweep out then up
+    const curve=(sx)=>new THREE.CubicBezierCurve3(new THREE.Vector3(0,.9,0), new THREE.Vector3(sx*.9,.9,0), new THREE.Vector3(sx*1.15,1.3,0), new THREE.Vector3(sx*1.05,2.7,0));
+    [-1,1].forEach(sx=>{ add(new THREE.TubeGeometry(curve(sx),40,.085,16,false),0,0,0); add(new THREE.ConeGeometry(.13,.7,20), sx*1.05,3.02,0); });
+    // center prong
+    add(new THREE.CylinderGeometry(.085,.1,2.3,20), 0,2.05,0);
+    add(new THREE.ConeGeometry(.14,.8,20), 0,3.55,0);
+    // small barbs on center prong (classic trident detail)
+    add(new THREE.ConeGeometry(.07,.4,4), -.2,2.75,0, 0,0,Math.PI/2.6);
+    add(new THREE.ConeGeometry(.07,.4,4),  .2,2.75,0, 0,0,-Math.PI/2.6);
+    g.position.y=.15; g.scale.setScalar(1.02);
+    // gold dust
+    const n=220, pos=new Float32Array(n*3); for(let i=0;i<n*3;i++) pos[i]=(Math.random()-.5)*9;
+    const pg=new THREE.BufferGeometry(); pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
+    const dust=new THREE.Points(pg,new THREE.PointsMaterial({color:0xEAD9AC,size:.035,transparent:true,opacity:.55})); T.s.add(dust);
+    // assemble animation
+    const parts=g.children; parts.forEach(p=>{ p.userData.to=p.position.clone(); p.userData.from=p.position.clone().add(new THREE.Vector3((Math.random()-.5)*5,(Math.random()-.5)*7,(Math.random()-.5)*3)); p.userData.ry=p.rotation.x; p.userData.rf=p.rotation.x+(Math.random()-.5)*4; p.position.copy(p.userData.from); p.rotation.x=p.userData.rf; });
+    let t0=performance.now(), assembled=rm;
+    if(rm) parts.forEach(p=>{p.position.copy(p.userData.to); p.rotation.x=p.userData.ry;});
+    trident={T,g,dust,parts,t0,assembled};
+  }
+
+  /* ---- BOOK ---- */
+  const bEl=document.getElementById('book3d'); let book=null;
+  if(bEl){
+    const B=scene(bEl); B.cam.position.set(0,0,9.2);
+    const cover=new THREE.TextureLoader().load("assets/bookcover.webp"); cover.encoding=THREE.sRGBEncoding;
+    const paper=new THREE.MeshStandardMaterial({color:0xEFEAE1,roughness:.9,metalness:0});
+    const navy=new THREE.MeshStandardMaterial({color:0x0B2247,roughness:.55,metalness:.1});
+    const front=new THREE.MeshStandardMaterial({map:cover,roughness:.5,metalness:.05});
+    const w=3.2,h=4.8,d=.55;
+    const mats=[navy,navy,paper,paper,front,navy]; // +x -x +y -y +z(front) -z
+    const mesh=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mats); B.s.add(mesh);
+    // spine text stand-in: thin gold band
+    const band=new THREE.Mesh(new THREE.BoxGeometry(.02,h*.6,d*.9),gold()); band.position.x=-w/2-.005; mesh.add(band);
+    const band2=new THREE.Mesh(new THREE.BoxGeometry(w*.9,.02,d*.9),gold()); band2.position.y=h/2+.005; mesh.add(band2);
+    mesh.rotation.y=-.35; mesh.rotation.x=.08;
+    book={B,mesh};
+  }
+
+  /* ---- LOOP ---- */
+  let last=0;
+  function tick(now){
+    requestAnimationFrame(tick); if(now-last<16) return; last=now;
+    P.x+=(P.tx-P.x)*.06; P.y+=(P.ty-P.y)*.06;
+    const sy=window.scrollY;
+    if(trident && trident.T.isVisible()){
+      const {T,g,dust,parts}=trident; const t=(now-trident.t0)/1000;
+      if(!trident.assembled){ let done=true; parts.forEach((p,i)=>{ const k=Math.min(1,Math.max(0,(t-.15-i*.06)/1.3)); const e=1-Math.pow(1-k,3); p.position.lerpVectors(p.userData.from,p.userData.to,e); p.rotation.x=p.userData.rf+(p.userData.ry-p.userData.rf)*e; if(k<1) done=false; }); if(done) trident.assembled=true; }
+      g.rotation.y = (rm?0:Math.sin(t*.45)*.55) + P.x*.6 + sy*.0008;
+      g.rotation.x = P.y*.2 + Math.sin(t*.8)*.05; g.rotation.z = -.12 + Math.sin(t*.6)*.04;
+      g.position.y = .2 + Math.sin(t*1.1)*.12;
+      dust.rotation.y = t*.03; dust.position.y = -sy*.0006;
+      T.r.render(T.s,T.cam);
+    }
+    if(book && book.B.isVisible()){
+      const {B,mesh}=book; const t=now/1000;
+      mesh.rotation.y += ((-.35 + P.x*.6 + (rm?0:Math.sin(t*.5)*.18)) - mesh.rotation.y)*.06;
+      mesh.rotation.x += ((.08 + P.y*.25) - mesh.rotation.x)*.06;
+      mesh.position.y = Math.sin(t*1.3)*.08;
+      B.r.render(B.s,B.cam);
+    }
+  }
+  requestAnimationFrame(tick);
+})();
+
+</script>
+</body>
+</html>
