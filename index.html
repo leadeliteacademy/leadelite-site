@@ -358,6 +358,10 @@ body.cart-open .cartov{opacity:1;pointer-events:auto}
 @media(max-width:1120px){.links,.nav .cta{display:none}.burger{display:block}}
 .cline .qty{display:flex;width:max-content}
 
+.pimg.photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.prod:hover .pimg.photo img{transform:scale(1.04)}
+.pimg.photo .wave{display:none}
+
 </style>
 </head>
 <body>
@@ -508,16 +512,37 @@ body.cart-open .cartov{opacity:1;pointer-events:auto}
   <div class="pgrid rv d2" id="pgrid">
 
     <article class="prod" data-sku="tee">
-      <div class="pimg tee">
-        <svg viewBox="0 0 200 200" aria-hidden="true">
-          <path class="garment" d="M62 38 L86 26 C90 40 110 40 114 26 L138 38 L166 58 L150 82 L138 74 L138 176 L62 176 L62 74 L50 82 L34 58 Z"/>
-          <use href="#tri" x="86" y="70" width="28" height="68"/>
-        </svg>
+      <div class="pimg photo"><img src="assets/shop-tee.webp" alt="Lead Elite Academy navy tee with gold trident" loading="lazy">
         <span class="tag">Merch</span>
       </div>
       <div class="pbody">
-        <h3>Lead Elite Academy Tee</h3>
-        <p>Navy, gold trident on the chest. Unisex, true to size.</p>
+        <h3>Trident Tee</h3>
+        <p>Navy heavyweight tee, gold trident and wordmark on the chest. Unisex, true to size.</p>
+        <div class="sizes" role="radiogroup" aria-label="Size">
+          <button type="button" data-size="S">S</button><button type="button" data-size="M">M</button><button type="button" data-size="L">L</button><button type="button" data-size="XL">XL</button><button type="button" data-size="2XL">2XL</button>
+        </div>
+        <div class="prow"><span class="price" data-price>$34</span><button class="btn add" type="button" data-add>Add to cart</button></div>
+      </div>
+    </article>
+
+
+    <article class="prod" data-sku="tee_slogan">
+      <div class="pimg photo"><img src="assets/shop-tee-slogan.webp" alt="Navy tee with Casualness Creates Casualties back print" loading="lazy"><span class="tag">Merch</span></div>
+      <div class="pbody">
+        <h3>Casualness Creates Casualties Tee</h3>
+        <p>The slogan across the back, trident on the chest. Navy heavyweight, unisex.</p>
+        <div class="sizes" role="radiogroup" aria-label="Size">
+          <button type="button" data-size="S">S</button><button type="button" data-size="M">M</button><button type="button" data-size="L">L</button><button type="button" data-size="XL">XL</button><button type="button" data-size="2XL">2XL</button>
+        </div>
+        <div class="prow"><span class="price" data-price>$34</span><button class="btn add" type="button" data-add>Add to cart</button></div>
+      </div>
+    </article>
+
+    <article class="prod" data-sku="tee_cream">
+      <div class="pimg photo"><img src="assets/shop-tee-cream.webp" alt="Cream tee with navy embroidered trident and LEA" loading="lazy"><span class="tag">Merch</span></div>
+      <div class="pbody">
+        <h3>LEA Cream Tee</h3>
+        <p>Cream heavyweight tee, navy embroidered trident and LEA on the left chest. Quiet, expensive-looking.</p>
         <div class="sizes" role="radiogroup" aria-label="Size">
           <button type="button" data-size="S">S</button><button type="button" data-size="M">M</button><button type="button" data-size="L">L</button><button type="button" data-size="XL">XL</button><button type="button" data-size="2XL">2XL</button>
         </div>
@@ -526,18 +551,22 @@ body.cart-open .cartov{opacity:1;pointer-events:auto}
     </article>
 
     <article class="prod" data-sku="hat">
-      <div class="pimg hat">
-        <svg viewBox="0 0 200 200" aria-hidden="true">
-          <path class="garment" d="M46 122 C46 70 96 58 126 62 C152 66 160 96 160 122 Z"/>
-          <path class="garment" d="M158 122 L190 126 C196 134 190 142 180 142 L96 140 C80 140 60 134 46 122 Z"/>
-          <path class="garment" d="M46 122 L160 122 L160 132 C130 138 76 138 46 132 Z"/>
-          <use href="#tri" x="90" y="76" width="18" height="42"/>
-        </svg>
+      <div class="pimg photo"><img src="assets/shop-hat.webp" alt="Lead Elite Academy navy cap with gold trident" loading="lazy">
         <span class="tag">Merch</span>
       </div>
       <div class="pbody">
-        <h3>Lead Elite Academy Hat</h3>
-        <p>Structured cap, gold trident, adjustable strap. One size.</p>
+        <h3>Structured Cap</h3>
+        <p>Six-panel structured cap, gold embroidered trident, brass strap. One size.</p>
+        <div class="prow"><span class="price" data-price>$32</span><button class="btn add" type="button" data-add>Add to cart</button></div>
+      </div>
+    </article>
+
+
+    <article class="prod" data-sku="hat_dad">
+      <div class="pimg photo"><img src="assets/shop-hat-dad.webp" alt="Navy dad hat with gold trident and LEAD ELITE side embroidery" loading="lazy"><span class="tag">Merch</span></div>
+      <div class="pbody">
+        <h3>Lead Elite Dad Hat</h3>
+        <p>Unstructured low-profile cap, gold trident up front, LEAD ELITE stitched on the side. One size.</p>
         <div class="prow"><span class="price" data-price>$32</span><button class="btn add" type="button" data-add>Add to cart</button></div>
       </div>
     </article>
@@ -570,7 +599,7 @@ body.cart-open .cartov{opacity:1;pointer-events:auto}
     </article>
 
     <article class="prod best" data-sku="bundle">
-      <div class="pimg cover audio"><img src="assets/bookcover.webp" alt="" loading="lazy"><span class="tag gold">Best value</span><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pimg photo"><img src="assets/shop-bundle.webp" alt="The ELITE Leadership Blueprint with cap, tee and headphones" loading="lazy"><span class="tag gold">Best value</span><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>
       <div class="pbody">
         <h3>Paperback + Audiobook</h3>
         <p>The book on your desk and Brandon in your ear on the drive in. Save on both.</p>
@@ -800,8 +829,11 @@ const LEA = {
   const API = (LEA.SHOP_API || "https://portal.leadeliteacademy.com").replace(/\/$/,"");
   // Fallback prices only — the live ones come from /api/shop/catalog (Stripe).
   const CAT = {
-    tee:       { name:"Lead Elite Academy Tee", price:3400, sizes:["S","M","L","XL","2XL"], ships:true },
-    hat:       { name:"Lead Elite Academy Hat", price:3200, ships:true },
+    tee:        { name:"Trident Tee", price:3400, sizes:["S","M","L","XL","2XL"], ships:true },
+    tee_slogan: { name:"Casualness Creates Casualties Tee", price:3400, sizes:["S","M","L","XL","2XL"], ships:true },
+    tee_cream:  { name:"LEA Cream Tee", price:3400, sizes:["S","M","L","XL","2XL"], ships:true },
+    hat:        { name:"Structured Cap", price:3200, ships:true },
+    hat_dad:    { name:"Lead Elite Dad Hat", price:3200, ships:true },
     paperback: { name:"The ELITE Leadership Blueprint — paperback", price:2499, ships:true },
     ebook:     { name:"The Blueprint — ebook (PDF)", price:1299 },
     audiobook: { name:"The Blueprint — audiobook", price:3900 },
@@ -882,7 +914,7 @@ const LEA = {
         Object.assign(stock, p.stock);
         const sizeBtns = card.querySelectorAll(".sizes button");
         if (sizeBtns.length) {
-          let any=false; sizeBtns.forEach(b=>{ const ok=(p.stock["tee-"+b.dataset.size]||0)>0; b.disabled=!ok; if(ok) any=true; });
+          let any=false; sizeBtns.forEach(b=>{ const ok=(p.stock[sku+"-"+b.dataset.size]||0)>0; b.disabled=!ok; if(ok) any=true; });
           if (!any) soldOut(card);
         } else if (Object.values(p.stock).every(n=>!(n>0))) soldOut(card);
       }
