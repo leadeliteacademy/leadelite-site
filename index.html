@@ -948,6 +948,13 @@ const LEA = {
   render();
 })();
 
+/* Logo / Home: scroll to top instead of reloading, so the 3D trident doesn't re-assemble */
+(function(){
+  document.querySelectorAll('a[href="/"]').forEach(a=>a.addEventListener('click',e=>{
+    if(/^\/(index\.html)?$/.test(location.pathname)){ e.preventDefault(); history.replaceState(null,'','/'); window.scrollTo({top:0,behavior:'smooth'}); document.getElementById('mobile')?.classList.remove('open'); }
+  }));
+})();
+
 </script>
 </body>
 </html>
