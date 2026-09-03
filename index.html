@@ -15,6 +15,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.leadeliteacademy.com/og-home.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="alternate icon" href="favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#081A33">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +56,7 @@ h2 em,h1 em{font-style:italic;color:var(--gold-xl);font-weight:400}
 .nav.stuck{top:0;background:rgba(3,10,22,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
 .brand{display:flex;align-items:center;gap:12px;font-family:var(--imp);letter-spacing:.22em;text-transform:uppercase;font-size:.8rem;color:var(--cream)}
-.brand .mark{width:30px;height:30px}
+.brand .mark{width:auto;height:30px}
 .brand b{color:var(--gold);font-weight:600}
 .links{display:flex;gap:2.2em;font-family:var(--imp);letter-spacing:.16em;text-transform:uppercase;font-size:.72rem;color:var(--cream-70)}
 .links a{position:relative;padding:4px 0}
@@ -253,7 +254,7 @@ section{padding:clamp(72px,10vw,140px) 0;position:relative}
 .final .ctas{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
 .lockup{margin-top:5rem;display:flex;flex-direction:column;align-items:center;gap:14px}
 .lockup .rule{width:60px;height:1px;background:var(--gold)}
-.lockup .mark{width:34px;height:34px}
+.lockup .mark{width:auto;height:40px}
 .lockup .slogan{font-family:var(--imp);letter-spacing:.4em;text-transform:uppercase;font-size:clamp(.95rem,2vw,1.5rem);color:var(--gold)}
 .lockup .slogan span{color:var(--gold-xl);font-weight:400}
 
@@ -278,7 +279,7 @@ footer small{display:block;font-family:var(--imp);letter-spacing:.3em;text-trans
 <body>
 <div class="strip" id="strip">Casualness <span>Creates</span> Casualties</div>
 <nav class="nav" id="nav"><div class="wrap">
-  <a class="brand" href="index.html"><svg class="mark" viewBox="0 0 40 40" fill="none" stroke="#C8A34B" stroke-width="1.6" stroke-linecap="round"><path d="M20 6v28M12 12v8c0 3 3 5 8 5s8-2 8-5v-8M20 12c-3 0-4 2-4 4M20 12c3 0 4 2 4 4M12 12l-2-3M28 12l2-3"/><path d="M16 34h8"/></svg><span>Lead <b>Elite</b> Academy</span></a>
+  <a class="brand" href="index.html"><svg class="mark" viewBox="-61 -3 122 293" fill="#C8A34B" aria-hidden="true"><path d="M0,0 C 3.5,11 8,22 12.6,33 L 12.6,115 L 28.5,115 C 31,107 42,101 42.6,88 L 42.6,49 C 42.6,36 46.5,26 50.6,15.5 C 54.8,26 58.6,36 58.6,49 L 58.6,88 C 58.6,103 53.4,107 53,115.5 L 46,136 L 11,136 C 10.2,190 8,241 5.6,287 L-5.6,287 C-8,241 -10.2,190 -11,136 L-46,136 L-53,115.5 C-53.4,107 -58.6,103 -58.6,88 L-58.6,49 C-58.6,36 -54.8,26 -50.6,15.5 C-46.5,26 -42.6,36 -42.6,49 L-42.6,88 C-42,101 -31,107 -28.5,115 L-12.6,115 L-12.6,33 C-8,22 -3.5,11 -0,0 Z"/></svg><span>Lead <b>Elite</b> Academy</span></a>
   <div class="links"><a href="#elite">The framework</a><a href="#year">The year</a><a href="#trainer">Brandon</a><a href="#book">The book</a><a href="#who">Who it’s for</a></div>
   <div class="navbtns cta"><a class="btn" href="#call" data-book>Book a call</a><a class="btn ghost" href="https://portal.leadeliteacademy.com">Member login</a></div>
   <button class="burger" id="burger" aria-label="Open menu">☰</button>
@@ -292,7 +293,6 @@ footer small{display:block;font-family:var(--imp);letter-spacing:.3em;text-trans
       <div class="eyebrow rv">The Lead Elite Academy</div>
       <h1 class="rv d1">Build leaders who <em>don’t need you.</em></h1>
       <p class="lead sub rv d2">A 52-week leadership operating system for your whole company. Your managers watch, execute and debrief every week, on your rhythm, until running the place without you is the default.</p>
-      <button class="watchline rv d3" type="button" data-watch="9559499e-beaa-479e-92da-bacb1a721a8d"><span class="ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5l12 7-12 7z"/></svg></span>Watch Brandon explain it <em>· 4 min</em></button>
       <div class="credential rv d3"><span>Built by <b>Brandon Thornhill</b></span><span>Former <b>Navy SEAL</b></span><span><b>Nine-figure</b> sales architect</span></div>
     </div>
     <div id="trident" aria-hidden="true"><div class="fallback" style="background-image:url(assets/trident.webp)"></div></div>
@@ -417,7 +417,7 @@ footer small{display:block;font-family:var(--imp);letter-spacing:.3em;text-trans
   <h2 class="rv d1">Stop being the <em>bottleneck.</em></h2>
   <p class="lead rv d2">One call. Brandon and the team walk you through how the year runs, what your leaders will actually do each week, and what it costs for your company. No deck to sit through.</p>
   <div class="ctas rv d3"><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a><a class="btn ghost" href="https://portal.leadeliteacademy.com">Member login</a></div>
-  <div class="lockup rv d3"><div class="rule"></div><svg class="mark" viewBox="0 0 40 40" fill="none" stroke="#C8A34B" stroke-width="1.6" stroke-linecap="round"><path d="M20 6v28M12 12v8c0 3 3 5 8 5s8-2 8-5v-8M20 12c-3 0-4 2-4 4M20 12c3 0 4 2 4 4M12 12l-2-3M28 12l2-3"/><path d="M16 34h8"/></svg><div class="slogan">Casualness <span>Creates</span> Casualties</div></div>
+  <div class="lockup rv d3"><div class="rule"></div><svg class="mark" viewBox="-61 -3 122 293" fill="#C8A34B" aria-hidden="true"><path d="M0,0 C 3.5,11 8,22 12.6,33 L 12.6,115 L 28.5,115 C 31,107 42,101 42.6,88 L 42.6,49 C 42.6,36 46.5,26 50.6,15.5 C 54.8,26 58.6,36 58.6,49 L 58.6,88 C 58.6,103 53.4,107 53,115.5 L 46,136 L 11,136 C 10.2,190 8,241 5.6,287 L-5.6,287 C-8,241 -10.2,190 -11,136 L-46,136 L-53,115.5 C-53.4,107 -58.6,103 -58.6,88 L-58.6,49 C-58.6,36 -54.8,26 -50.6,15.5 C-46.5,26 -42.6,36 -42.6,49 L-42.6,88 C-42,101 -31,107 -28.5,115 L-12.6,115 L-12.6,33 C-8,22 -3.5,11 -0,0 Z"/></svg><div class="slogan">Casualness <span>Creates</span> Casualties</div></div>
 </div></section>
 
 <footer><div class="wrap">
