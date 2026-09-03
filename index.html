@@ -274,17 +274,101 @@ footer small{display:block;font-family:var(--imp);letter-spacing:.3em;text-trans
 .rv.in{opacity:1;transform:none}
 .rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.marquee div{animation:none}.hint i{animation:none}html{scroll-behavior:auto}}
+
+/* ===== shop ===== */
+.shop{background:radial-gradient(60% 50% at 50% 0%,rgba(200,163,75,.08),transparent),var(--deep)}
+.shophead{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(1.5rem,4vw,4rem);align-items:end;margin-bottom:2.6rem}
+@media(max-width:900px){.shophead{grid-template-columns:1fr}}
+.orderok{border:1px solid var(--gold);background:rgba(200,163,75,.08);padding:1.2rem 1.4rem;display:flex;flex-direction:column;gap:.4rem;font-size:.95rem;color:var(--cream-70)}
+.orderok b{color:var(--gold-xl);font-family:var(--display);font-size:1.15rem}
+.orderok.cancel{border-color:var(--line)}
+.orderok[hidden]{display:none}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+@media(max-width:1000px){.pgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.pgrid{grid-template-columns:1fr}}
+.prod{border:1px solid var(--line);background:rgba(8,26,51,.55);display:flex;flex-direction:column;position:relative;transition:border-color .3s,transform .3s}
+.prod:hover{border-color:rgba(200,163,75,.5);transform:translateY(-3px)}
+.prod.best{border-color:rgba(200,163,75,.6)}
+.pimg{position:relative;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(160deg,#0B2244,#050F1F)}
+.pimg svg{width:78%;height:78%}
+.pimg .garment{fill:#0E2A55;stroke:rgba(200,163,75,.55);stroke-width:1.5;stroke-linejoin:round}
+.pimg use{fill:var(--gold)}
+.pimg.cover img{height:82%;width:auto;object-fit:contain;box-shadow:0 30px 60px rgba(0,0,0,.55),0 0 0 1px rgba(200,163,75,.25);transform:rotate(-4deg);transition:transform .5s}
+.prod:hover .pimg.cover img{transform:rotate(0)}
+.pimg.digital::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(200,163,75,.04) 14px 15px);pointer-events:none}
+.pimg .tag{position:absolute;top:14px;left:14px;font-family:var(--imp);letter-spacing:.24em;text-transform:uppercase;font-size:.6rem;color:var(--cream);border:1px solid var(--line);padding:.35em .8em;background:rgba(3,10,22,.7)}
+.pimg .tag.gold{background:var(--gold);color:var(--abyss);border-color:var(--gold)}
+.wave{position:absolute;right:16px;bottom:16px;display:flex;gap:3px;align-items:flex-end;height:26px}
+.wave i{display:block;width:4px;background:var(--gold);height:30%;animation:wv 1.1s ease-in-out infinite}
+.wave i:nth-child(2){animation-delay:.15s}.wave i:nth-child(3){animation-delay:.3s}.wave i:nth-child(4){animation-delay:.45s}.wave i:nth-child(5){animation-delay:.6s}
+@keyframes wv{0%,100%{height:30%}50%{height:100%}}
+.pbody{padding:1.3rem 1.4rem 1.5rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
+.pbody h3{font-size:1.25rem}
+.pbody p{color:var(--cream-70);font-size:.95rem;flex:1}
+.sizes{display:flex;gap:6px;flex-wrap:wrap}
+.sizes button{font-family:var(--imp);letter-spacing:.1em;font-size:.72rem;min-width:40px;padding:.45em .6em;border:1px solid var(--line);background:transparent;color:var(--cream-70);cursor:pointer}
+.sizes button[aria-checked="true"]{border-color:var(--gold);color:var(--gold-xl);background:rgba(200,163,75,.12)}
+.sizes button:disabled{opacity:.3;text-decoration:line-through;cursor:not-allowed}
+.prow{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:.3rem}
+.price{font-family:var(--display);font-size:1.5rem;color:var(--gold-xl)}
+.price s{color:var(--cream-45);font-size:.85rem;margin-right:.5em}
+.btn.add{padding:.8em 1.2em;font-size:.68rem}
+.btn.add.soldout,.btn[disabled]{opacity:.45;pointer-events:none}
+.shopnote{margin-top:2rem;font-size:.85rem;color:var(--cream-45);max-width:70ch}
+.shopnote a{color:var(--gold-l)}
+/* nav cart */
+.cartbtn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--line);background:none;color:var(--cream);cursor:pointer}
+.cartbtn svg{width:19px;height:19px}
+.cartbtn .n{position:absolute;top:-7px;right:-7px;min-width:19px;height:19px;padding:0 5px;border-radius:10px;background:var(--gold);color:var(--abyss);font:600 .68rem/19px var(--imp)}
+.cartbtn .n:empty{display:none}
+/* drawer */
+.cartov{position:fixed;inset:0;background:rgba(3,10,22,.6);backdrop-filter:blur(3px);z-index:80;opacity:0;pointer-events:none;transition:opacity .3s}
+.cart{position:fixed;top:0;right:0;bottom:0;width:min(420px,100vw);background:var(--abyss);border-left:1px solid var(--line);z-index:81;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+body.cart-open .cart{transform:none}
+body.cart-open .cartov{opacity:1;pointer-events:auto}
+.chead{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border-bottom:1px solid var(--line);font-family:var(--display);font-size:1.3rem}
+.chead .x{background:none;border:0;color:var(--gold);font-size:1.2rem;cursor:pointer;padding:6px}
+.clines{flex:1;overflow:auto;padding:10px 22px}
+.cline{display:grid;grid-template-columns:1fr auto;gap:6px 12px;padding:14px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.cline b{font-family:var(--display);font-weight:600}
+.cline small{color:var(--cream-45);display:block;margin-top:2px;font-family:var(--imp);letter-spacing:.12em;text-transform:uppercase;font-size:.62rem}
+.cline .qty{display:inline-flex;border:1px solid var(--line);align-items:center;margin-top:8px}
+.cline .qty button{background:none;border:0;color:var(--cream);width:30px;height:28px;cursor:pointer;font-size:1rem}
+.cline .qty span{min-width:26px;text-align:center;font-family:var(--imp);font-size:.85rem}
+.cline .rm{background:none;border:0;color:var(--cream-45);cursor:pointer;font-size:.75rem;font-family:var(--imp);letter-spacing:.12em;text-transform:uppercase;justify-self:end;align-self:end}
+.cline .rm:hover{color:var(--gold)}
+.cline .amt{text-align:right;color:var(--gold-xl);font-family:var(--display);font-size:1.05rem}
+.cempty{padding:40px 0;text-align:center;color:var(--cream-45)}
+.cfoot{padding:18px 22px 22px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.crow{display:flex;justify-content:space-between;font-size:1rem}
+.crow b{color:var(--gold-xl);font-family:var(--display);font-size:1.25rem}
+.cship{font-size:.82rem;color:var(--cream-45)}
+.cerr{font-size:.85rem;color:#e3a58a;min-height:0}
+.cerr:empty{display:none}
+.cfoot .btn{justify-content:center}
+.cfoot small{text-align:center;color:var(--cream-45);font-size:.72rem;letter-spacing:.06em}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--gold);color:var(--abyss);font-family:var(--imp);letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;padding:.9em 1.4em;opacity:0;transition:.3s;z-index:79;pointer-events:none}
+#shop{scroll-margin-top:72px}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){.toast{bottom:78px}}
+/* nav tightened to fit Shop + cart */
+.nav .links{gap:1.45em;font-size:.68rem;letter-spacing:.13em}
+.navbtns .btn{padding:.8em 1em;font-size:.66rem;letter-spacing:.14em}
+.brand{letter-spacing:.18em}
+@media(max-width:1120px){.links,.nav .cta{display:none}.burger{display:block}}
+.cline .qty{display:flex;width:max-content}
+
 </style>
 </head>
 <body>
 <div class="strip" id="strip">Casualness <span>Creates</span> Casualties</div>
 <nav class="nav" id="nav"><div class="wrap">
-  <a class="brand" href="index.html"><svg class="mark" viewBox="-60.8 -1 121.6 289.1" fill="#C8A34B" aria-hidden="true"><path d="M0.0,0.0L3.9,9.2L5.3,13.1L5.9,14.1L7.3,18.0L12.7,30.8L12.9,31.9L12.8,112.4L13.0,113.0L13.8,113.5L25.5,113.5L26.8,113.0L30.9,108.8L35.0,103.2L38.0,97.9L40.0,93.0L41.2,89.1L42.2,84.0L42.9,74.9L42.9,67.8L41.9,46.5L44.0,38.4L49.3,14.8L50.2,12.6L50.7,12.6L51.0,13.4L51.3,15.5L52.0,17.8L52.3,19.9L53.0,22.1L53.3,24.1L56.8,38.5L58.0,44.6L58.9,46.9L59.0,54.6L59.8,67.4L59.8,75.1L58.9,86.0L56.8,95.9L53.9,103.8L51.9,107.9L49.2,112.2L49.2,113.0L49.5,113.4L53.2,113.6L53.5,114.0L53.5,114.8L45.3,137.9L44.0,138.5L12.0,138.5L11.3,139.4L5.4,286.4L4.8,287.0L-4.8,287.1L4.8,287.1L-4.8,287.0L-5.4,286.4L-11.3,139.4L-12.0,138.5L-44.0,138.5L-45.3,137.9L-53.5,114.8L-53.5,114.0L-53.2,113.6L-49.5,113.4L-49.2,113.0L-49.2,112.2L-51.9,107.9L-53.9,103.8L-56.8,95.9L-58.9,86.0L-59.8,75.1L-59.8,67.4L-59.0,54.6L-58.9,46.9L-58.0,44.6L-56.8,38.5L-53.3,24.1L-53.0,22.1L-52.3,19.9L-52.0,17.8L-51.3,15.5L-51.0,13.4L-50.7,12.6L-50.2,12.6L-49.3,14.8L-44.0,38.4L-41.9,46.5L-42.9,67.8L-42.9,74.9L-42.2,84.0L-41.2,89.1L-40.0,93.0L-38.0,97.9L-35.0,103.2L-30.9,108.8L-26.8,113.0L-25.5,113.5L-13.8,113.5L-13.0,113.0L-12.8,112.4L-12.9,31.9L-12.7,30.8L-7.3,18.0L-5.9,14.1L-5.3,13.1L-3.9,9.2Z"/></svg><span>Lead <b>Elite</b> Academy</span></a>
-  <div class="links"><a href="#elite">The framework</a><a href="#year">The year</a><a href="#trainer">Brandon</a><a href="#book">The book</a><a href="#who">Who it’s for</a></div>
+  <a class="brand" href="index.html"><svg class="mark" viewBox="-61 -3 122 293" fill="#C8A34B" aria-hidden="true"><path d="M0,0 C 3.5,11 8,22 12.6,33 L 12.6,115 L 28.5,115 C 31,107 42,101 42.6,88 L 42.6,49 C 42.6,36 46.5,26 50.6,15.5 C 54.8,26 58.6,36 58.6,49 L 58.6,88 C 58.6,103 53.4,107 53,115.5 L 46,136 L 11,136 C 10.2,190 8,241 5.6,287 L-5.6,287 C-8,241 -10.2,190 -11,136 L-46,136 L-53,115.5 C-53.4,107 -58.6,103 -58.6,88 L-58.6,49 C-58.6,36 -54.8,26 -50.6,15.5 C-46.5,26 -42.6,36 -42.6,49 L-42.6,88 C-42,101 -31,107 -28.5,115 L-12.6,115 L-12.6,33 C-8,22 -3.5,11 -0,0 Z"/></svg><span>Lead <b>Elite</b> Academy</span></a>
+  <div class="links"><a href="#elite">The framework</a><a href="#year">The year</a><a href="#trainer">Brandon</a><a href="#book">The book</a><a href="#shop">Shop</a><a href="#who">Who it’s for</a></div>
   <div class="navbtns cta"><a class="btn" href="#call" data-book>Book a call</a><a class="btn ghost" href="https://portal.leadeliteacademy.com">Member login</a></div>
   <button class="burger" id="burger" aria-label="Open menu">☰</button>
 </div></nav>
-<div class="mobile" id="mobile"><button class="x" id="mx" aria-label="Close menu">✕</button><a class="btn" href="#call" data-book style="font-size:.8rem">Book a call</a><a href="#elite">The framework</a><a href="#year">The year</a><a href="#trainer">Brandon</a><a href="#book">The book</a><a href="#who">Who it’s for</a><a href="https://portal.leadeliteacademy.com" style="font-family:var(--imp);font-size:1rem;letter-spacing:.2em;color:var(--gold)">MEMBER LOGIN</a></div>
+<div class="mobile" id="mobile"><button class="x" id="mx" aria-label="Close menu">✕</button><a class="btn" href="#call" data-book style="font-size:.8rem">Book a call</a><a href="#elite">The framework</a><a href="#year">The year</a><a href="#trainer">Brandon</a><a href="#book">The book</a><a href="#shop">Shop</a><a href="#who">Who it’s for</a><a href="https://portal.leadeliteacademy.com" style="font-family:var(--imp);font-size:1rem;letter-spacing:.2em;color:var(--gold)">MEMBER LOGIN</a></div>
 
 <header class="hero" id="top">
   <video autoplay muted loop playsinline poster="assets/hero-poster.jpg" aria-hidden="true"><source src="assets/hero-loop.mp4" type="video/mp4"></video>
@@ -295,7 +379,7 @@ footer small{display:block;font-family:var(--imp);letter-spacing:.3em;text-trans
       <p class="lead sub rv d2">A 52-week leadership operating system for your whole company. Your managers watch, execute and debrief every week, on your rhythm, until running the place without you is the default.</p>
       <div class="credential rv d3"><span>Built by <b>Brandon Thornhill</b></span><span>Former <b>Navy SEAL</b></span><span><b>Nine-figure</b> sales architect</span></div>
     </div>
-    <div id="trident" aria-hidden="true"><div class="fallback" style="background-image:url(trident-mark.webp)"></div></div>
+    <div id="trident" aria-hidden="true"><div class="fallback" style="background-image:url(assets/trident.webp)"></div></div>
   </div>
   <div class="hint">Scroll<i></i></div>
 </header>
@@ -404,6 +488,115 @@ footer small{display:block;font-family:var(--imp);letter-spacing:.3em;text-trans
   <div id="book3d" aria-hidden="true"><div class="fallback" style="background-image:url(assets/bookcover.webp)"></div></div>
 </div></section>
 
+<section class="shop" id="shop"><div class="wrap">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="tri" viewBox="-61 -3 122 293"><path d="M0,0 C 3.5,11 8,22 12.6,33 L 12.6,115 L 28.5,115 C 31,107 42,101 42.6,88 L 42.6,49 C 42.6,36 46.5,26 50.6,15.5 C 54.8,26 58.6,36 58.6,49 L 58.6,88 C 58.6,103 53.4,107 53,115.5 L 46,136 L 11,136 C 10.2,190 8,241 5.6,287 L-5.6,287 C-8,241 -10.2,190 -11,136 L-46,136 L-53,115.5 C-53.4,107 -58.6,103 -58.6,88 L-58.6,49 C-58.6,36 -54.8,26 -50.6,15.5 C-46.5,26 -42.6,36 -42.6,49 L-42.6,88 C-42,101 -31,107 -28.5,115 L-12.6,115 L-12.6,33 C-8,22 -3.5,11 -0,0 Z"/></symbol></svg>
+  <div class="shophead">
+    <div>
+      <div class="eyebrow rv">The shop</div>
+      <h2 class="rv d1">Carry the standard <em>off the floor.</em></h2>
+      <p class="lead rv d2">The book that built the program, the audiobook in Brandon’s own voice, and the gear. Secure checkout by Stripe. Merch ships in the US; digital orders land in your inbox within a minute.</p>
+    </div>
+    <div class="orderok rv d2" id="orderok" hidden>
+      <b>Order received. Thank you.</b>
+      <span>Your receipt is on its way. Anything digital — audiobook access, the ebook link — is in the same email. Nothing there in five minutes? Check spam, then write <a href="mailto:admin@leadeliteacademy.com">admin@leadeliteacademy.com</a>.</span>
+    </div>
+    <div class="orderok cancel rv d2" id="ordercancel" hidden>
+      <b>Checkout cancelled.</b><span>Your cart is still here whenever you’re ready.</span>
+    </div>
+  </div>
+
+  <div class="pgrid rv d2" id="pgrid">
+
+    <article class="prod" data-sku="tee">
+      <div class="pimg tee">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <path class="garment" d="M62 38 L86 26 C90 40 110 40 114 26 L138 38 L166 58 L150 82 L138 74 L138 176 L62 176 L62 74 L50 82 L34 58 Z"/>
+          <use href="#tri" x="86" y="70" width="28" height="68"/>
+        </svg>
+        <span class="tag">Merch</span>
+      </div>
+      <div class="pbody">
+        <h3>Lead Elite Academy Tee</h3>
+        <p>Navy, gold trident on the chest. Unisex, true to size.</p>
+        <div class="sizes" role="radiogroup" aria-label="Size">
+          <button type="button" data-size="S">S</button><button type="button" data-size="M">M</button><button type="button" data-size="L">L</button><button type="button" data-size="XL">XL</button><button type="button" data-size="2XL">2XL</button>
+        </div>
+        <div class="prow"><span class="price" data-price>$34</span><button class="btn add" type="button" data-add>Add to cart</button></div>
+      </div>
+    </article>
+
+    <article class="prod" data-sku="hat">
+      <div class="pimg hat">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <path class="garment" d="M46 122 C46 70 96 58 126 62 C152 66 160 96 160 122 Z"/>
+          <path class="garment" d="M158 122 L190 126 C196 134 190 142 180 142 L96 140 C80 140 60 134 46 122 Z"/>
+          <path class="garment" d="M46 122 L160 122 L160 132 C130 138 76 138 46 132 Z"/>
+          <use href="#tri" x="90" y="76" width="18" height="42"/>
+        </svg>
+        <span class="tag">Merch</span>
+      </div>
+      <div class="pbody">
+        <h3>Lead Elite Academy Hat</h3>
+        <p>Structured cap, gold trident, adjustable strap. One size.</p>
+        <div class="prow"><span class="price" data-price>$32</span><button class="btn add" type="button" data-add>Add to cart</button></div>
+      </div>
+    </article>
+
+    <article class="prod" data-sku="paperback">
+      <div class="pimg cover"><img src="assets/bookcover.webp" alt="The ELITE Leadership Blueprint — cover" loading="lazy"><span class="tag">Paperback</span></div>
+      <div class="pbody">
+        <h3>The ELITE Leadership Blueprint</h3>
+        <p>The book behind the program, shipped from the academy. US shipping.</p>
+        <div class="prow"><span class="price" data-price>$24.99</span><button class="btn add" type="button" data-add>Add to cart</button></div>
+      </div>
+    </article>
+
+    <article class="prod" data-sku="ebook">
+      <div class="pimg cover digital"><img src="assets/bookcover.webp" alt="" loading="lazy"><span class="tag">Ebook · PDF</span></div>
+      <div class="pbody">
+        <h3>The Blueprint — ebook</h3>
+        <p>Read it tonight. A download link lands in your inbox the moment you pay.</p>
+        <div class="prow"><span class="price" data-price>$12.99</span><button class="btn add" type="button" data-add>Add to cart</button></div>
+      </div>
+    </article>
+
+    <article class="prod" data-sku="audiobook">
+      <div class="pimg cover digital audio"><img src="assets/bookcover.webp" alt="" loading="lazy"><span class="tag">Audiobook</span><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pbody">
+        <h3>The Blueprint — audiobook</h3>
+        <p>Narrated by Brandon himself. Streams in your own Lead Elite Academy login, chapter by chapter, on any phone.</p>
+        <div class="prow"><span class="price" data-price>$39</span><button class="btn add" type="button" data-add>Add to cart</button></div>
+      </div>
+    </article>
+
+    <article class="prod best" data-sku="bundle">
+      <div class="pimg cover audio"><img src="assets/bookcover.webp" alt="" loading="lazy"><span class="tag gold">Best value</span><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pbody">
+        <h3>Paperback + Audiobook</h3>
+        <p>The book on your desk and Brandon in your ear on the drive in. Save on both.</p>
+        <div class="prow"><span class="price" data-price>$49</span><button class="btn add" type="button" data-add>Add to cart</button></div>
+      </div>
+    </article>
+
+  </div>
+  <p class="shopnote rv d3">Prices in USD. Flat $6 US shipping on merch and books, free over $60. Sales tax calculated at checkout. Questions or bulk orders for your team: <a href="mailto:admin@leadeliteacademy.com">admin@leadeliteacademy.com</a>.</p>
+</div></section>
+
+<div class="cartov" id="cartov"></div>
+<aside class="cart" id="cart" aria-label="Your cart" aria-hidden="true">
+  <div class="chead"><b>Your cart</b><button class="x" id="cartx" type="button" aria-label="Close cart">✕</button></div>
+  <div class="clines" id="clines"></div>
+  <div class="cfoot">
+    <div class="crow"><span>Subtotal</span><b id="csub">$0</b></div>
+    <div class="cship" id="cship"></div>
+    <div class="cerr" id="cerr" role="alert"></div>
+    <button class="btn" id="checkout" type="button">Checkout <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+    <small>Secure payment by Stripe · Apple Pay, Google Pay, cards</small>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+
 <section class="who" id="who"><div class="wrap">
   <div class="eyebrow rv">Who it’s built for</div>
   <h2 class="rv d1">Any company where <em>the leader is the bottleneck.</em></h2>
@@ -417,7 +610,7 @@ footer small{display:block;font-family:var(--imp);letter-spacing:.3em;text-trans
   <h2 class="rv d1">Stop being the <em>bottleneck.</em></h2>
   <p class="lead rv d2">One call. Brandon and the team walk you through how the year runs, what your leaders will actually do each week, and what it costs for your company. No deck to sit through.</p>
   <div class="ctas rv d3"><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a><a class="btn ghost" href="https://portal.leadeliteacademy.com">Member login</a></div>
-  <div class="lockup rv d3"><div class="rule"></div><svg class="mark" viewBox="-60.8 -1 121.6 289.1" fill="#C8A34B" aria-hidden="true"><path d="M0.0,0.0L3.9,9.2L5.3,13.1L5.9,14.1L7.3,18.0L12.7,30.8L12.9,31.9L12.8,112.4L13.0,113.0L13.8,113.5L25.5,113.5L26.8,113.0L30.9,108.8L35.0,103.2L38.0,97.9L40.0,93.0L41.2,89.1L42.2,84.0L42.9,74.9L42.9,67.8L41.9,46.5L44.0,38.4L49.3,14.8L50.2,12.6L50.7,12.6L51.0,13.4L51.3,15.5L52.0,17.8L52.3,19.9L53.0,22.1L53.3,24.1L56.8,38.5L58.0,44.6L58.9,46.9L59.0,54.6L59.8,67.4L59.8,75.1L58.9,86.0L56.8,95.9L53.9,103.8L51.9,107.9L49.2,112.2L49.2,113.0L49.5,113.4L53.2,113.6L53.5,114.0L53.5,114.8L45.3,137.9L44.0,138.5L12.0,138.5L11.3,139.4L5.4,286.4L4.8,287.0L-4.8,287.1L4.8,287.1L-4.8,287.0L-5.4,286.4L-11.3,139.4L-12.0,138.5L-44.0,138.5L-45.3,137.9L-53.5,114.8L-53.5,114.0L-53.2,113.6L-49.5,113.4L-49.2,113.0L-49.2,112.2L-51.9,107.9L-53.9,103.8L-56.8,95.9L-58.9,86.0L-59.8,75.1L-59.8,67.4L-59.0,54.6L-58.9,46.9L-58.0,44.6L-56.8,38.5L-53.3,24.1L-53.0,22.1L-52.3,19.9L-52.0,17.8L-51.3,15.5L-51.0,13.4L-50.7,12.6L-50.2,12.6L-49.3,14.8L-44.0,38.4L-41.9,46.5L-42.9,67.8L-42.9,74.9L-42.2,84.0L-41.2,89.1L-40.0,93.0L-38.0,97.9L-35.0,103.2L-30.9,108.8L-26.8,113.0L-25.5,113.5L-13.8,113.5L-13.0,113.0L-12.8,112.4L-12.9,31.9L-12.7,30.8L-7.3,18.0L-5.9,14.1L-5.3,13.1L-3.9,9.2Z"/></svg><div class="slogan">Casualness <span>Creates</span> Casualties</div></div>
+  <div class="lockup rv d3"><div class="rule"></div><svg class="mark" viewBox="-61 -3 122 293" fill="#C8A34B" aria-hidden="true"><path d="M0,0 C 3.5,11 8,22 12.6,33 L 12.6,115 L 28.5,115 C 31,107 42,101 42.6,88 L 42.6,49 C 42.6,36 46.5,26 50.6,15.5 C 54.8,26 58.6,36 58.6,49 L 58.6,88 C 58.6,103 53.4,107 53,115.5 L 46,136 L 11,136 C 10.2,190 8,241 5.6,287 L-5.6,287 C-8,241 -10.2,190 -11,136 L-46,136 L-53,115.5 C-53.4,107 -58.6,103 -58.6,88 L-58.6,49 C-58.6,36 -54.8,26 -50.6,15.5 C-46.5,26 -42.6,36 -42.6,49 L-42.6,88 C-42,101 -31,107 -28.5,115 L-12.6,115 L-12.6,33 C-8,22 -3.5,11 -0,0 Z"/></svg><div class="slogan">Casualness <span>Creates</span> Casualties</div></div>
 </div></section>
 
 <footer><div class="wrap">
@@ -433,7 +626,8 @@ footer small{display:block;font-family:var(--imp);letter-spacing:.3em;text-trans
 const LEA = {
   BOOKING_URL: "https://calendly.com/admin-leadeliteacademy/30min",                     // Calendly / GHL link. Empty = email fallback.
   CONTACT_EMAIL: "admin@leadeliteacademy.com",
-  META_PIXEL_ID: ""                      // optional
+  META_PIXEL_ID: "",                     // optional
+  SHOP_API: "https://portal.leadeliteacademy.com"   // Stripe checkout lives on the portal
 };
 /* =============================================================== */
 (function(){
@@ -529,22 +723,28 @@ const LEA = {
     const T=scene(tEl); T.cam.position.set(0,0,12.5); const g=new THREE.Group(); T.s.add(g);
     const m=gold();
     const add=(geo,x,y,z,rx,ry,rz)=>{ const mesh=new THREE.Mesh(geo,m); mesh.position.set(x,y,z); if(rx!=null) mesh.rotation.set(rx,ry,rz); g.add(mesh); return mesh; };
-    // the ELC trident — extruded from the real brand mark, not primitives
-    const PT=[[0.0,3.3],[0.0897,3.0885],[0.1218,2.9989],[0.1356,2.9759],[0.1678,2.8862],[0.292,2.592],[0.2966,2.5667],[0.2943,0.7161],[0.2989,0.7023],[0.3172,0.6908],[0.5862,0.6908],[0.6161,0.7023],[0.7103,0.7989],[0.8046,0.9276],[0.8736,1.0494],[0.9195,1.1621],[0.9471,1.2517],[0.9701,1.369],[0.9862,1.5782],[0.9862,1.7414],[0.9632,2.231],[1.0115,2.4172],[1.1333,2.9598],[1.154,3.0103],[1.1655,3.0103],[1.1724,2.992],[1.1793,2.9437],[1.1954,2.8908],[1.2023,2.8425],[1.2184,2.792],[1.2253,2.746],[1.3057,2.4149],[1.3333,2.2747],[1.354,2.2218],[1.3563,2.0448],[1.3747,1.7506],[1.3747,1.5736],[1.354,1.323],[1.3057,1.0954],[1.2391,0.9138],[1.1931,0.8195],[1.131,0.7207],[1.131,0.7023],[1.1379,0.6931],[1.223,0.6885],[1.2299,0.6793],[1.2299,0.6609],[1.0414,0.1299],[1.0115,0.1161],[0.2759,0.1161],[0.2598,0.0954],[0.1241,-3.2839],[0.1103,-3.2977],[-0.1103,-3.3],[0.1103,-3.3],[-0.1103,-3.2977],[-0.1241,-3.2839],[-0.2598,0.0954],[-0.2759,0.1161],[-1.0115,0.1161],[-1.0414,0.1299],[-1.2299,0.6609],[-1.2299,0.6793],[-1.223,0.6885],[-1.1379,0.6931],[-1.131,0.7023],[-1.131,0.7207],[-1.1931,0.8195],[-1.2391,0.9138],[-1.3057,1.0954],[-1.354,1.323],[-1.3747,1.5736],[-1.3747,1.7506],[-1.3563,2.0448],[-1.354,2.2218],[-1.3333,2.2747],[-1.3057,2.4149],[-1.2253,2.746],[-1.2184,2.792],[-1.2023,2.8425],[-1.1954,2.8908],[-1.1793,2.9437],[-1.1724,2.992],[-1.1655,3.0103],[-1.154,3.0103],[-1.1333,2.9598],[-1.0115,2.4172],[-0.9632,2.231],[-0.9862,1.7414],[-0.9862,1.5782],[-0.9701,1.369],[-0.9471,1.2517],[-0.9195,1.1621],[-0.8736,1.0494],[-0.8046,0.9276],[-0.7103,0.7989],[-0.6161,0.7023],[-0.5862,0.6908],[-0.3172,0.6908],[-0.2989,0.7023],[-0.2943,0.7161],[-0.2966,2.5667],[-0.292,2.592],[-0.1678,2.8862],[-0.1356,2.9759],[-0.1218,2.9989],[-0.0897,3.0885]];
-    const s=new THREE.Shape(); s.moveTo(PT[0][0],PT[0][1]);
-    for(let i=1;i<PT.length;i++) s.lineTo(PT[i][0],PT[i][1]);
-    s.closePath();
-    const geo=new THREE.ExtrudeGeometry(s,{depth:.30,bevelEnabled:true,bevelThickness:.055,bevelSize:.05,bevelOffset:0,bevelSegments:3,curveSegments:36});
-    geo.center();
-    const gm=new THREE.MeshStandardMaterial({color:0xB48E36,metalness:.62,roughness:.44,envMap:env,envMapIntensity:.38});
-    const mark=new THREE.Mesh(geo,gm); g.add(mark);
-    g.position.y=.05; g.scale.setScalar(.76);
+    // shaft
+    add(new THREE.CylinderGeometry(.10,.15,4.4,28), 0,-1.4,0);
+    add(new THREE.ConeGeometry(.15,.6,28), 0,-3.9,0, Math.PI,0,0);      // butt spike
+    add(new THREE.TorusGeometry(.19,.055,12,36), 0,-.35,0, Math.PI/2,0,0);   // collars
+    add(new THREE.TorusGeometry(.19,.055,12,36), 0,-2.6,0, Math.PI/2,0,0);
+    add(new THREE.SphereGeometry(.2,24,16), 0,.9,0);                      // junction knuckle
+    // outer prongs: curved tubes that sweep out then up
+    const curve=(sx)=>new THREE.CubicBezierCurve3(new THREE.Vector3(0,.9,0), new THREE.Vector3(sx*.9,.9,0), new THREE.Vector3(sx*1.15,1.3,0), new THREE.Vector3(sx*1.05,2.7,0));
+    [-1,1].forEach(sx=>{ add(new THREE.TubeGeometry(curve(sx),40,.085,16,false),0,0,0); add(new THREE.ConeGeometry(.13,.7,20), sx*1.05,3.02,0); });
+    // center prong
+    add(new THREE.CylinderGeometry(.085,.1,2.3,20), 0,2.05,0);
+    add(new THREE.ConeGeometry(.14,.8,20), 0,3.55,0);
+    // small barbs on center prong (classic trident detail)
+    add(new THREE.ConeGeometry(.07,.4,4), -.2,2.75,0, 0,0,Math.PI/2.6);
+    add(new THREE.ConeGeometry(.07,.4,4),  .2,2.75,0, 0,0,-Math.PI/2.6);
+    g.position.y=.15; g.scale.setScalar(1.02);
     // gold dust
     const n=220, pos=new Float32Array(n*3); for(let i=0;i<n*3;i++) pos[i]=(Math.random()-.5)*9;
     const pg=new THREE.BufferGeometry(); pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
     const dust=new THREE.Points(pg,new THREE.PointsMaterial({color:0xEAD9AC,size:.035,transparent:true,opacity:.55})); T.s.add(dust);
     // assemble animation
-    const parts=g.children; parts.forEach(p=>{ p.userData.to=p.position.clone(); p.userData.from=p.position.clone().add(new THREE.Vector3(0,-1.1,-6)); p.userData.ry=p.rotation.x; p.userData.rf=p.rotation.x-1.15; p.position.copy(p.userData.from); p.rotation.x=p.userData.rf; });
+    const parts=g.children; parts.forEach(p=>{ p.userData.to=p.position.clone(); p.userData.from=p.position.clone().add(new THREE.Vector3((Math.random()-.5)*5,(Math.random()-.5)*7,(Math.random()-.5)*3)); p.userData.ry=p.rotation.x; p.userData.rf=p.rotation.x+(Math.random()-.5)*4; p.position.copy(p.userData.from); p.rotation.x=p.userData.rf; });
     let t0=performance.now(), assembled=rm;
     if(rm) parts.forEach(p=>{p.position.copy(p.userData.to); p.rotation.x=p.userData.ry;});
     trident={T,g,dust,parts,t0,assembled};
@@ -592,6 +792,128 @@ const LEA = {
     }
   }
   requestAnimationFrame(tick);
+})();
+
+
+/* ===== SHOP — cart + Stripe Checkout via the portal API ===== */
+(function(){
+  const API = (LEA.SHOP_API || "https://portal.leadeliteacademy.com").replace(/\/$/,"");
+  // Fallback prices only — the live ones come from /api/shop/catalog (Stripe).
+  const CAT = {
+    tee:       { name:"Lead Elite Academy Tee", price:3400, sizes:["S","M","L","XL","2XL"], ships:true },
+    hat:       { name:"Lead Elite Academy Hat", price:3200, ships:true },
+    paperback: { name:"The ELITE Leadership Blueprint — paperback", price:2499, ships:true },
+    ebook:     { name:"The Blueprint — ebook (PDF)", price:1299 },
+    audiobook: { name:"The Blueprint — audiobook", price:3900 },
+    bundle:    { name:"Paperback + Audiobook bundle", price:4900, ships:true }
+  };
+  const FREE_AT = 6000, SHIP = 600;
+  const $ = s => document.querySelector(s);
+  const fmt = c => "$" + (c/100).toFixed(2).replace(/\.00$/,"");
+  const load = () => { try { const c = JSON.parse(localStorage.getItem("lea_cart")||"[]"); return Array.isArray(c) ? c.filter(l=>CAT[l.sku]) : []; } catch(e){ return []; } };
+  let cart = load();
+  const save = () => { try { localStorage.setItem("lea_cart", JSON.stringify(cart)); } catch(e){} };
+  let stock = {}; // "tee-L" -> count (physical only)
+
+  // --- nav cart button (desktop + mobile), Shop link in menus ---------------
+  const navWrap = document.querySelector(".nav .wrap"), burger = $("#burger");
+  const cartBtn = document.createElement("button");
+  cartBtn.className = "cartbtn"; cartBtn.id = "cartbtn"; cartBtn.type = "button"; cartBtn.setAttribute("aria-label","Open cart");
+  cartBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 8h-12z"/><path d="M6 6L5 3H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg><span class="n" id="cartn"></span>';
+  navWrap.insertBefore(cartBtn, burger);
+  // --- drawer ----------------------------------------------------------------
+  const open = () => { render(); document.body.classList.add("cart-open"); $("#cart").setAttribute("aria-hidden","false"); };
+  const close = () => { document.body.classList.remove("cart-open"); $("#cart").setAttribute("aria-hidden","true"); };
+  cartBtn.onclick = open; $("#cartx").onclick = close; $("#cartov").onclick = close;
+  addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+
+  let toastT; const toast = m => { const t=$("#toast"); t.textContent=m; t.classList.add("on"); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove("on"),2200); };
+
+  const count = () => cart.reduce((n,l)=>n+l.qty,0);
+  const subtotal = () => cart.reduce((n,l)=>n+CAT[l.sku].price*l.qty,0);
+  const ships = () => cart.some(l=>CAT[l.sku].ships);
+
+  function render(){
+    const n = count(); $("#cartn").textContent = n ? String(n) : "";
+    const box = $("#clines");
+    if (!cart.length) { box.innerHTML = '<div class="cempty">Your cart is empty.</div>'; }
+    else box.innerHTML = cart.map((l,i)=>{
+      const p = CAT[l.sku];
+      return '<div class="cline"><div><b>'+p.name+'</b>'+(l.size?'<small>Size '+l.size+'</small>':'')+
+        '<div class="qty"><button type="button" data-q="-1" data-i="'+i+'" aria-label="Fewer">−</button><span>'+l.qty+'</span><button type="button" data-q="1" data-i="'+i+'" aria-label="More">+</button></div></div>'+
+        '<div><div class="amt">'+fmt(p.price*l.qty)+'</div></div>'+
+        '<span></span><button type="button" class="rm" data-rm="'+i+'">Remove</button></div>';
+    }).join("");
+    const sub = subtotal(); $("#csub").textContent = fmt(sub);
+    $("#cship").textContent = !cart.length ? "" : !ships() ? "Digital order — nothing to ship. Delivered by email." :
+      sub >= FREE_AT ? "Free US shipping on this order." : "Shipping "+fmt(SHIP)+" · add "+fmt(FREE_AT-sub)+" more for free shipping.";
+    $("#checkout").disabled = !cart.length;
+    $("#cerr").textContent = "";
+    box.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{ const l=cart[+b.dataset.i]; l.qty=Math.max(1,Math.min(10,l.qty+(+b.dataset.q))); save(); render(); });
+    box.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{ cart.splice(+b.dataset.rm,1); save(); render(); });
+  }
+
+  function add(sku,size){
+    const line = cart.find(l=>l.sku===sku && (l.size||null)===(size||null));
+    if (line) line.qty = Math.min(10, line.qty+1); else cart.push({ sku, size: size||null, qty:1 });
+    save(); render(); toast("Added to cart"); if (window.fbq) fbq("track","AddToCart");
+  }
+
+  // --- product cards -----------------------------------------------------------
+  document.querySelectorAll("#pgrid .prod").forEach(card=>{
+    const sku = card.dataset.sku, sizes = card.querySelectorAll(".sizes button"), addB = card.querySelector("[data-add]");
+    let size = null;
+    sizes.forEach(b=>{ b.setAttribute("role","radio"); b.setAttribute("aria-checked","false"); b.onclick=()=>{ size=b.dataset.size; sizes.forEach(x=>x.setAttribute("aria-checked",x===b)); addB.textContent="Add to cart"; }; });
+    addB.onclick = () => {
+      if (sizes.length && !size) { addB.textContent = "Pick a size"; card.querySelector(".sizes").scrollIntoView({block:"nearest"}); return; }
+      add(sku, size);
+    };
+  });
+
+  // --- live prices + stock from the portal (Stripe is the source of truth) ---
+  fetch(API+"/api/shop/catalog").then(r=>r.ok?r.json():null).then(j=>{
+    if (!j || !j.products) return;
+    for (const sku in j.products) {
+      const p = j.products[sku]; if (!CAT[sku] || typeof p.price !== "number") continue;
+      CAT[sku].price = p.price;
+      const card = document.querySelector('#pgrid .prod[data-sku="'+sku+'"]'); if (!card) continue;
+      card.querySelector("[data-price]").textContent = fmt(p.price);
+      if (p.stock) {
+        Object.assign(stock, p.stock);
+        const sizeBtns = card.querySelectorAll(".sizes button");
+        if (sizeBtns.length) {
+          let any=false; sizeBtns.forEach(b=>{ const ok=(p.stock["tee-"+b.dataset.size]||0)>0; b.disabled=!ok; if(ok) any=true; });
+          if (!any) soldOut(card);
+        } else if (Object.values(p.stock).every(n=>!(n>0))) soldOut(card);
+      }
+    }
+    render();
+  }).catch(()=>{});
+  function soldOut(card){ const b=card.querySelector("[data-add]"); b.textContent="Sold out"; b.classList.add("soldout"); b.disabled=true; }
+
+  // --- checkout ------------------------------------------------------------------
+  $("#checkout").onclick = async () => {
+    const btn = $("#checkout"), err = $("#cerr");
+    if (!cart.length) return;
+    btn.disabled = true; btn.textContent = "Opening secure checkout…"; err.textContent = "";
+    try {
+      const r = await fetch(API+"/api/shop/checkout", { method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({ items: cart.map(l=>({ sku:l.sku, size:l.size||undefined, qty:l.qty })) }) });
+      const j = await r.json().catch(()=>({}));
+      if (r.ok && j.url) { if (window.fbq) fbq("track","InitiateCheckout"); location.href = j.url; return; }
+      err.textContent = (r.status >= 500 || !j.error) ? "Checkout is being switched on — check back shortly, or email admin@leadeliteacademy.com to reserve yours." : j.error;
+    } catch(e) {
+      err.textContent = "Couldn't reach checkout. Check your connection and try again.";
+    }
+    btn.disabled = false; btn.innerHTML = 'Checkout <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>';
+  };
+
+  // --- back from Stripe --------------------------------------------------------------
+  const q = new URLSearchParams(location.search), o = q.get("order");
+  if (o === "success") { cart = []; save(); $("#orderok").hidden = false; if (window.fbq) fbq("track","Purchase"); }
+  else if (o === "cancel") { $("#ordercancel").hidden = false; }
+  if (o) { history.replaceState(null, "", location.pathname + "#shop"); setTimeout(()=>{ const s=$("#shop"); if(s) s.scrollIntoView(); }, 50); }
+
+  render();
 })();
 
 </script>
