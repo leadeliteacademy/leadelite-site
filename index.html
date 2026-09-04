@@ -178,21 +178,6 @@ section{padding:clamp(72px,10vw,140px) 0;position:relative}
 @media(max-width:900px){.trainer::after{background:linear-gradient(180deg,var(--abyss) 0%,rgba(3,10,22,.25) 20%,rgba(3,10,22,.9) 62%,var(--abyss) 100%)}}
 @media(prefers-reduced-motion:reduce){.trainer>.reel{display:none}}
 
-/* record */
-.record{background:var(--deep);border-top:1px solid var(--line)}
-.record .head{max-width:60ch;margin-bottom:2.6rem}
-.record .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-.record figure{position:relative;margin:0;aspect-ratio:3/4;overflow:hidden;border:1px solid var(--line);background:var(--abyss)}
-.record figure img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.record figure:hover img{transform:scale(1.04)}
-.record figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.2rem 1rem .9rem;background:linear-gradient(180deg,rgba(3,10,22,0),rgba(3,10,22,.55) 40%,rgba(3,10,22,.9));color:var(--cream)}
-.record figcaption b{display:block;font-family:var(--imp);letter-spacing:.24em;text-transform:uppercase;font-size:.64rem;color:var(--gold);margin-bottom:.35rem}
-.record figcaption span{font-size:.9rem;color:var(--cream-70)}
-.record figure.now{border-color:var(--gold)}
-.record figure.now figcaption b{color:var(--gold-xl)}
-@media(max-width:900px){.record .grid{grid-template-columns:1fr 1fr;gap:.7rem}}
-@media(prefers-reduced-motion:reduce){.record figure img{transition:none}.record figure:hover img{transform:none}}
-
 .trainer .cut .big{position:absolute;left:0;right:0;top:8%;text-align:center;font-family:var(--imp);font-weight:600;font-size:clamp(4rem,12vw,9rem);letter-spacing:.06em;color:transparent;-webkit-text-stroke:1px rgba(200,163,75,.35);line-height:1;pointer-events:none;z-index:0}
 .trainer .copy{padding-bottom:3rem}
 .facts{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem 2rem;margin:1.8rem 0}
@@ -380,6 +365,15 @@ body.cart-open .cartov{opacity:1;pointer-events:auto}
 body.noprice .price,body.noprice .cline .amt,body.noprice .crow,body.noprice .cship,body.noprice .shopnote .pricing{display:none}
 body.noprice .prow{justify-content:flex-end}
 
+body.nomerch .prod.merch{display:none}
+body.nomerch .pgrid{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1000px){body.nomerch .pgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){body.nomerch .pgrid{grid-template-columns:1fr}}
+.nomerchcopy{display:none}
+body.nomerch .merchcopy{display:none}
+body.nomerch .nomerchcopy{display:inline}
+body.nomerch .btn.add{white-space:nowrap;padding:.8em .9em;font-size:.64rem}
+
 </style>
 </head>
 <body>
@@ -498,20 +492,6 @@ body.noprice .prow{justify-content:flex-end}
   </div>
 </div></section>
 
-<section class="record" id="record"><div class="wrap">
-  <div class="head">
-    <div class="eyebrow rv">The record</div>
-    <h2 class="rv d1">Three deployments. <em>Then the stage.</em></h2>
-    <p class="lead rv d2">The lessons in the program were learned in places where casualness had a price. Same standard, different room.</p>
-  </div>
-  <div class="grid">
-    <figure class="rv"><img src="assets/record-medevac.webp" alt="Brandon Thornhill with his team on the ground in Afghanistan" loading="lazy"><figcaption><b>Afghanistan</b><span>With the team, on the ground</span></figcaption></figure>
-    <figure class="rv d1"><img src="assets/record-nightops.webp" alt="Brandon Thornhill in night-vision gear with a teammate" loading="lazy"><figcaption><b>Night operations</b><span>SEAL Team Two</span></figcaption></figure>
-    <figure class="rv d2"><img src="assets/record-k9.webp" alt="Brandon Thornhill kneeling beside a military working dog under the American flag" loading="lazy"><figcaption><b>On deployment</b><span>Under the flag, with the team dog</span></figcaption></figure>
-    <figure class="rv d3 now"><img src="assets/record-stage.webp" alt="Brandon Thornhill speaking on stage to a full ballroom" loading="lazy"><figcaption><b>Now</b><span>On stage with sales and executive teams</span></figcaption></figure>
-  </div>
-</div></section>
-
 <section class="book" id="book"><div class="wrap two">
   <div>
     <div class="eyebrow rv">The book behind the program</div>
@@ -530,7 +510,7 @@ body.noprice .prow{justify-content:flex-end}
     <div>
       <div class="eyebrow rv">The shop</div>
       <h2 class="rv d1">Carry the standard <em>off the floor.</em></h2>
-      <p class="lead rv d2">The book that built the program, the audiobook in Brandon’s own voice, and the gear. Secure checkout by Stripe. Merch ships in the US; digital orders land in your inbox within a minute.</p>
+      <p class="lead rv d2">The book that built the program<span class="nomerchcopy"> and</span><span class="merchcopy">,</span> the audiobook in Brandon’s own voice<span class="merchcopy">, and the gear</span>. Secure checkout by Stripe. <span class="merchcopy">Merch ships in the US; digital</span><span class="nomerchcopy">Digital</span> orders land in your inbox within a minute.</p>
     </div>
     <div class="orderok rv d2" id="orderok" hidden>
       <b>Order received. Thank you.</b>
@@ -543,7 +523,7 @@ body.noprice .prow{justify-content:flex-end}
 
   <div class="pgrid rv d2" id="pgrid">
 
-    <article class="prod" data-sku="tee">
+    <article class="prod merch" data-sku="tee">
       <div class="pimg photo"><img src="assets/shop-tee.webp" alt="Lead Elite Academy navy tee with gold trident" loading="lazy">
         <span class="tag">Merch</span>
       </div>
@@ -558,7 +538,7 @@ body.noprice .prow{justify-content:flex-end}
     </article>
 
 
-    <article class="prod" data-sku="tee_slogan">
+    <article class="prod merch" data-sku="tee_slogan">
       <div class="pimg photo"><img src="assets/shop-tee-slogan.webp" alt="Navy tee with Casualness Creates Casualties back print" loading="lazy"><span class="tag">Merch</span></div>
       <div class="pbody">
         <h3>Casualness Creates Casualties Tee</h3>
@@ -570,7 +550,7 @@ body.noprice .prow{justify-content:flex-end}
       </div>
     </article>
 
-    <article class="prod" data-sku="tee_cream">
+    <article class="prod merch" data-sku="tee_cream">
       <div class="pimg photo"><img src="assets/shop-tee-cream.webp" alt="Cream tee with navy embroidered trident and LEA" loading="lazy"><span class="tag">Merch</span></div>
       <div class="pbody">
         <h3>LEA Cream Tee</h3>
@@ -582,7 +562,7 @@ body.noprice .prow{justify-content:flex-end}
       </div>
     </article>
 
-    <article class="prod" data-sku="hat">
+    <article class="prod merch" data-sku="hat">
       <div class="pimg photo"><img src="assets/shop-hat.webp" alt="Lead Elite Academy navy cap with gold trident" loading="lazy">
         <span class="tag">Merch</span>
       </div>
@@ -594,7 +574,7 @@ body.noprice .prow{justify-content:flex-end}
     </article>
 
 
-    <article class="prod" data-sku="hat_dad">
+    <article class="prod merch" data-sku="hat_dad">
       <div class="pimg photo"><img src="assets/shop-hat-dad.webp" alt="Navy dad hat with gold trident and LEAD ELITE side embroidery" loading="lazy"><span class="tag">Merch</span></div>
       <div class="pbody">
         <h3>Lead Elite Dad Hat</h3>
@@ -640,7 +620,7 @@ body.noprice .prow{justify-content:flex-end}
     </article>
 
   </div>
-  <p class="shopnote rv d3"><span class="pricing">Prices in USD. Flat $6 US shipping on merch and books, free over $60. Sales tax calculated at checkout. </span>Questions or bulk orders for your team: <a href="mailto:admin@leadeliteacademy.com">admin@leadeliteacademy.com</a>.</p>
+  <p class="shopnote rv d3"><span class="pricing">Prices in USD. Flat $6 US shipping on <span class="merchcopy">merch and </span>books, free over $60. Sales tax calculated at checkout. </span>Questions or bulk orders for your team: <a href="mailto:admin@leadeliteacademy.com">admin@leadeliteacademy.com</a>.</p>
 </div></section>
 
 <div class="cartov" id="cartov"></div>
@@ -689,7 +669,8 @@ const LEA = {
   CONTACT_EMAIL: "admin@leadeliteacademy.com",
   META_PIXEL_ID: "",                     // optional
   SHOP_API: "https://portal.leadeliteacademy.com",  // Stripe checkout lives on the portal
-  SHOW_PRICES: true                      // set false to hide all prices
+  SHOW_PRICES: true,                     // set false to hide all prices
+  SHOW_MERCH: false                      // shirts + hats hidden until stock is real
 };
 /* =============================================================== */
 (function(){
@@ -861,6 +842,8 @@ const LEA = {
 (function(){
   const API = (LEA.SHOP_API || "https://portal.leadeliteacademy.com").replace(/\/$/,"");
   if (LEA.SHOW_PRICES === false) document.body.classList.add("noprice");
+  const MERCH = ["tee","tee_slogan","tee_cream","hat","hat_dad"];
+  if (LEA.SHOW_MERCH === false) document.body.classList.add("nomerch");
   // Fallback prices only — the live ones come from /api/shop/catalog (Stripe).
   const CAT = {
     tee:        { name:"Trident Tee", price:3400, sizes:["S","M","L","XL","2XL"], ships:true },
@@ -876,7 +859,7 @@ const LEA = {
   const FREE_AT = 6000, SHIP = 600;
   const $ = s => document.querySelector(s);
   const fmt = c => "$" + (c/100).toFixed(2).replace(/\.00$/,"");
-  const load = () => { try { const c = JSON.parse(localStorage.getItem("lea_cart")||"[]"); return Array.isArray(c) ? c.filter(l=>CAT[l.sku]) : []; } catch(e){ return []; } };
+  const load = () => { try { const c = JSON.parse(localStorage.getItem("lea_cart")||"[]"); return Array.isArray(c) ? c.filter(l=>CAT[l.sku] && !(LEA.SHOW_MERCH === false && MERCH.includes(l.sku))) : []; } catch(e){ return []; } };
   let cart = load();
   const save = () => { try { localStorage.setItem("lea_cart", JSON.stringify(cart)); } catch(e){} };
   let stock = {}; // "tee-L" -> count (physical only)
