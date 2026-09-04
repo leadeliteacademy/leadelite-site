@@ -373,6 +373,9 @@ body.nomerch .pgrid{grid-template-columns:repeat(4,1fr)}
 body.nomerch .merchcopy{display:none}
 body.nomerch .nomerchcopy{display:inline}
 body.nomerch .btn.add{white-space:nowrap;padding:.8em .9em;font-size:.64rem}
+body.tbd .price{font-family:var(--imp);letter-spacing:.2em;font-size:.85rem;color:var(--cream-45)}
+body.tbd .cship,body.tbd .shopnote .pricing{display:none}
+body.tbd .cerr{color:var(--gold-l)}
 
 </style>
 </head>
@@ -670,6 +673,7 @@ const LEA = {
   META_PIXEL_ID: "",                     // optional
   SHOP_API: "https://portal.leadeliteacademy.com",  // Stripe checkout lives on the portal
   SHOW_PRICES: true,                     // set false to hide all prices
+  PRICES_TBD: true,                      // show "TBD" instead of numbers and hold checkout
   SHOW_MERCH: false                      // shirts + hats hidden until stock is real
 };
 /* =============================================================== */
@@ -842,6 +846,7 @@ const LEA = {
 (function(){
   const API = (LEA.SHOP_API || "https://portal.leadeliteacademy.com").replace(/\/$/,"");
   if (LEA.SHOW_PRICES === false) document.body.classList.add("noprice");
+  const TBD = LEA.PRICES_TBD === true; if (TBD) document.body.classList.add("tbd");
   const MERCH = ["tee","tee_slogan","tee_cream","hat","hat_dad"];
   if (LEA.SHOW_MERCH === false) document.body.classList.add("nomerch");
   // Fallback prices only — the live ones come from /api/shop/catalog (Stripe).
@@ -858,7 +863,7 @@ const LEA = {
   };
   const FREE_AT = 6000, SHIP = 600;
   const $ = s => document.querySelector(s);
-  const fmt = c => "$" + (c/100).toFixed(2).replace(/\.00$/,"");
+  const fmt = c => TBD ? "TBD" : "$" + (c/100).toFixed(2).replace(/\.00$/,"");
   const load = () => { try { const c = JSON.parse(localStorage.getItem("lea_cart")||"[]"); return Array.isArray(c) ? c.filter(l=>CAT[l.sku] && !(LEA.SHOW_MERCH === false && MERCH.includes(l.sku))) : []; } catch(e){ return []; } };
   let cart = load();
   const save = () => { try { localStorage.setItem("lea_cart", JSON.stringify(cart)); } catch(e){} };
@@ -896,8 +901,8 @@ const LEA = {
     const sub = subtotal(); $("#csub").textContent = fmt(sub);
     $("#cship").textContent = !cart.length ? "" : !ships() ? "Digital order — nothing to ship. Delivered by email." :
       sub >= FREE_AT ? "Free US shipping on this order." : "Shipping "+fmt(SHIP)+" · add "+fmt(FREE_AT-sub)+" more for free shipping.";
-    $("#checkout").disabled = !cart.length;
-    $("#cerr").textContent = "";
+    $("#checkout").disabled = !cart.length || TBD;
+    $("#cerr").textContent = TBD && cart.length ? "Pricing is being finalized — checkout opens as soon as it is. Email admin@leadeliteacademy.com to reserve yours." : "";
     box.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{ const l=cart[+b.dataset.i]; l.qty=Math.max(1,Math.min(10,l.qty+(+b.dataset.q))); save(); render(); });
     box.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{ cart.splice(+b.dataset.rm,1); save(); render(); });
   }
@@ -908,6 +913,7 @@ const LEA = {
     save(); render(); toast("Added to cart"); if (window.fbq) fbq("track","AddToCart");
   }
 
+  if (TBD) document.querySelectorAll("#pgrid [data-price]").forEach(e=>e.textContent="TBD");
   // --- product cards -----------------------------------------------------------
   document.querySelectorAll("#pgrid .prod").forEach(card=>{
     const sku = card.dataset.sku, sizes = card.querySelectorAll(".sizes button"), addB = card.querySelector("[data-add]");
