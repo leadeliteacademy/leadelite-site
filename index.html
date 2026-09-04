@@ -762,9 +762,9 @@ const LEA = {
     const s=new THREE.Shape(); s.moveTo(PT[0][0],PT[0][1]);
     for(let i=1;i<PT.length;i++) s.lineTo(PT[i][0],PT[i][1]);
     s.closePath();
-    const geo=new THREE.ExtrudeGeometry(s,{depth:.52,bevelEnabled:true,bevelThickness:.06,bevelSize:.045,bevelOffset:0,bevelSegments:3});
+    const geo=new THREE.ExtrudeGeometry(s,{depth:.20,bevelEnabled:true,bevelThickness:.085,bevelSize:.075,bevelOffset:0,bevelSegments:6});
     geo.center();
-    const gm=new THREE.MeshStandardMaterial({color:0xB48E36,metalness:.62,roughness:.44,envMap:env,envMapIntensity:.42,side:THREE.DoubleSide});
+    const gm=new THREE.MeshStandardMaterial({color:0xC8A34B,metalness:.78,roughness:.26,envMap:env,envMapIntensity:.62,side:THREE.DoubleSide});
     const mark=new THREE.Mesh(geo,gm); g.add(mark);
     g.position.y=.05; g.scale.setScalar(.76);
     // gold dust
