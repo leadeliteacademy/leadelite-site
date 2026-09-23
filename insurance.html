@@ -60,14 +60,14 @@ h2 em,h1 em{font-style:italic;color:var(--gold-xl);font-weight:400}
 .brand .mark{width:auto;height:30px}
 .brand b{color:var(--gold);font-weight:600}
 .links{display:flex;gap:1.45em;font-family:var(--imp);letter-spacing:.13em;text-transform:uppercase;font-size:.68rem;color:var(--cream-70)}
-.links a{position:relative;padding:4px 0}
+.links a{position:relative;padding:4px 0;white-space:nowrap}
 .links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--gold);transition:right .3s}
 .links a:hover::after{right:0}
 .links a.on{color:var(--gold-xl)}
 .nav .btn{padding:.8em 1.3em;font-size:.7rem}
 .navbtns{display:flex;gap:10px;align-items:center}
 .burger{display:none;background:none;border:1px solid var(--line);color:var(--cream);width:42px;height:42px;font-size:1.1rem}
-@media(max-width:1120px){.links,.nav .cta{display:none}.burger{display:block}}
+@media(max-width:1240px){.links,.nav .cta{display:none}.burger{display:block}}
 .mobile{position:fixed;inset:0;z-index:70;background:var(--abyss);display:none;flex-direction:column;justify-content:center;align-items:center;gap:2rem;font-family:var(--display);font-size:1.8rem}
 .mobile.open{display:flex}
 .mobile .x{position:absolute;top:18px;right:18px;font-size:1.4rem;background:none;border:0;color:var(--gold);padding:10px}
@@ -173,7 +173,7 @@ footer small{display:block;font-family:var(--imp);letter-spacing:.3em;text-trans
 <nav class="nav" id="nav"><div class="wrap">
   <a class="brand" href="/"><svg class="mark" viewBox="-60.8 -1 121.6 289.1" fill="#C8A34B" aria-hidden="true"><path d="M0.0,0.0L3.9,9.2L5.3,13.1L5.9,14.1L7.3,18.0L12.7,30.8L12.9,31.9L12.8,112.4L13.0,113.0L13.8,113.5L25.5,113.5L26.8,113.0L30.9,108.8L35.0,103.2L38.0,97.9L40.0,93.0L41.2,89.1L42.2,84.0L42.9,74.9L42.9,67.8L41.9,46.5L44.0,38.4L49.3,14.8L50.2,12.6L50.7,12.6L51.0,13.4L51.3,15.5L52.0,17.8L52.3,19.9L53.0,22.1L53.3,24.1L56.8,38.5L58.0,44.6L58.9,46.9L59.0,54.6L59.8,67.4L59.8,75.1L58.9,86.0L56.8,95.9L53.9,103.8L51.9,107.9L49.2,112.2L49.2,113.0L49.5,113.4L53.2,113.6L53.5,114.0L53.5,114.8L45.3,137.9L44.0,138.5L12.0,138.5L11.3,139.4L5.4,286.4L4.8,287.0L-4.8,287.1L4.8,287.1L-4.8,287.0L-5.4,286.4L-11.3,139.4L-12.0,138.5L-44.0,138.5L-45.3,137.9L-53.5,114.8L-53.5,114.0L-53.2,113.6L-49.5,113.4L-49.2,113.0L-49.2,112.2L-51.9,107.9L-53.9,103.8L-56.8,95.9L-58.9,86.0L-59.8,75.1L-59.8,67.4L-59.0,54.6L-58.9,46.9L-58.0,44.6L-56.8,38.5L-53.3,24.1L-53.0,22.1L-52.3,19.9L-52.0,17.8L-51.3,15.5L-51.0,13.4L-50.7,12.6L-50.2,12.6L-49.3,14.8L-44.0,38.4L-41.9,46.5L-42.9,67.8L-42.9,74.9L-42.2,84.0L-41.2,89.1L-40.0,93.0L-38.0,97.9L-35.0,103.2L-30.9,108.8L-26.8,113.0L-25.5,113.5L-13.8,113.5L-13.0,113.0L-12.8,112.4L-12.9,31.9L-12.7,30.8L-7.3,18.0L-5.9,14.1L-5.3,13.1L-3.9,9.2Z"/></svg><span>Lead <b>Elite</b> Academy</span></a>
   <div class="links"><a href="/#elite">The framework</a><a href="/#year">The year</a><a href="/#trainer">Brandon</a><a href="/#book">The book</a><a href="/#shop">Shop</a><a href="/automotive/">Dealerships</a><a href="/insurance/" class="on">Insurance</a><a href="/recruiting/">Recruiting</a></div>
-  <div class="navbtns cta"><a class="btn" href="#call" data-book>Book a call</a><a class="btn ghost" href="https://portal.leadeliteacademy.com/hub">Member portal</a></div>
+  <div class="navbtns cta"><a class="btn ghost" href="https://portal.leadeliteacademy.com/hub">Member portal</a></div>
   <button class="burger" id="burger" aria-label="Open menu">☰</button>
 </div></nav>
 <div class="mobile" id="mobile"><button class="x" id="mx" aria-label="Close menu">✕</button><a class="btn" href="#call" data-book style="font-size:.8rem">Book a call</a><a href="/#elite">The framework</a><a href="/#year">The year</a><a href="/#trainer">Brandon</a><a href="/#book">The book</a><a href="/automotive/">Dealerships</a><a href="/insurance/" style="color:var(--gold-xl)">Insurance</a><a href="/recruiting/">Recruiting</a><a href="https://portal.leadeliteacademy.com/hub" style="font-family:var(--imp);font-size:1rem;letter-spacing:.2em;color:var(--gold)">MEMBER PORTAL</a></div>
