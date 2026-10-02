@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lead Elite Academy — Build leaders who don’t need you</title>
+<meta name="description" content="A 52-week leadership operating system for companies, built by former Navy SEAL and nine-figure sales architect Brandon Thornhill.">
+<meta property="og:title" content="Lead Elite Academy — Build leaders who don’t need you">
+<meta property="og:description" content="A 52-week leadership operating system for companies, built by former Navy SEAL and nine-figure sales architect Brandon Thornhill.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lead Elite Academy">
+<meta property="og:url" content="https://www.leadeliteacademy.com/">
+<meta property="og:image" content="https://www.leadeliteacademy.com/og-home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.leadeliteacademy.com/og-home.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="alternate icon" href="favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#081A33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Oswald:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#081A33; --deep:#050F1F; --abyss:#030A16; --gold:#C8A34B; --gold-l:#D9BC77; --gold-xl:#EAD9AC; --cream:#EFEAE1; --cream-70:rgba(239,234,225,.7); --cream-45:rgba(239,234,225,.45);
+  --line:rgba(200,163,75,.22);
+  --display:'Playfair Display',Georgia,serif; --imp:'Oswald','Arial Narrow',sans-serif; --body:'Source Sans 3','Segoe UI',system-ui,sans-serif;
+  --max:1180px; --pad:clamp(20px,5vw,64px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--navy);color:var(--cream);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--gold);color:var(--abyss)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.eyebrow{font-family:var(--imp);font-weight:500;letter-spacing:.32em;text-transform:uppercase;font-size:.72rem;color:var(--gold)}
+.eyebrow::before{content:"";display:inline-block;width:22px;height:1px;background:var(--gold);vertical-align:middle;margin-right:12px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;letter-spacing:-.01em}
+h2{font-size:clamp(2rem,4.2vw,3.4rem);margin:.6rem 0 1.2rem}
+h2 em,h1 em{font-style:italic;color:var(--gold-xl);font-weight:400}
+.lead{font-size:clamp(1.05rem,1.4vw,1.25rem);color:var(--cream-70);max-width:58ch}
+.btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--imp);font-weight:500;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;padding:1.05em 1.9em;border:1px solid var(--gold);color:var(--abyss);background:linear-gradient(180deg,var(--gold-l),var(--gold));transition:transform .25s,box-shadow .25s,background .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px rgba(200,163,75,.6)}
+.btn.ghost{background:transparent;color:var(--gold-xl)}
+.btn.ghost:hover{background:rgba(200,163,75,.08)}
+.btn svg{width:14px;height:14px}
+
+/* slogan strip */
+.strip{position:fixed;top:0;left:0;right:0;z-index:60;height:34px;display:flex;align-items:center;justify-content:center;background:var(--abyss);border-bottom:1px solid var(--line);font-family:var(--imp);letter-spacing:.38em;text-transform:uppercase;font-size:.66rem;color:var(--gold);transition:transform .4s,opacity .4s}
+.strip span{color:var(--gold-xl);font-weight:400;margin:0 .35em}
+.strip.hide{transform:translateY(-100%);opacity:0}
+/* nav */
+.nav{position:fixed;top:34px;left:0;right:0;z-index:50;transition:top .4s,background .4s,border-color .4s;border-bottom:1px solid transparent}
+.nav.stuck{top:0;background:rgba(3,10,22,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--imp);letter-spacing:.22em;text-transform:uppercase;font-size:.8rem;color:var(--cream)}
+.brand .mark{width:auto;height:30px}
+.brand b{color:var(--gold);font-weight:600}
+.links{display:flex;gap:2.2em;font-family:var(--imp);letter-spacing:.16em;text-transform:uppercase;font-size:.72rem;color:var(--cream-70)}
+.links a{position:relative;padding:4px 0;white-space:nowrap}
+.links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--gold);transition:right .3s}
+.links a:hover::after{right:0}
+.nav .btn{padding:.8em 1.3em;font-size:.7rem}
+.navbtns{display:flex;gap:10px;align-items:center}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--cream);width:42px;height:42px;font-size:1.1rem}
+@media(max-width:900px){.links,.nav .cta{display:none}.burger{display:block}}
+.mobile{position:fixed;inset:0;z-index:70;background:var(--abyss);display:none;flex-direction:column;justify-content:center;align-items:center;gap:2rem;font-family:var(--display);font-size:1.8rem}
+.mobile.open{display:flex}
+.mobile .x{position:absolute;top:18px;right:18px;font-size:1.4rem;background:none;border:0;color:var(--gold);padding:10px}
+
+/* hero */
+.hero{position:relative;min-height:min(100svh,960px);display:grid;align-items:center;padding-top:110px;padding-bottom:60px;overflow:hidden;isolation:isolate}
+.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3;filter:saturate(.7) brightness(.62)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(3,10,22,.92) 0%,rgba(8,26,51,.78) 45%,rgba(8,26,51,.35) 100%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(3,10,22,.2),transparent 30%,transparent 70%,var(--navy))}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;width:100%}
+.hero h1{font-size:clamp(2.6rem,6vw,5.2rem);max-width:12ch}
+.hero .sub{margin:1.4rem 0 2rem;max-width:52ch}
+.watchline{display:inline-flex;align-items:center;gap:14px;margin-top:.2rem;background:none;border:0;padding:0;cursor:pointer;font-family:var(--imp);letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;color:var(--gold-xl)}
+.watchline em{font-style:normal;color:var(--cream-45);letter-spacing:.18em}
+.watchline .ring{width:44px;height:44px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);transition:background .25s,transform .25s;position:relative}
+.watchline .ring::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(200,163,75,.35);animation:pulse 2.4s infinite}
+.watchline .ring svg{width:16px;height:16px;margin-left:2px}
+.watchline:hover .ring{background:var(--gold);color:var(--abyss);transform:scale(1.06)}
+@keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.5);opacity:0}}
+@media(prefers-reduced-motion:reduce){.watchline .ring::after{animation:none}}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px}
+.credential{margin-top:2.6rem;display:flex;gap:1.6rem;flex-wrap:wrap;font-family:var(--imp);letter-spacing:.2em;text-transform:uppercase;font-size:.66rem;color:var(--cream-45)}
+.credential b{color:var(--gold-xl);font-weight:500}
+#trident{width:100%;aspect-ratio:1;max-height:70vh;position:relative}
+#trident canvas{width:100%!important;height:100%!important;display:block}
+#trident .fallback{position:absolute;inset:10%;background:center/contain no-repeat}
+.hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-family:var(--imp);letter-spacing:.3em;text-transform:uppercase;font-size:.6rem;color:var(--cream-45);display:flex;flex-direction:column;align-items:center;gap:8px}
+.hint i{display:block;width:1px;height:36px;background:linear-gradient(var(--gold),transparent);animation:drop 2s infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}#trident{max-height:46vh;order:-1;margin-top:-20px}.hero{padding-top:120px}}
+
+/* video modal */
+.btn.play svg{width:14px;height:14px}
+.vm{position:fixed;inset:0;z-index:80;background:rgba(3,10,22,.92);display:none;align-items:center;justify-content:center;padding:20px}
+.vm.open{display:flex}
+.vm .box{width:min(1100px,100%);aspect-ratio:16/9;background:#000;border:1px solid var(--line);box-shadow:0 40px 120px -30px rgba(0,0,0,.9);position:relative}
+.vm iframe{width:100%;height:100%;border:0;display:block}
+.vm .x{position:absolute;top:-46px;right:0;background:none;border:1px solid var(--line);color:var(--gold-xl);font-family:var(--imp);letter-spacing:.2em;text-transform:uppercase;font-size:.66rem;padding:.6em 1em;cursor:pointer}
+.vm .cap{position:absolute;left:0;top:-46px;font-family:var(--imp);letter-spacing:.24em;text-transform:uppercase;font-size:.62rem;color:var(--gold);line-height:34px}
+/* marquee */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:var(--deep);padding:14px 0;font-family:var(--imp);text-transform:uppercase;letter-spacing:.3em;font-size:.78rem;white-space:nowrap}
+.marquee div{display:inline-block;animation:mq 42s linear infinite}
+.marquee span{margin:0 1.6em;color:var(--gold)}
+.marquee span.o{color:transparent;-webkit-text-stroke:1px var(--gold-l)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:clamp(72px,10vw,140px) 0;position:relative}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,6rem);align-items:center}
+@media(max-width:900px){.two{grid-template-columns:1fr}}
+.photo{position:relative}
+.photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;filter:saturate(.85)}
+.photo::after{content:"";position:absolute;inset:0;transform:translate(16px,16px);border:1px solid var(--gold);z-index:-1}
+.photo .chip{position:absolute;left:18px;bottom:18px;background:rgba(3,10,22,.8);border:1px solid var(--line);padding:.5em .9em;font-family:var(--imp);letter-spacing:.2em;text-transform:uppercase;font-size:.62rem;color:var(--gold-xl)}
+
+/* problem */
+.problem{background:var(--abyss)}
+.problem .quote{font-family:var(--display);font-style:italic;font-size:clamp(1.15rem,1.7vw,1.4rem);color:var(--gold-xl);border-left:2px solid var(--gold);padding-left:1.2rem;margin:1.6rem 0}
+.problem p{color:var(--cream-70);margin-bottom:1rem}
+
+/* ELITE */
+.elite{background:radial-gradient(60% 50% at 50% 0%,rgba(200,163,75,.09),transparent),var(--navy)}
+.elite .head{text-align:center;max-width:70ch;margin:0 auto 3.5rem}
+.elite .head .lead{margin:0 auto}
+.pillars{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line)}
+.pillar{padding:2rem 1.4rem 2.2rem;border-right:1px solid var(--line);position:relative;transition:background .35s}
+.pillar:last-child{border-right:0}
+.pillar:hover{background:rgba(200,163,75,.06)}
+.pillar .letter{font-family:var(--display);font-size:clamp(3.4rem,6vw,5.6rem);line-height:1;color:var(--gold);font-weight:700;transition:transform .35s}
+.pillar:hover .letter{transform:translateY(-6px)}
+.pillar h3{font-family:var(--imp);font-weight:500;letter-spacing:.2em;text-transform:uppercase;font-size:.78rem;margin:.8rem 0 .7rem;color:var(--cream)}
+.pillar p{font-size:.95rem;color:var(--cream-70)}
+@media(max-width:900px){.pillars{grid-template-columns:1fr}.pillar{border-right:0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:70px 1fr;column-gap:1rem;align-items:start}.pillar .letter{font-size:3rem;grid-row:span 2}.pillar h3{margin-top:.2rem}}
+
+/* year / rhythm */
+.year{background:var(--deep)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:2.6rem 0}
+.stat{background:var(--deep);padding:1.6rem 1.4rem}
+.stat b{display:block;font-family:var(--display);font-size:clamp(2.2rem,4vw,3.2rem);color:var(--gold-xl);line-height:1}
+.stat span{font-family:var(--imp);letter-spacing:.2em;text-transform:uppercase;font-size:.64rem;color:var(--cream-45)}
+@media(max-width:700px){.stats{grid-template-columns:1fr 1fr}}
+.rhythm{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:1rem}
+.step{padding:1.6rem;border:1px solid var(--line);background:rgba(8,26,51,.5)}
+.step .k{font-family:var(--imp);letter-spacing:.3em;text-transform:uppercase;font-size:.62rem;color:var(--gold)}
+.step h3{font-size:1.5rem;margin:.5rem 0 .6rem}
+.step p{color:var(--cream-70);font-size:.98rem}
+.muster{margin-top:1.4rem;padding:1.4rem 1.6rem;border:1px dashed var(--line);display:flex;gap:1.4rem;align-items:center;flex-wrap:wrap}
+.muster .k{font-family:var(--imp);letter-spacing:.3em;text-transform:uppercase;font-size:.62rem;color:var(--gold);white-space:nowrap}
+.muster p{color:var(--cream-70)}
+@media(max-width:800px){.rhythm{grid-template-columns:1fr}}
+.roles{display:flex;flex-wrap:wrap;gap:10px;margin-top:1.4rem}
+.roles span{font-family:var(--imp);letter-spacing:.16em;text-transform:uppercase;font-size:.66rem;padding:.55em 1em;border:1px solid var(--line);color:var(--gold-xl)}
+
+/* portal */
+.portal ul{list-style:none;margin-top:1.6rem;display:grid;gap:1rem}
+.portal li{display:grid;grid-template-columns:26px 1fr;gap:.9rem;color:var(--cream-70)}
+.portal li b{color:var(--cream);font-weight:600;display:block}
+.portal li svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.4;margin-top:4px}
+
+/* trainer */
+.trainer{background:var(--abyss);overflow:hidden;position:relative}
+.trainer .two{align-items:end}
+.trainer .cut{position:relative;min-height:640px}
+.trainer .cut img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:100%;width:auto;max-width:none;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+.trainer .cut::before{content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:120%;height:70%;background:radial-gradient(50% 60% at 50% 100%,rgba(200,163,75,.28),transparent 70%);z-index:0}
+.trainer .cut img{z-index:1}
+.trainer>.reel{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.5;filter:saturate(.85) contrast(1.04) brightness(1.08) blur(3px);transform:scale(1.05)}
+.trainer::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(3,10,22,.28) 0%,rgba(3,10,22,.42) 34%,rgba(3,10,22,.86) 58%,var(--abyss) 82%),linear-gradient(180deg,var(--abyss) 0%,rgba(3,10,22,0) 16%,rgba(3,10,22,0) 80%,var(--abyss) 100%)}
+.trainer .wrap{position:relative;z-index:2}
+@media(max-width:900px){.trainer::after{background:linear-gradient(180deg,var(--abyss) 0%,rgba(3,10,22,.25) 20%,rgba(3,10,22,.9) 62%,var(--abyss) 100%)}}
+@media(prefers-reduced-motion:reduce){.trainer>.reel{display:none}}
+
+.trainer .cut .big{position:absolute;left:0;right:0;top:8%;text-align:center;font-family:var(--imp);font-weight:600;font-size:clamp(4rem,12vw,9rem);letter-spacing:.06em;color:transparent;-webkit-text-stroke:1px rgba(200,163,75,.35);line-height:1;pointer-events:none;z-index:0}
+.trainer .copy{padding-bottom:3rem}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem 2rem;margin:1.8rem 0}
+.facts div{border-top:1px solid var(--line);padding-top:.7rem}
+.facts b{display:block;font-family:var(--display);font-size:1.5rem;color:var(--gold-xl)}
+.facts span{font-size:.9rem;color:var(--cream-70)}
+.social{display:flex;gap:14px;flex-wrap:wrap;margin-top:1.4rem}
+.social a{display:inline-flex;align-items:center;gap:.5em;font-family:var(--imp);letter-spacing:.16em;text-transform:uppercase;font-size:.64rem;color:var(--cream-70);border:1px solid var(--line);padding:.6em 1em;transition:color .2s,border-color .2s}
+.social a:hover{color:var(--gold-xl);border-color:var(--gold)}
+.social svg{width:14px;height:14px;fill:currentColor}
+@media(max-width:900px){.trainer .cut{min-height:300px;order:-1}.facts{grid-template-columns:1fr 1fr}
+.trainer .cut img{height:94%}
+.trainer .cut .big{font-size:clamp(2.4rem,9.5vw,4rem);top:5%}
+.trainer .copy{padding-bottom:1.2rem}}
+
+/* book */
+.book{background:var(--navy)}
+#book3d{width:100%;aspect-ratio:1;max-height:560px;position:relative}
+#book3d canvas{width:100%!important;height:100%!important}
+#book3d .fallback{position:absolute;inset:10% 25%;background:center/contain no-repeat}
+.book .quote{font-family:var(--display);font-style:italic;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.3;color:var(--gold-xl);margin:1.4rem 0}
+.book .quote small{display:block;font-family:var(--imp);font-style:normal;letter-spacing:.24em;text-transform:uppercase;font-size:.62rem;color:var(--cream-45);margin-top:.9rem}
+.rating{display:flex;align-items:center;gap:10px;font-family:var(--imp);letter-spacing:.18em;text-transform:uppercase;font-size:.66rem;color:var(--cream-70);margin-bottom:1.4rem}
+.rating .stars{color:var(--gold);letter-spacing:.1em;font-size:.9rem}
+
+/* testimonials */
+.voices{background:var(--deep)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.4rem}
+.card{border:1px solid var(--line);padding:1.8rem;background:rgba(8,26,51,.5);display:flex;flex-direction:column;gap:1.2rem}
+.card q{quotes:"“" "”";font-family:var(--display);font-size:1.12rem;line-height:1.45;color:var(--cream)}
+.card q::before{color:var(--gold);font-size:1.6em;line-height:0;vertical-align:-.3em;margin-right:.1em}
+.card .who{margin-top:auto;font-family:var(--imp);letter-spacing:.18em;text-transform:uppercase;font-size:.64rem;color:var(--gold-xl)}
+.card .who span{display:block;color:var(--cream-45);letter-spacing:.12em;margin-top:.2em}
+@media(max-width:900px){.cards{grid-template-columns:1fr}}
+
+/* who — industry tabs */
+.who{background:var(--navy)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:2.2rem}
+.tabs button{font-family:var(--imp);letter-spacing:.16em;text-transform:uppercase;font-size:.66rem;padding:.7em 1.1em;border:1px solid var(--line);background:transparent;color:var(--cream-70);cursor:pointer;transition:all .25s}
+.tabs button:hover{color:var(--gold-xl);border-color:var(--gold)}
+.tabs button[aria-selected="true"]{background:var(--gold);color:var(--abyss);border-color:var(--gold)}
+.panel{display:none;margin-top:1.6rem;border:1px solid var(--line);background:rgba(3,10,22,.5)}
+.panel.on{display:grid;grid-template-columns:1.1fr .9fr}
+.panel .txt{padding:2.2rem}
+.panel h3{font-size:clamp(1.6rem,2.6vw,2.3rem);margin:.4rem 0 .8rem}
+.panel h3 em{font-style:italic;color:var(--gold-xl);font-weight:400}
+.panel p{color:var(--cream-70);max-width:52ch}
+.panel .roles{margin-top:1.4rem}
+.panel .map{border-left:1px solid var(--line);padding:2.2rem;display:grid;gap:.9rem;align-content:start}
+.panel .map .k{font-family:var(--imp);letter-spacing:.3em;text-transform:uppercase;font-size:.62rem;color:var(--gold);margin-bottom:.4rem}
+.panel .map div{display:grid;grid-template-columns:150px 1fr;gap:1rem;border-top:1px solid var(--line);padding-top:.7rem;font-size:.95rem}
+.panel .map div b{font-family:var(--imp);font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:.66rem;color:var(--gold-xl);padding-top:.2em}
+.panel .map div span{color:var(--cream-70)}
+.panel .how{grid-column:1/-1;border-top:1px solid var(--line);padding:2rem 2.2rem 2.2rem}
+.panel .how>.k{font-family:var(--imp);letter-spacing:.3em;text-transform:uppercase;font-size:.62rem;color:var(--gold);margin-bottom:1.2rem}
+.tacs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.tacs .t{background:var(--navy);padding:1.3rem 1.2rem}
+.tacs .wk{font-family:var(--imp);letter-spacing:.2em;text-transform:uppercase;font-size:.6rem;color:var(--cream-45);margin-bottom:.5rem}
+.tacs b{display:block;font-family:var(--display);font-size:1.12rem;line-height:1.25;color:var(--gold-xl);margin-bottom:.5rem}
+.tacs p{font-size:.92rem;color:var(--cream-70);max-width:none}
+.inportal{margin-top:1.4rem;display:grid;grid-template-columns:auto 1fr auto;gap:1.2rem;align-items:center;padding:1.1rem 1.4rem;border:1px dashed var(--line)}
+.inportal b{font-family:var(--imp);font-weight:500;letter-spacing:.24em;text-transform:uppercase;font-size:.62rem;color:var(--gold);white-space:nowrap}
+.inportal span{font-size:.95rem;color:var(--cream-70)}
+@media(max-width:1000px){.tacs{grid-template-columns:1fr 1fr}.inportal{grid-template-columns:1fr}}
+@media(max-width:560px){.tacs{grid-template-columns:1fr}}
+@media(max-width:900px){.panel.on{grid-template-columns:1fr}.panel .map{border-left:0;border-top:1px solid var(--line)}.panel .map div{grid-template-columns:1fr}}
+
+/* final */
+.final{background:var(--abyss);text-align:center;overflow:hidden}
+.final::before{content:"";position:absolute;inset:0;background:url(assets/boardroom.webp) center/cover;opacity:.18;filter:saturate(.6)}
+.final .wrap{position:relative}
+.final h2{font-size:clamp(2.4rem,5.4vw,4.4rem);max-width:16ch;margin:.6rem auto 1.2rem}
+.final .lead{margin:0 auto 2.2rem}
+.final .ctas{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.lockup{margin-top:5rem;display:flex;flex-direction:column;align-items:center;gap:14px}
+.lockup .rule{width:60px;height:1px;background:var(--gold)}
+.lockup .mark{width:auto;height:40px}
+.lockup .slogan{font-family:var(--imp);letter-spacing:.4em;text-transform:uppercase;font-size:clamp(.95rem,2vw,1.5rem);color:var(--gold)}
+.lockup .slogan span{color:var(--gold-xl);font-weight:400}
+
+footer{background:var(--abyss);border-top:1px solid var(--line);padding:2.4rem 0;font-size:.85rem;color:var(--cream-45)}
+footer .wrap{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;align-items:center}
+footer .fl{display:flex;gap:1.6em;font-family:var(--imp);letter-spacing:.16em;text-transform:uppercase;font-size:.62rem}
+footer .fl a:hover{color:var(--gold-xl)}
+footer small{display:block;font-family:var(--imp);letter-spacing:.3em;text-transform:uppercase;font-size:.6rem;color:var(--gold);margin-bottom:.4em}
+
+/* sticky mobile CTA */
+.sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:55;padding:10px 14px;background:rgba(3,10,22,.9);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+.sticky .btn{width:100%;justify-content:center}
+@media(max-width:900px){.sticky{display:block}body{padding-bottom:64px}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.marquee div{animation:none}.hint i{animation:none}html{scroll-behavior:auto}}
+
+/* ===== shop ===== */
+.shop{background:radial-gradient(60% 50% at 50% 0%,rgba(200,163,75,.08),transparent),var(--deep)}
+.shophead{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(1.5rem,4vw,4rem);align-items:end;margin-bottom:2.6rem}
+@media(max-width:900px){.shophead{grid-template-columns:1fr}}
+.orderok{border:1px solid var(--gold);background:rgba(200,163,75,.08);padding:1.2rem 1.4rem;display:flex;flex-direction:column;gap:.4rem;font-size:.95rem;color:var(--cream-70)}
+.orderok b{color:var(--gold-xl);font-family:var(--display);font-size:1.15rem}
+.orderok.cancel{border-color:var(--line)}
+.orderok[hidden]{display:none}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+@media(max-width:1000px){.pgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.pgrid{grid-template-columns:1fr}}
+.prod{border:1px solid var(--line);background:rgba(8,26,51,.55);display:flex;flex-direction:column;position:relative;transition:border-color .3s,transform .3s}
+.prod:hover{border-color:rgba(200,163,75,.5);transform:translateY(-3px)}
+.prod.best{border-color:rgba(200,163,75,.6)}
+.pimg{position:relative;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(160deg,#0B2244,#050F1F)}
+.pimg svg{width:78%;height:78%}
+.pimg .garment{fill:#0E2A55;stroke:rgba(200,163,75,.55);stroke-width:1.5;stroke-linejoin:round}
+.pimg use{fill:var(--gold)}
+.pimg.cover img{height:82%;width:auto;object-fit:contain;box-shadow:0 30px 60px rgba(0,0,0,.55),0 0 0 1px rgba(200,163,75,.25);transform:rotate(-4deg);transition:transform .5s}
+.prod:hover .pimg.cover img{transform:rotate(0)}
+.pimg.digital::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(200,163,75,.04) 14px 15px);pointer-events:none}
+.pimg .tag{position:absolute;top:14px;left:14px;font-family:var(--imp);letter-spacing:.24em;text-transform:uppercase;font-size:.6rem;color:var(--cream);border:1px solid var(--line);padding:.35em .8em;background:rgba(3,10,22,.7)}
+.pimg .tag.gold{background:var(--gold);color:var(--abyss);border-color:var(--gold)}
+.wave{position:absolute;right:16px;bottom:16px;display:flex;gap:3px;align-items:flex-end;height:26px}
+.wave i{display:block;width:4px;background:var(--gold);height:30%;animation:wv 1.1s ease-in-out infinite}
+.wave i:nth-child(2){animation-delay:.15s}.wave i:nth-child(3){animation-delay:.3s}.wave i:nth-child(4){animation-delay:.45s}.wave i:nth-child(5){animation-delay:.6s}
+@keyframes wv{0%,100%{height:30%}50%{height:100%}}
+.pbody{padding:1.3rem 1.4rem 1.5rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
+.pbody h3{font-size:1.25rem}
+.pbody p{color:var(--cream-70);font-size:.95rem;flex:1}
+.sizes{display:flex;gap:6px;flex-wrap:wrap}
+.sizes button{font-family:var(--imp);letter-spacing:.1em;font-size:.72rem;min-width:40px;padding:.45em .6em;border:1px solid var(--line);background:transparent;color:var(--cream-70);cursor:pointer}
+.sizes button[aria-checked="true"]{border-color:var(--gold);color:var(--gold-xl);background:rgba(200,163,75,.12)}
+.sizes button:disabled{opacity:.3;text-decoration:line-through;cursor:not-allowed}
+.prow{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:.3rem}
+.price{font-family:var(--display);font-size:1.5rem;color:var(--gold-xl)}
+.price s{color:var(--cream-45);font-size:.85rem;margin-right:.5em}
+.btn.add{padding:.8em 1.2em;font-size:.68rem}
+.btn.add.soldout,.btn[disabled]{opacity:.45;pointer-events:none}
+.shopnote{margin-top:2rem;font-size:.85rem;color:var(--cream-45);max-width:70ch}
+.shopnote a{color:var(--gold-l)}
+/* nav cart */
+.cartbtn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--line);background:none;color:var(--cream);cursor:pointer}
+.cartbtn svg{width:19px;height:19px}
+.cartbtn .n{position:absolute;top:-7px;right:-7px;min-width:19px;height:19px;padding:0 5px;border-radius:10px;background:var(--gold);color:var(--abyss);font:600 .68rem/19px var(--imp)}
+.cartbtn .n:empty{display:none}
+/* drawer */
+.cartov{position:fixed;inset:0;background:rgba(3,10,22,.6);backdrop-filter:blur(3px);z-index:80;opacity:0;pointer-events:none;transition:opacity .3s}
+.cart{position:fixed;top:0;right:0;bottom:0;width:min(420px,100vw);background:var(--abyss);border-left:1px solid var(--line);z-index:81;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+body.cart-open .cart{transform:none}
+body.cart-open .cartov{opacity:1;pointer-events:auto}
+.chead{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border-bottom:1px solid var(--line);font-family:var(--display);font-size:1.3rem}
+.chead .x{background:none;border:0;color:var(--gold);font-size:1.2rem;cursor:pointer;padding:6px}
+.clines{flex:1;overflow:auto;padding:10px 22px}
+.cline{display:grid;grid-template-columns:1fr auto;gap:6px 12px;padding:14px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.cline b{font-family:var(--display);font-weight:600}
+.cline small{color:var(--cream-45);display:block;margin-top:2px;font-family:var(--imp);letter-spacing:.12em;text-transform:uppercase;font-size:.62rem}
+.cline .qty{display:inline-flex;border:1px solid var(--line);align-items:center;margin-top:8px}
+.cline .qty button{background:none;border:0;color:var(--cream);width:30px;height:28px;cursor:pointer;font-size:1rem}
+.cline .qty span{min-width:26px;text-align:center;font-family:var(--imp);font-size:.85rem}
+.cline .rm{background:none;border:0;color:var(--cream-45);cursor:pointer;font-size:.75rem;font-family:var(--imp);letter-spacing:.12em;text-transform:uppercase;justify-self:end;align-self:end}
+.cline .rm:hover{color:var(--gold)}
+.cline .amt{text-align:right;color:var(--gold-xl);font-family:var(--display);font-size:1.05rem}
+.cempty{padding:40px 0;text-align:center;color:var(--cream-45)}
+.cfoot{padding:18px 22px 22px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.crow{display:flex;justify-content:space-between;font-size:1rem}
+.crow b{color:var(--gold-xl);font-family:var(--display);font-size:1.25rem}
+.cship{font-size:.82rem;color:var(--cream-45)}
+.cerr{font-size:.85rem;color:#e3a58a;min-height:0}
+.cerr:empty{display:none}
+.cfoot .btn{justify-content:center}
+.cfoot small{text-align:center;color:var(--cream-45);font-size:.72rem;letter-spacing:.06em}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--gold);color:var(--abyss);font-family:var(--imp);letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;padding:.9em 1.4em;opacity:0;transition:.3s;z-index:79;pointer-events:none}
+#shop{scroll-margin-top:72px}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){.toast{bottom:78px}}
+/* nav tightened to fit Shop + cart */
+.nav .links{gap:1.45em;font-size:.68rem;letter-spacing:.13em}
+.navbtns .btn{padding:.8em 1em;font-size:.66rem;letter-spacing:.14em}
+.brand{letter-spacing:.18em}
+@media(max-width:1240px){.links,.nav .cta{display:none}.burger{display:block}}
+.cline .qty{display:flex;width:max-content}
+
+.pimg.photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.prod:hover .pimg.photo img{transform:scale(1.04)}
+.pimg.photo .wave{display:none}
+
+body.noprice .price,body.noprice .cline .amt,body.noprice .crow,body.noprice .cship,body.noprice .shopnote .pricing{display:none}
+body.noprice .prow{justify-content:flex-end}
+
+body.nomerch .prod.merch{display:none}
+body.nomerch .pgrid{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1000px){body.nomerch .pgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){body.nomerch .pgrid{grid-template-columns:1fr}}
+.nomerchcopy{display:none}
+body.nomerch .merchcopy{display:none}
+body.nomerch .nomerchcopy{display:inline}
+body.nomerch .btn.add{white-space:nowrap;padding:.8em .9em;font-size:.64rem}
+body.tbd .price{font-family:var(--imp);letter-spacing:.2em;font-size:.85rem;color:var(--cream-45)}
+body.tbd .cship,body.tbd .shopnote .pricing{display:none}
+body.tbd .cerr{color:var(--gold-l)}
+
+.mobile{justify-content:flex-start;overflow-y:auto;padding:64px 0 40px}.mobile>a:first-of-type{margin-top:auto}.mobile>a:last-child{margin-bottom:auto}@media(max-height:760px){.mobile{gap:1.35rem;font-size:1.5rem}}.nav .links{gap:1.2em}
+/* Hear Brandon live (90s speaker reel, Bunny) */
+.live{padding-top:clamp(56px,8vw,96px)}
+.live-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.live-head h3{font-family:var(--display);font-size:clamp(1.6rem,3.2vw,2.4rem);color:var(--cream);margin:.35rem 0 0}
+.live-head p{color:var(--cream-70);margin:0;max-width:34ch}
+.live-player{position:relative;display:block;width:100%;aspect-ratio:16/9;border:1px solid var(--line);border-radius:14px;overflow:hidden;padding:0;background:#000;cursor:pointer;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.live-player img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease,filter .6s ease}
+.live-player:hover img{transform:scale(1.02);filter:brightness(1.06)}
+.live-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(64px,9vw,96px);aspect-ratio:1;border-radius:50%;background:var(--gold);display:grid;place-items:center;box-shadow:0 0 0 10px rgba(200,163,75,.25),0 10px 30px rgba(0,0,0,.5)}
+.live-play svg{width:42%;fill:#030A16;margin-left:6%}
+.live-tag{position:absolute;right:16px;top:14px;font-family:var(--imp);letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;color:var(--cream);background:rgba(3,10,22,.72);border:1px solid var(--line);padding:.45em .8em;border-radius:999px}
+@media(max-width:640px){.live-tag{display:none}}
+.live-frame{position:relative;width:100%;aspect-ratio:16/9;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#000}
+.live-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+</style>
+</head>
+<body>
+<div class="strip" id="strip">Casualness <span>Creates</span> Casualties</div>
+<nav class="nav" id="nav"><div class="wrap">
+  <a class="brand" href="/"><svg class="mark" viewBox="-60.8 -1 121.6 289.1" fill="#C8A34B" aria-hidden="true"><path d="M0.0,0.0L3.9,9.2L5.3,13.1L5.9,14.1L7.3,18.0L12.7,30.8L12.9,31.9L12.8,112.4L13.0,113.0L13.8,113.5L25.5,113.5L26.8,113.0L30.9,108.8L35.0,103.2L38.0,97.9L40.0,93.0L41.2,89.1L42.2,84.0L42.9,74.9L42.9,67.8L41.9,46.5L44.0,38.4L49.3,14.8L50.2,12.6L50.7,12.6L51.0,13.4L51.3,15.5L52.0,17.8L52.3,19.9L53.0,22.1L53.3,24.1L56.8,38.5L58.0,44.6L58.9,46.9L59.0,54.6L59.8,67.4L59.8,75.1L58.9,86.0L56.8,95.9L53.9,103.8L51.9,107.9L49.2,112.2L49.2,113.0L49.5,113.4L53.2,113.6L53.5,114.0L53.5,114.8L45.3,137.9L44.0,138.5L12.0,138.5L11.3,139.4L5.4,286.4L4.8,287.0L-4.8,287.1L4.8,287.1L-4.8,287.0L-5.4,286.4L-11.3,139.4L-12.0,138.5L-44.0,138.5L-45.3,137.9L-53.5,114.8L-53.5,114.0L-53.2,113.6L-49.5,113.4L-49.2,113.0L-49.2,112.2L-51.9,107.9L-53.9,103.8L-56.8,95.9L-58.9,86.0L-59.8,75.1L-59.8,67.4L-59.0,54.6L-58.9,46.9L-58.0,44.6L-56.8,38.5L-53.3,24.1L-53.0,22.1L-52.3,19.9L-52.0,17.8L-51.3,15.5L-51.0,13.4L-50.7,12.6L-50.2,12.6L-49.3,14.8L-44.0,38.4L-41.9,46.5L-42.9,67.8L-42.9,74.9L-42.2,84.0L-41.2,89.1L-40.0,93.0L-38.0,97.9L-35.0,103.2L-30.9,108.8L-26.8,113.0L-25.5,113.5L-13.8,113.5L-13.0,113.0L-12.8,112.4L-12.9,31.9L-12.7,30.8L-7.3,18.0L-5.9,14.1L-5.3,13.1L-3.9,9.2Z"/></svg><span>Lead <b>Elite</b> Academy</span></a>
+  <div class="links"><a href="#elite">The framework</a><a href="#year">The year</a><a href="#trainer">Brandon</a><a href="#book">The book</a><a href="#shop">Shop</a><a href="#who">Who it’s for</a><a href="/automotive/">Dealerships</a><a href="/insurance/">Insurance</a><a href="/recruiting/">Recruiting</a><a href="/blog/">Blog</a></div>
+  <div class="navbtns cta"><a class="btn ghost" href="https://portal.leadeliteacademy.com/hub">Member portal</a></div>
+  <button class="burger" id="burger" aria-label="Open menu">☰</button>
+</div></nav>
+<div class="mobile" id="mobile"><button class="x" id="mx" aria-label="Close menu">✕</button><a class="btn" href="#call" data-book style="font-size:.8rem">Book a call</a><a href="#elite">The framework</a><a href="#year">The year</a><a href="#trainer">Brandon</a><a href="#book">The book</a><a href="#shop">Shop</a><a href="#who">Who it’s for</a><a href="/automotive/">Dealerships</a><a href="/insurance/">Insurance</a><a href="/recruiting/">Recruiting</a><a href="/blog/">Blog</a><a href="https://portal.leadeliteacademy.com/hub" style="font-family:var(--imp);font-size:1rem;letter-spacing:.2em;color:var(--gold)">MEMBER PORTAL</a></div>
+
+<header class="hero" id="top">
+  <video autoplay muted loop playsinline poster="assets/hero-poster.jpg" aria-hidden="true"><source src="assets/hero-loop.mp4" type="video/mp4"></video>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow rv">The Lead Elite Academy</div>
+      <h1 class="rv d1">Build leaders who <em>don’t need you.</em></h1>
+      <p class="lead sub rv d2">A 52-week leadership operating system for your whole company. Your managers watch, execute and debrief every week, on your rhythm, until running the place without you is the default.</p>
+      <div class="credential rv d3"><span>Built by <b>Brandon Thornhill</b></span><span>Former <b>Navy SEAL</b></span><span><b>Nine-figure</b> sales architect</span></div>
+    </div>
+    <div id="trident" aria-hidden="true"><div class="fallback" style="background-image:url(trident-mark.webp)"></div></div>
+  </div>
+  <div class="hint">Scroll<i></i></div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div>
+  <span>Casualness Creates Casualties</span><span class="o">Systems Over Hope</span><span>Standards Over Feelings</span><span class="o">Duplicate Yourself</span><span>Execute Without You</span><span class="o">Built by a Navy SEAL</span>
+  <span>Casualness Creates Casualties</span><span class="o">Systems Over Hope</span><span>Standards Over Feelings</span><span class="o">Duplicate Yourself</span><span>Execute Without You</span><span class="o">Built by a Navy SEAL</span>
+</div></div>
+
+<section class="problem" id="problem"><div class="wrap two">
+  <div class="photo rv"><img src="assets/boardroom.webp" alt="A business owner alone at the head of an empty boardroom table at night" loading="lazy"><span class="chip">Everything still runs through you</span></div>
+  <div>
+    <div class="eyebrow rv">The problem</div>
+    <h2 class="rv d1">You’re the most capable person in your company. <em>That’s exactly the problem.</em></h2>
+    <p class="rv d2">Every fire, every next step, every real decision still lands on your desk. Your managers are good people who were never trained to lead, so they escalate. You’re not running a company, you’re babysitting one, and it stops growing at the edge of your calendar.</p>
+    <div class="quote rv d2">“You don’t rise to the level of your motivation. You default to the strength of your systems.”</div>
+    <p class="rv d3">The academy replaces motivation with a system: one weekly rhythm, one set of standards, run by your leaders in your business, with a record of who did the work.</p>
+  </div>
+</div></section>
+
+<section class="elite" id="elite"><div class="wrap">
+  <div class="head">
+    <div class="eyebrow rv">The framework</div>
+    <h2 class="rv d1">Five pillars. One operating system. <em>The ELITE Blueprint.</em></h2>
+    <p class="lead rv d2">Every week of the program trains one of these. Together they turn a team that waits for you into a team that runs without you.</p>
+  </div>
+  <div class="pillars">
+    <div class="pillar rv"><div class="letter">E</div><h3>Empowerment</h3><p>Ownership is given on purpose, with clear limits, so people stop asking permission and start making decisions.</p></div>
+    <div class="pillar rv d1"><div class="letter">L</div><h3>Leadership</h3><p>Leaders are duplicated, not hoarded. Your best people learn to build the next layer beneath them.</p></div>
+    <div class="pillar rv d2"><div class="letter">I</div><h3>Inspiration</h3><p>Standards are set by example and reinforced in rhythm, not by a speech once a quarter.</p></div>
+    <div class="pillar rv d3"><div class="letter">T</div><h3>Trust</h3><p>Controlled autonomy replaces micromanagement. Trust is earned through repeatable execution, then extended.</p></div>
+    <div class="pillar rv d3"><div class="letter">E</div><h3>Execution</h3><p>Weekly orders, debriefs and a monthly muster make follow-through the default, not the exception.</p></div>
+  </div>
+</div></section>
+
+<section class="year" id="year"><div class="wrap">
+  <div class="two" style="align-items:start">
+    <div>
+      <div class="eyebrow rv">How the year runs</div>
+      <h2 class="rv d1">52 weeks. 13 missions. <em>One rhythm.</em></h2>
+      <p class="lead rv d2">Every week your leaders watch a short lesson from Brandon, execute one order in the business, and debrief what happened. Every fourth week the whole company musters. Nothing is theory. Everything is done in the field.</p>
+      <div class="roles rv d3"><span>Management</span><span>Sales</span><span>Customer Service</span><span>Operations</span><span>Admin &amp; Back Office</span></div>
+    </div>
+    <div class="stats rv d1" style="margin:0">
+      <div class="stat"><b>52</b><span>Weeks</span></div>
+      <div class="stat"><b>13</b><span>Missions</span></div>
+      <div class="stat"><b>5</b><span>Roles trained</span></div>
+      <div class="stat"><b>1</b><span>Company rhythm</span></div>
+    </div>
+  </div>
+  <div class="rhythm">
+    <div class="step rv"><div class="k">Each week · Step 1</div><h3>Watch</h3><p>A lesson from Brandon, and the matching chapter from the book, read or listened to in his own voice.</p></div>
+    <div class="step rv d1"><div class="k">Each week · Step 2</div><h3>Execute</h3><p>One Execution Order, specific to the role. Something a manager does on the floor this week, not something they think about.</p></div>
+    <div class="step rv d2"><div class="k">Each week · Step 3</div><h3>Debrief</h3><p>What happened, what got in the way, what changes next week. Written, visible to the leader above them.</p></div>
+  </div>
+  <div class="muster rv d2"><div class="k">Every 4th week</div><p><b style="color:var(--cream)">Muster.</b> The company closes a mission together: results on the table, standards reset, next mission briefed.</p></div>
+</div></section>
+
+<section class="portal" id="portal"><div class="wrap two">
+  <div>
+    <div class="eyebrow rv">Inside the academy</div>
+    <h2 class="rv d1">Your leaders log in. <em>You see everything.</em></h2>
+    <p class="lead rv d2">Each company gets its own private academy. Seats for your people, a dashboard for whoever runs the place, and a record of who is actually doing the work.</p>
+    <ul class="rv d3">
+      <li><svg viewBox="0 0 24 24"><path d="M4 5h16v11H4zM8 20h8M12 16v4"/></svg><div><b>Weekly video lessons</b>Brandon on camera, one mission at a time, released on schedule.</div></li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 4h9l5 5v11H5zM14 4v5h5"/></svg><div><b>The book, built in</b>The ELITE Leadership Blueprint, chapter by chapter, plus the audiobook narrated in Brandon’s voice.</div></li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 19h16M7 16V9M12 16V5M17 16v-6"/></svg><div><b>Leader dashboard</b>Seats filled, weeks completed, debriefs submitted, per person and per company.</div></li>
+      <li><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg><div><b>Role-specific orders</b>Sales, service, operations, admin and management each get their own execution rider.</div></li>
+    </ul>
+    <div style="margin-top:2rem" class="rv d3"><a class="btn ghost" href="https://portal.leadeliteacademy.com/hub">Member login <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+  </div>
+  <div class="photo rv d1"><img src="assets/mezzanine.webp" alt="Managers from every department in a weekly debrief" loading="lazy"><span class="chip">Every role. Every week.</span></div>
+</div></section>
+
+<section class="trainer" id="trainer"><video class="reel" autoplay muted loop playsinline preload="metadata" poster="brandon-loop-poster.jpg" aria-hidden="true"><source src="brandon-loop.mp4" type="video/mp4"></video><div class="wrap two">
+  <div class="cut rv"><div class="big">THORNHILL</div><img src="assets/brandon-stage.png" alt="Brandon Thornhill speaking on stage"></div>
+  <div class="copy">
+    <div class="eyebrow rv">The trainer</div>
+    <h2 class="rv d1">Brandon Thornhill</h2>
+    <p class="lead rv d2">Former Navy SEAL and nine-figure sales architect. Fourteen years in the Navy, twelve of them as a SEAL, three combat deployments, and three years teaching First Phase at BUD/S, the course that decides who becomes a SEAL. Then he left and built a sales organization that produced more than $100 million in revenue, using the same systems.</p>
+    <div class="facts rv d2">
+      <div><b>SEAL Team Two</b><span>Iraq, Afghanistan, European SOF liaison</span></div>
+      <div><b>BUD/S instructor</b><span>First Phase, three years</span></div>
+      <div><b>$100M+</b><span>Sales organization built after service</span></div>
+      <div><b>21,000+</b><span>Following his leadership work on Instagram</span></div>
+    </div>
+    <p class="rv d3" style="color:var(--cream-70)">Author of <em>The ELITE Leadership Blueprint</em>. Host of <em>The Journey to Win</em> podcast. Consults for sales and executive teams from startups to nine-figure enterprises.</p>
+    <div class="social rv d3">
+      <a href="https://www.instagram.com/thebrandonthornhill/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.4 1.4 0 100 2.9 1.4 1.4 0 000-2.9z"/></svg>@thebrandonthornhill</a>
+      <a href="https://www.youtube.com/@thebrandonthornhill" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg>YouTube</a>
+      <a href="https://www.linkedin.com/in/brandonthornhill/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M20.4 20.4h-3.5v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6c.5-.9 1.6-1.9 3.3-1.9 3.6 0 4.2 2.4 4.2 5.4v6.3zM5.3 7.4a2.1 2.1 0 110-4.1 2.1 2.1 0 010 4.1zM7.1 20.4H3.6V9h3.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>LinkedIn</a>
+      <a href="https://podcasts.apple.com/us/podcast/the-journey-to-win/id1680958209" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-3.6 19.3l.4-2.4A7.6 7.6 0 1112 19.6l.4 2.4A10 10 0 0012 2zm0 5.3a4.7 4.7 0 00-1.9 9l.3-2.1a2.6 2.6 0 113.2 0l.3 2.1a4.7 4.7 0 00-1.9-9zM12 13a1.7 1.7 0 00-1.7 1.8L11 22h2l.7-7.2A1.7 1.7 0 0012 13z"/></svg>The Journey to Win</a>
+    </div>
+  </div>
+</div><div class="wrap live" id="live">
+  <div class="live-head rv"><div><div class="eyebrow">Hear him live</div><h3>Brandon on stage &middot; 90 seconds</h3></div><p>Real keynote footage. Turn your sound on.</p></div>
+  <button class="live-player rv d1" type="button" data-live="c1feadde-1612-4d92-8702-45cb59f98932" aria-label="Play Brandon Thornhill's 90-second speaker reel with sound">
+    <img src="assets/lea-reel-poster.jpg" alt="Lead Elite Academy presents Brandon Thornhill, former Navy SEAL and keynote speaker" loading="lazy" width="1280" height="720">
+    <span class="live-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+    <span class="live-tag">&#9654; Watch with sound &middot; 1:32</span>
+  </button>
+</div>
+<script>document.querySelectorAll('[data-live]').forEach(function(b){b.addEventListener('click',function(){var w=document.createElement('div');w.className='live-frame';var f=document.createElement('iframe');f.src='https://iframe.mediadelivery.net/embed/728526/'+b.dataset.live+'?autoplay=true&preload=true&responsive=true';f.title='Brandon Thornhill speaker reel';f.allow='accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen';f.allowFullscreen=true;w.appendChild(f);b.replaceWith(w);if(window.fbq)fbq('trackCustom','WatchReel');});});</script>
+</section>
+
+<section class="book" id="book"><div class="wrap two">
+  <div>
+    <div class="eyebrow rv">The book behind the program</div>
+    <h2 class="rv d1">The ELITE Leadership <em>Blueprint</em></h2>
+    <div class="rating rv d2"><span class="stars">★★★★★</span><span>5.0 on Amazon</span></div>
+    <p class="lead rv d2">A Navy SEAL’s proven system to duplicate leaders, scale ownership, and build teams that execute without you. Written for readers of <em>Extreme Ownership</em>, <em>Atomic Habits</em> and <em>The 5 Levels of Leadership</em> who are done with theory.</p>
+    <div class="quote rv d3">“You’re the most capable person on your team. And that’s the problem. You didn’t build your business to babysit it. You built it to scale.”<small>From the back cover</small></div>
+    <div class="ctas rv d3" style="display:flex;gap:14px;flex-wrap:wrap"><a class="btn ghost" href="https://www.amazon.com/dp/B0FHHLFDYL" target="_blank" rel="noopener">Get the book on Amazon <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+  </div>
+  <div id="book3d" aria-hidden="true"><div class="fallback" style="background-image:url(assets/bookcover.webp)"></div></div>
+</div></section>
+
+<section class="shop" id="shop"><div class="wrap">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="tri" viewBox="-60.8 -1 121.6 289.1"><path d="M0.0,0.0L3.9,9.2L5.3,13.1L5.9,14.1L7.3,18.0L12.7,30.8L12.9,31.9L12.8,112.4L13.0,113.0L13.8,113.5L25.5,113.5L26.8,113.0L30.9,108.8L35.0,103.2L38.0,97.9L40.0,93.0L41.2,89.1L42.2,84.0L42.9,74.9L42.9,67.8L41.9,46.5L44.0,38.4L49.3,14.8L50.2,12.6L50.7,12.6L51.0,13.4L51.3,15.5L52.0,17.8L52.3,19.9L53.0,22.1L53.3,24.1L56.8,38.5L58.0,44.6L58.9,46.9L59.0,54.6L59.8,67.4L59.8,75.1L58.9,86.0L56.8,95.9L53.9,103.8L51.9,107.9L49.2,112.2L49.2,113.0L49.5,113.4L53.2,113.6L53.5,114.0L53.5,114.8L45.3,137.9L44.0,138.5L12.0,138.5L11.3,139.4L5.4,286.4L4.8,287.0L-4.8,287.1L4.8,287.1L-4.8,287.0L-5.4,286.4L-11.3,139.4L-12.0,138.5L-44.0,138.5L-45.3,137.9L-53.5,114.8L-53.5,114.0L-53.2,113.6L-49.5,113.4L-49.2,113.0L-49.2,112.2L-51.9,107.9L-53.9,103.8L-56.8,95.9L-58.9,86.0L-59.8,75.1L-59.8,67.4L-59.0,54.6L-58.9,46.9L-58.0,44.6L-56.8,38.5L-53.3,24.1L-53.0,22.1L-52.3,19.9L-52.0,17.8L-51.3,15.5L-51.0,13.4L-50.7,12.6L-50.2,12.6L-49.3,14.8L-44.0,38.4L-41.9,46.5L-42.9,67.8L-42.9,74.9L-42.2,84.0L-41.2,89.1L-40.0,93.0L-38.0,97.9L-35.0,103.2L-30.9,108.8L-26.8,113.0L-25.5,113.5L-13.8,113.5L-13.0,113.0L-12.8,112.4L-12.9,31.9L-12.7,30.8L-7.3,18.0L-5.9,14.1L-5.3,13.1L-3.9,9.2Z"/></symbol></svg>
+  <div class="shophead">
+    <div>
+      <div class="eyebrow rv">The shop</div>
+      <h2 class="rv d1">Carry the standard <em>off the floor.</em></h2>
+      <p class="lead rv d2">The book that built the program<span class="nomerchcopy"> and</span><span class="merchcopy">,</span> the audiobook in Brandon’s own voice<span class="merchcopy">, and the gear</span>. Secure checkout by Stripe. <span class="merchcopy">Merch ships in the US; digital</span><span class="nomerchcopy">Digital</span> orders land in your inbox within a minute.</p>
+    </div>
+    <div class="orderok rv d2" id="orderok" hidden>
+      <b>Order received. Thank you.</b>
+      <span>Your receipt is on its way. Anything digital — audiobook access, the ebook link — is in the same email. Nothing there in five minutes? Check spam, then write <a href="mailto:admin@leadeliteacademy.com">admin@leadeliteacademy.com</a>.</span>
+    </div>
+    <div class="orderok cancel rv d2" id="ordercancel" hidden>
+      <b>Checkout cancelled.</b><span>Your cart is still here whenever you’re ready.</span>
+    </div>
+  </div>
+
+  <div class="pgrid rv d2" id="pgrid">
+
+    <article class="prod merch" data-sku="tee">
+      <div class="pimg photo"><img src="assets/shop-tee.webp" alt="Lead Elite Academy navy tee with gold trident" loading="lazy">
+        <span class="tag">Merch</span>
+      </div>
+      <div class="pbody">
+        <h3>Trident Tee</h3>
+        <p>Navy heavyweight tee, gold trident and wordmark on the chest. Unisex, true to size.</p>
+        <div class="sizes" role="radiogroup" aria-label="Size">
+          <button type="button" data-size="S">S</button><button type="button" data-size="M">M</button><button type="button" data-size="L">L</button><button type="button" data-size="XL">XL</button><button type="button" data-size="2XL">2XL</button>
+        </div>
+        <div class="prow"><span class="price" data-price>$34</span><button class="btn add" type="button" data-add>Add to cart</button></div>
+      </div>
+    </article>
+
+
+    <article class="prod merch" data-sku="tee_slogan">
+      <div class="pimg photo"><img src="assets/shop-tee-slogan.webp" alt="Navy tee with Casualness Creates Casualties back print" loading="lazy"><span class="tag">Merch</span></div>
+      <div class="pbody">
+        <h3>Casualness Creates Casualties Tee</h3>
+        <p>The slogan across the back, trident on the chest. Navy heavyweight, unisex.</p>
+        <div class="sizes" role="radiogroup" aria-label="Size">
+          <button type="button" data-size="S">S</button><button type="button" data-size="M">M</button><button type="button" data-size="L">L</button><button type="button" data-size="XL">XL</button><button type="button" data-size="2XL">2XL</button>
+        </div>
+        <div class="prow"><span class="price" data-price>$34</span><button class="btn add" type="button" data-add>Add to cart</button></div>
+      </div>
+    </article>
+
+    <article class="prod merch" data-sku="tee_cream">
+      <div class="pimg photo"><img src="assets/shop-tee-cream.webp" alt="Cream tee with navy embroidered trident and LEA" loading="lazy"><span class="tag">Merch</span></div>
+      <div class="pbody">
+        <h3>LEA Cream Tee</h3>
+        <p>Cream heavyweight tee, navy embroidered trident and LEA on the left chest. Quiet, expensive-looking.</p>
+        <div class="sizes" role="radiogroup" aria-label="Size">
+          <button type="button" data-size="S">S</button><button type="button" data-size="M">M</button><button type="button" data-size="L">L</button><button type="button" data-size="XL">XL</button><button type="button" data-size="2XL">2XL</button>
+        </div>
+        <div class="prow"><span class="price" data-price>$34</span><button class="btn add" type="button" data-add>Add to cart</button></div>
+      </div>
+    </article>
+
+    <article class="prod merch" data-sku="hat">
+      <div class="pimg photo"><img src="assets/shop-hat.webp" alt="Lead Elite Academy navy cap with gold trident" loading="lazy">
+        <span class="tag">Merch</span>
+      </div>
+      <div class="pbody">
+        <h3>Structured Cap</h3>
+        <p>Six-panel structured cap, gold embroidered trident, brass strap. One size.</p>
+        <div class="prow"><span class="price" data-price>$32</span><button class="btn add" type="button" data-add>Add to cart</button></div>
+      </div>
+    </article>
+
+
+    <article class="prod merch" data-sku="hat_dad">
+      <div class="pimg photo"><img src="assets/shop-hat-dad.webp" alt="Navy dad hat with gold trident and LEAD ELITE side embroidery" loading="lazy"><span class="tag">Merch</span></div>
+      <div class="pbody">
+        <h3>Lead Elite Dad Hat</h3>
+        <p>Unstructured low-profile cap, gold trident up front, LEAD ELITE stitched on the side. One size.</p>
+        <div class="prow"><span class="price" data-price>$32</span><button class="btn add" type="button" data-add>Add to cart</button></div>
+      </div>
+    </article>
+
+    <article class="prod" data-sku="paperback">
+      <div class="pimg cover"><img src="assets/bookcover.webp" alt="The ELITE Leadership Blueprint — cover" loading="lazy"><span class="tag">Paperback</span></div>
+      <div class="pbody">
+        <h3>The ELITE Leadership Blueprint</h3>
+        <p>The book behind the program, shipped from the academy. US shipping.</p>
+        <div class="prow"><span class="price" data-price>$24.99</span><button class="btn add" type="button" data-add>Add to cart</button></div>
+      </div>
+    </article>
+
+    <article class="prod" data-sku="ebook">
+      <div class="pimg cover digital"><img src="assets/bookcover.webp" alt="" loading="lazy"><span class="tag">Ebook · PDF</span></div>
+      <div class="pbody">
+        <h3>The Blueprint — ebook</h3>
+        <p>Read it tonight. A download link lands in your inbox the moment you pay.</p>
+        <div class="prow"><span class="price" data-price>$12.99</span><button class="btn add" type="button" data-add>Add to cart</button></div>
+      </div>
+    </article>
+
+    <article class="prod" data-sku="audiobook">
+      <div class="pimg cover digital audio"><img src="assets/bookcover.webp" alt="" loading="lazy"><span class="tag">Audiobook</span><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pbody">
+        <h3>The Blueprint — audiobook</h3>
+        <p>Narrated by Brandon himself. Streams in your own Lead Elite Academy login, chapter by chapter, on any phone.</p>
+        <div class="prow"><span class="price" data-price>$39</span><button class="btn add" type="button" data-add>Add to cart</button></div>
+      </div>
+    </article>
+
+    <article class="prod best" data-sku="bundle">
+      <div class="pimg photo"><img src="assets/shop-bundle.webp" alt="The ELITE Leadership Blueprint with cap, tee and headphones" loading="lazy"><span class="tag gold">Best value</span><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>
+      <div class="pbody">
+        <h3>Paperback + Audiobook</h3>
+        <p>The book on your desk and Brandon in your ear on the drive in. Save on both.</p>
+        <div class="prow"><span class="price" data-price>$49</span><button class="btn add" type="button" data-add>Add to cart</button></div>
+      </div>
+    </article>
+
+  </div>
+  <p class="shopnote rv d3"><span class="pricing">Prices in USD. Flat $6 US shipping on <span class="merchcopy">merch and </span>books, free over $60. Sales tax calculated at checkout. </span>Questions or bulk orders for your team: <a href="mailto:admin@leadeliteacademy.com">admin@leadeliteacademy.com</a>.</p>
+</div></section>
+
+<div class="cartov" id="cartov"></div>
+<aside class="cart" id="cart" aria-label="Your cart" aria-hidden="true">
+  <div class="chead"><b>Your cart</b><button class="x" id="cartx" type="button" aria-label="Close cart">✕</button></div>
+  <div class="clines" id="clines"></div>
+  <div class="cfoot">
+    <div class="crow"><span>Subtotal</span><b id="csub">$0</b></div>
+    <div class="cship" id="cship"></div>
+    <div class="cerr" id="cerr" role="alert"></div>
+    <button class="btn" id="checkout" type="button">Checkout <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+    <small>Secure payment by Stripe · Apple Pay, Google Pay, cards</small>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+
+<section class="who" id="who"><div class="wrap">
+  <div class="eyebrow rv">Who it’s built for</div>
+  <h2 class="rv d1">Any company where <em>the leader is the bottleneck.</em></h2>
+  <p class="lead rv d2">The five roles exist in every business: management, sales, customer service, operations, and the back office. Pick your industry to see how the year maps onto your floor.</p>
+  <div class="tabs rv d2" role="tablist" id="tabs"><button role="tab" data-id="dealerships" aria-selected="false">Car dealerships</button><button role="tab" data-id="trades" aria-selected="false">Trades & home services</button><button role="tab" data-id="solar" aria-selected="false">Solar & energy</button><button role="tab" data-id="insurance" aria-selected="false">Insurance & financial</button><button role="tab" data-id="sales" aria-selected="false">Sales organizations</button><button role="tab" data-id="manufacturing" aria-selected="false">Manufacturing & logistics</button><button role="tab" data-id="healthcare" aria-selected="false">Healthcare & practices</button><button role="tab" data-id="realestate" aria-selected="false">Real estate & property</button><button role="tab" data-id="franchise" aria-selected="false">Franchises & multi-location</button><button role="tab" data-id="professional" aria-selected="false">Professional services & everyone else</button></div>
+  <div id="panels" class="rv d3"><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Car dealerships</div><h3>Your best closer became a manager. <em>Now the floor has no closer and no leader.</em></h3><p>Sales floor, service drive, F&I, BDC, parts. Turnover eats the store because managers were promoted for numbers, not trained to lead. The GM is the only person who can make a decision and everyone knows it.</p></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>GM, GSM, fixed-ops director</span></div><div><b>Sales</b><span>Desk managers, sales managers, BDC leads</span></div><div><b>Customer service</b><span>Service advisors, service managers</span></div><div><b>Operations</b><span>Shop foreman, parts, recon, lot</span></div><div><b>Back office</b><span>F&I, title, accounting, HR</span></div></div><div class="how"><div class="k">How we help · from the book and the weekly orders</div><div class="tacs"><div class="t"><div class="wk">Week 4</div><b>Build Your First SOP</b><p>The desk manager writes the deal-to-F&I handoff. The service manager writes the 7 a.m. drive rush. The store stops running on whoever showed up.</p></div><div class="t"><div class="wk">Week 16</div><b>SOSS: Stop Pushing Problems Up</b><p>Every “can I grab the GM?” becomes a decision the manager makes inside limits you set. The tower stops being the bottleneck.</p></div><div class="t"><div class="wk">Weeks 29–32</div><b>The Five Elements of Trust</b><p>Sales and service have been at war for thirty years. Competence, character, consistency, clear communication and caring, run as a system between the floor and the drive.</p></div><div class="t"><div class="wk">Weeks 38–40</div><b>The 70% Rule and the Leadership Pipeline</b><p>Where the next desk manager actually comes from: promote at 70%, duplicate with “I do, you watch,” and build a bench the group can pull from.</p></div></div><div class="inportal"><b>In the portal</b><span>Every manager gets an order for their own drive each week. The GM dashboard shows who posted a debrief and who went silent, store by store.</span><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div></div></div><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Trades & home services</div><h3>Great technicians. <em>Nobody trained the foreman to run people.</em></h3><p>Roofing, HVAC, plumbing, electrical, landscaping, pest control. Crews run on whoever showed up, dispatch fights the office, and the owner is still the one answering every escalation from the truck.</p></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>Owner, GM, branch managers</span></div><div><b>Sales</b><span>Estimators, in-home closers, inside sales</span></div><div><b>Customer service</b><span>CSRs, dispatch, warranty</span></div><div><b>Operations</b><span>Foremen, crew leads, install, fleet</span></div><div><b>Back office</b><span>Billing, permits, scheduling, admin</span></div></div><div class="how"><div class="k">How we help · from the book and the weekly orders</div><div class="tacs"><div class="t"><div class="wk">Week 4</div><b>Build Your First SOP</b><p>Morning dispatch, job-site start, end-of-day close-out. Written by the foreman who runs it, not by the owner at midnight.</p></div><div class="t"><div class="wk">Week 14</div><b>Direction That Survives the Handoff</b><p>The estimator’s promise reaches the crew lead intact. Fewer callbacks, fewer “nobody told me,” fewer change orders eaten by the company.</p></div><div class="t"><div class="wk">Week 19</div><b>DRILL and RESET</b><p>How a foreman corrects a crew hard after a callback and rebuilds the guy fast, without losing him to the competitor down the road.</p></div><div class="t"><div class="wk">Week 39</div><b>I Do, You Watch</b><p>The three phases that turn your best tech into a foreman who can run a second truck, instead of a great tech you lost to burnout.</p></div></div><div class="inportal"><b>In the portal</b><span>Crew leads post their debrief from the truck on a phone. The book plays as audio for the guys who will never read it. Operations riders speak in job-site terms.</span><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div></div></div><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Solar & energy</div><h3>Setters set. Closers close. <em>Then the install backlog kills the referral.</em></h3><p>Door-to-door and inside teams scale fast and burn out faster. The handoff from sales to permitting to install is where customers get lost, and the only person who sees the whole chain is you.</p></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>Owner, regional and office managers</span></div><div><b>Sales</b><span>Setters, closers, team leads</span></div><div><b>Customer service</b><span>Project coordinators, customer success</span></div><div><b>Operations</b><span>Install crews, site survey, electricians</span></div><div><b>Back office</b><span>Permitting, interconnection, finance, admin</span></div></div><div class="how"><div class="k">How we help · from the book and the weekly orders</div><div class="tacs"><div class="t"><div class="wk">Week 5</div><b>The CALM Framework</b><p>Holding state after forty doors and a cancel. Emotional control is a job skill, and it is the difference between a setter who lasts and one who quits in month three.</p></div><div class="t"><div class="wk">Week 14</div><b>Direction That Survives the Handoff</b><p>Sale to permitting to install to PTO, with the customer never wondering who owns them. The referral survives the backlog.</p></div><div class="t"><div class="wk">Weeks 25–28</div><b>IGNITE: Identity, Not Income</b><p>Spiffs move a setter for a week. Purpose moves him for a year. Team leads learn to connect the work to what the person actually wants.</p></div><div class="t"><div class="wk">Week 38</div><b>The 70% and 80% Rules</b><p>Promoting team leads before they feel ready, on purpose, with a standard to grow into instead of a title to hide behind.</p></div></div><div class="inportal"><b>In the portal</b><span>Field teams debrief on mobile between doors. The leaderboard gives a competitive floor something to chase besides the spiff board.</span><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div></div></div><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Insurance & financial</div><h3>The agency grows exactly as fast as <em>the owner can personally close.</em></h3><p>Agencies, brokerages, advisors, mortgage and lending teams. Producers get promoted to team lead with zero leadership training, retention is a coin flip, and compliance lands on one desk.</p></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>Agency owner, sales director, team leads</span></div><div><b>Sales</b><span>Producers, advisors, loan officers</span></div><div><b>Customer service</b><span>Account managers, client service, claims</span></div><div><b>Operations</b><span>Underwriting support, processing, licensing</span></div><div><b>Back office</b><span>Compliance, admin, bookkeeping</span></div></div><div class="how"><div class="k">How we help · from the book and the weekly orders</div><div class="tacs"><div class="t"><div class="wk">Week 15</div><b>The EDGE Framework</b><p>Producers who own their book and their pipeline, instead of waiting for the owner to hand them the next lead.</p></div><div class="t"><div class="wk">Week 18</div><b>COACHH and LEAD: Connect Before You Correct</b><p>A weekly one-on-one structure for team leads who have never coached anyone, so the conversation is about the number without being only about the number.</p></div><div class="t"><div class="wk">Week 36</div><b>BAMFAM: Book a Meeting From a Meeting</b><p>Every client review books the next review. Every coaching call books the next coaching call. Retention becomes a calendar, not a hope.</p></div><div class="t"><div class="wk">Week 42</div><b>Define the Non-Negotiables</b><p>Compliance and service standards that live in a system, so they survive a producer leaving and a team lead changing.</p></div></div><div class="inportal"><b>In the portal</b><span>Back-office and compliance staff get their own weekly rider. The owner sees every team lead’s debrief without sitting in every meeting.</span><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div></div></div><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Sales organizations</div><h3>Direct sales, inside sales, field sales. <em>The manager still carries the number.</em></h3><p>Any org where front-line managers were the best reps last year. They coach by doing the deal themselves, the team never learns, and the number depends on three people not quitting.</p></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>VP sales, sales directors, managers</span></div><div><b>Sales</b><span>SDRs, AEs, field reps, team leads</span></div><div><b>Customer service</b><span>Onboarding, account management</span></div><div><b>Operations</b><span>Sales ops, enablement, CRM</span></div><div><b>Back office</b><span>Commissions, admin, HR</span></div></div><div class="how"><div class="k">How we help · from the book and the weekly orders</div><div class="tacs"><div class="t"><div class="wk">Weeks 9–12</div><b>The SCALE Method: Copy the Best</b><p>A repeatable way to clone what your top rep does, instead of hoping the new hires figure it out by sitting next to her.</p></div><div class="t"><div class="wk">Week 20</div><b>BOOST, RISEE and QUEST</b><p>Coaching your best people, not just the bottom of the board. Top performers leave when nobody is developing them.</p></div><div class="t"><div class="wk">Week 33</div><b>The Obsessed, the Committed, the Interested and the Infected</b><p>Name who is who on your floor, and deal with the infection before it spreads to the committed.</p></div><div class="t"><div class="wk">Week 37</div><b>The Three Gaps That Kill Growth</b><p>Why a manager who still carries the number caps the team at the size of his own calendar, and what to do about it this quarter.</p></div></div><div class="inportal"><b>In the portal</b><span>Weekly numbers card on every member’s page. Leaderboard points for completed weeks and debriefs. Sales riders on the weeks where the order needs a sales-floor translation.</span><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div></div></div><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Manufacturing & logistics</div><h3>Shift leads promoted for skill on the line, <em>never trained to lead the line.</em></h3><p>Plants, warehouses, fleets, distribution. Supervisors inherit a shift and a clipboard. Safety, quality and throughput all come down to whether that supervisor can hold a standard without the plant manager standing there.</p></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>Plant manager, ops directors, supervisors</span></div><div><b>Sales</b><span>Account reps, inside sales, customer teams</span></div><div><b>Customer service</b><span>Order desk, dispatch, support</span></div><div><b>Operations</b><span>Shift leads, maintenance, drivers, quality</span></div><div><b>Back office</b><span>Scheduling, purchasing, HR, safety admin</span></div></div><div class="how"><div class="k">How we help · from the book and the weekly orders</div><div class="tacs"><div class="t"><div class="wk">Week 3</div><b>Accountability Is a Process, Not Pressure</b><p>A shift-level accountability loop that doesn’t depend on the supervisor yelling louder or the plant manager walking the floor.</p></div><div class="t"><div class="wk">Weeks 13–14</div><b>Communication That Survives the Shift Change</b><p>Most of what gets called a people problem on the floor is an instruction problem. Clarity as a discipline, especially at the handoff.</p></div><div class="t"><div class="wk">Weeks 41–44</div><b>Controlled Autonomy</b><p>Safety and quality as non-negotiables, earned ownership for the leads who hold them, and trust-but-verify loops so the standard survives a supervisor change.</p></div><div class="t"><div class="wk">Week 47</div><b>The CULTURE Framework</b><p>Every plant already has a culture. This is how a shift lead chooses it instead of inheriting it from whoever complains loudest.</p></div></div><div class="inportal"><b>In the portal</b><span>Operations riders written for the line, not the office. Debriefs post at shift end. The audiobook runs on the commute for people who won’t sit with a chapter.</span><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div></div></div><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Healthcare & practices</div><h3>Multi-location clinics where <em>the office manager is holding the whole thing together.</em></h3><p>Dental, med-spa, chiropractic, physical therapy, veterinary, urgent care. Providers produce, front desks turn over, and the practice owner is the only leader in the building.</p></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>Practice owner, regional and office managers</span></div><div><b>Sales</b><span>Treatment coordinators, membership, front desk closers</span></div><div><b>Customer service</b><span>Front desk, patient coordinators</span></div><div><b>Operations</b><span>Clinical leads, assistants, techs</span></div><div><b>Back office</b><span>Billing, insurance, scheduling, HR</span></div></div><div class="how"><div class="k">How we help · from the book and the weekly orders</div><div class="tacs"><div class="t"><div class="wk">Week 8</div><b>Take Ownership</b><p>The office manager stops absorbing every problem in the building and starts distributing ownership of the schedule, the phones and the follow-up.</p></div><div class="t"><div class="wk">Week 15</div><b>The EDGE Framework</b><p>A front desk that owns the schedule and the recall list, instead of asking the doctor what to do with a cancellation.</p></div><div class="t"><div class="wk">Week 31</div><b>Caring and Connection</b><p>Trust between providers and staff, and between the practice and the patient, built as a repeatable behavior instead of a personality trait.</p></div><div class="t"><div class="wk">Week 46</div><b>Attract, Move, Overdeliver</b><p>Why the front desk keeps turning over, and the culture moves that make the good ones stay.</p></div></div><div class="inportal"><b>In the portal</b><span>One dashboard across every location. Each office manager runs the same weekly rhythm, and the owner sees which locations are actually doing it.</span><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div></div></div><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Real estate & property</div><h3>Top producer opens a brokerage. <em>Now nobody is producing and nobody is leading.</em></h3><p>Brokerages, teams, property management. Agents are independent, managers are former agents, and culture is whatever the last team meeting happened to be.</p></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>Broker-owner, team leaders, regional</span></div><div><b>Sales</b><span>Agents, ISAs, leasing</span></div><div><b>Customer service</b><span>Transaction coordinators, tenant relations</span></div><div><b>Operations</b><span>Property ops, maintenance, marketing</span></div><div><b>Back office</b><span>Compliance, accounting, admin</span></div></div><div class="how"><div class="k">How we help · from the book and the weekly orders</div><div class="tacs"><div class="t"><div class="wk">Week 12</div><b>SEAR: How to Be Coachable</b><p>Independent agents who will actually take coaching, and team leads who know how to give it without a W-2 to lean on.</p></div><div class="t"><div class="wk">Week 25</div><b>Identity, Not Income</b><p>Agents who stay when the market turns, because the work is tied to who they are and not to last quarter’s commission.</p></div><div class="t"><div class="wk">Week 36</div><b>BAMFAM: Book a Meeting From a Meeting</b><p>The appointment-from-an-appointment discipline applied to lead follow-up, past clients and agent one-on-ones.</p></div><div class="t"><div class="wk">Week 43</div><b>Earned Ownership</b><p>Team leads who earn autonomy through repeatable execution, instead of getting a title because they closed the most last year.</p></div></div><div class="inportal"><b>In the portal</b><span>Agents debrief weekly in one thread the broker can read. Sales riders translate each order for a 1099 floor.</span><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div></div></div><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Franchises & multi-location</div><h3>The same standard in every location, <em>visible from one dashboard.</em></h3><p>Restaurants, fitness, retail, auto service, salons. Every location is a copy of the founder until the founder cannot be in every location. Store managers need the same weekly rhythm, and you need to see who is running it.</p></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>Owner, district and store managers</span></div><div><b>Sales</b><span>Membership, front-of-house, upsell</span></div><div><b>Customer service</b><span>Front line, guest experience</span></div><div><b>Operations</b><span>Shift leads, kitchen, floor, inventory</span></div><div><b>Back office</b><span>Payroll, scheduling, compliance, admin</span></div></div><div class="how"><div class="k">How we help · from the book and the weekly orders</div><div class="tacs"><div class="t"><div class="wk">Week 4 + Week 42</div><b>SOPs and Non-Negotiables</b><p>The standard written once, held everywhere, and defined tightly enough to survive a store manager leaving on a Friday.</p></div><div class="t"><div class="wk">Week 40</div><b>The Leadership Pipeline</b><p>A bench of assistant managers ready to run the next location, built on purpose instead of promoted in a panic.</p></div><div class="t"><div class="wk">Week 44</div><b>Accountability Loops: Trust, But Verify</b><p>How a district manager verifies the standard across ten locations without living in the car.</p></div><div class="t"><div class="wk">Week 48</div><b>The BEAR Cycle</b><p>Negativity goes up the chain, positivity goes down it. The culture rule that keeps one bad shift lead from souring a whole store.</p></div></div><div class="inportal"><b>In the portal</b><span>Every location gets its own seat group and its own debrief thread. The owner drills into any store from one screen.</span><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div></div></div><div class="panel" role="tabpanel"><div class="txt"><div class="eyebrow">Professional services & everyone else</div><h3>Law, accounting, agencies, construction, tech, non-profits. <em>Same five roles. Same problem.</em></h3><p>If you have managers who run the day and you run the managers, the program fits. Partners, principals and founders all hit the same wall: the business stops growing at the edge of their calendar.</p></div><div class="map"><div class="k" style="display:block;border:0;padding:0">The five roles, in your business</div><div><b>Management</b><span>Partners, principals, department heads</span></div><div><b>Sales</b><span>Business development, account leads</span></div><div><b>Customer service</b><span>Client service, account management</span></div><div><b>Operations</b><span>Project managers, delivery, production</span></div><div><b>Back office</b><span>Finance, HR, admin, IT</span></div></div><div class="how"><div class="k">How we help · from the book and the weekly orders</div><div class="tacs"><div class="t"><div class="wk">Week 2</div><b>You Fall to the Level of Your Systems</b><p>Hope is not a strategy. The firm that runs on the founder’s memory gets a system for the first time.</p></div><div class="t"><div class="wk">Week 17</div><b>ELITE Coaching: The Macro Loop</b><p>Partners coaching associates and department heads coaching leads, with one named structure every conversation runs on.</p></div><div class="t"><div class="wk">Weeks 21–24</div><b>Lead Yourself: The Six F’s</b><p>Burnout is the retention problem nobody budgets for. Faith, family, fitness, finance, future self and fun, as a leadership discipline.</p></div><div class="t"><div class="wk">Week 50</div><b>The Three Legacy Questions</b><p>Succession that is built, not given. What the firm looks like when the founder is not in the room.</p></div></div><div class="inportal"><b>In the portal</b><span>The five roles map onto any org chart. Each department head runs the same weekly rhythm and the principal sees all of it.</span><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div></div></div></div>
+</div></section>
+
+<section class="final" id="call"><div class="wrap">
+  <div class="eyebrow rv">Next step</div>
+  <h2 class="rv d1">Stop being the <em>bottleneck.</em></h2>
+  <p class="lead rv d2">One call. Brandon and the team walk you through how the year runs, what your leaders will actually do each week, and what it costs for your company. No deck to sit through.</p>
+  <div class="ctas rv d3"><a class="btn" href="#call" data-book>Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a><a class="btn ghost" href="https://portal.leadeliteacademy.com/hub">Member portal</a></div>
+  <div class="lockup rv d3"><div class="rule"></div><svg class="mark" viewBox="-60.8 -1 121.6 289.1" fill="#C8A34B" aria-hidden="true"><path d="M0.0,0.0L3.9,9.2L5.3,13.1L5.9,14.1L7.3,18.0L12.7,30.8L12.9,31.9L12.8,112.4L13.0,113.0L13.8,113.5L25.5,113.5L26.8,113.0L30.9,108.8L35.0,103.2L38.0,97.9L40.0,93.0L41.2,89.1L42.2,84.0L42.9,74.9L42.9,67.8L41.9,46.5L44.0,38.4L49.3,14.8L50.2,12.6L50.7,12.6L51.0,13.4L51.3,15.5L52.0,17.8L52.3,19.9L53.0,22.1L53.3,24.1L56.8,38.5L58.0,44.6L58.9,46.9L59.0,54.6L59.8,67.4L59.8,75.1L58.9,86.0L56.8,95.9L53.9,103.8L51.9,107.9L49.2,112.2L49.2,113.0L49.5,113.4L53.2,113.6L53.5,114.0L53.5,114.8L45.3,137.9L44.0,138.5L12.0,138.5L11.3,139.4L5.4,286.4L4.8,287.0L-4.8,287.1L4.8,287.1L-4.8,287.0L-5.4,286.4L-11.3,139.4L-12.0,138.5L-44.0,138.5L-45.3,137.9L-53.5,114.8L-53.5,114.0L-53.2,113.6L-49.5,113.4L-49.2,113.0L-49.2,112.2L-51.9,107.9L-53.9,103.8L-56.8,95.9L-58.9,86.0L-59.8,75.1L-59.8,67.4L-59.0,54.6L-58.9,46.9L-58.0,44.6L-56.8,38.5L-53.3,24.1L-53.0,22.1L-52.3,19.9L-52.0,17.8L-51.3,15.5L-51.0,13.4L-50.7,12.6L-50.2,12.6L-49.3,14.8L-44.0,38.4L-41.9,46.5L-42.9,67.8L-42.9,74.9L-42.2,84.0L-41.2,89.1L-40.0,93.0L-38.0,97.9L-35.0,103.2L-30.9,108.8L-26.8,113.0L-25.5,113.5L-13.8,113.5L-13.0,113.0L-12.8,112.4L-12.9,31.9L-12.7,30.8L-7.3,18.0L-5.9,14.1L-5.3,13.1L-3.9,9.2Z"/></svg><div class="slogan">Casualness <span>Creates</span> Casualties</div></div>
+</div></section>
+
+<footer><div class="wrap">
+  <div><small>Casualness Creates Casualties</small>© <span id="yr"></span> Lead Elite Academy · Elite Leadership Consulting Group</div>
+  <div class="fl"><a href="/">Home</a><a href="/blog/">Blog</a><a href="https://portal.leadeliteacademy.com/hub">Member portal</a><a href="mailto:admin@leadeliteacademy.com">Contact</a><a href="https://brandonthornhill.com" target="_blank" rel="noopener">brandonthornhill.com</a></div>
+</div></footer>
+<div class="vm" id="vm" role="dialog" aria-modal="true" aria-label="Video"><div class="box"><div class="cap">Brandon Thornhill · The Lead Elite Academy</div><button class="x" id="vmx">Close ✕</button><iframe id="vmf" src="about:blank" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy" title="Brandon Thornhill explains the Lead Elite Academy"></iframe></div></div>
+<div class="sticky"><a class="btn" href="#call" data-book>Book a call</a></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ===== CONFIG — the only block that needs editing at launch ===== */
+const LEA = {
+  BOOKING_URL: "https://calendly.com/admin-leadeliteacademy/30min",                     // Calendly / GHL link. Empty = email fallback.
+  CONTACT_EMAIL: "admin@leadeliteacademy.com",
+  META_PIXEL_ID: "",                     // optional
+  SHOP_API: "https://portal.leadeliteacademy.com",  // Stripe checkout lives on the portal
+  SHOW_PRICES: true,                     // set false to hide all prices
+  PRICES_TBD: true,                      // show "TBD" instead of numbers and hold checkout
+  SHOW_MERCH: false                      // shirts + hats hidden until stock is real
+};
+/* =============================================================== */
+(function(){
+  // booking fallback
+  const mail = "mailto:"+LEA.CONTACT_EMAIL+"?subject="+encodeURIComponent("Lead Elite Academy — book a call")+"&body="+encodeURIComponent("Company:\nLocations / team size:\nBest time to call:\n");
+  document.querySelectorAll('[data-book]').forEach(a=>{ a.href = LEA.BOOKING_URL || mail; if(LEA.BOOKING_URL){a.target="_blank";a.rel="noopener";}
+    a.addEventListener('click',()=>{ if(window.fbq) fbq('track','Lead'); }); });
+  if(LEA.META_PIXEL_ID){ !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init',LEA.META_PIXEL_ID); fbq('track','PageView'); }
+
+  // industry tabs
+  const tabs=[...document.querySelectorAll('#tabs button')], panels=[...document.querySelectorAll('#panels .panel')];
+  const pick=i=>{ tabs.forEach((b,j)=>b.setAttribute('aria-selected',i===j)); panels.forEach((p,j)=>p.classList.toggle('on',i===j)); };
+  tabs.forEach((b,i)=>b.onclick=()=>pick(i));
+  const byHash=()=>{ const h=location.hash.replace('#',''); const hi=tabs.findIndex(b=>b.dataset.id===h); if(hi>=0){ pick(hi); document.getElementById('who').scrollIntoView(); return true; } return false; };
+  if(!byHash()) pick(0); addEventListener('hashchange',byHash);
+
+  // video modal (Bunny Stream)
+  const vm=document.getElementById('vm'), vmf=document.getElementById('vmf');
+  const openV=g=>{ vmf.src='https://iframe.mediadelivery.net/embed/728526/'+g+'?autoplay=true&preload=true'; vm.classList.add('open'); document.body.style.overflow='hidden'; if(window.fbq) fbq('trackCustom','WatchPitch'); };
+  const closeV=()=>{ vm.classList.remove('open'); vmf.src='about:blank'; document.body.style.overflow=''; };
+  document.querySelectorAll('[data-watch]').forEach(b=>b.addEventListener('click',()=>openV(b.dataset.watch)));
+  document.getElementById('vmx').onclick=closeV; vm.addEventListener('click',e=>{ if(e.target===vm) closeV(); });
+  addEventListener('keydown',e=>{ if(e.key==='Escape' && vm.classList.contains('open')) closeV(); });
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // strip + nav
+  const strip=document.getElementById('strip'), nav=document.getElementById('nav');
+  const onScroll=()=>{ const y=window.scrollY; strip.classList.toggle('hide',y>40); nav.classList.toggle('stuck',y>40); };
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  // mobile menu
+  const mob=document.getElementById('mobile');
+  document.getElementById('burger').onclick=()=>mob.classList.add('open');
+  document.getElementById('mx').onclick=()=>mob.classList.remove('open');
+  mob.querySelectorAll('a,button[data-watch]').forEach(a=>a.addEventListener('click',()=>mob.classList.remove('open')));
+
+  // reveal
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // hero video: don't fight reduced-motion users
+  const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const vid=document.querySelector('.hero video'); if(vid && rm){ vid.pause(); vid.removeAttribute('autoplay'); }
+
+  /* ===================== 3D ===================== */
+  if(!window.THREE) return;
+  let glOK=true; try{ const c=document.createElement('canvas'); glOK=!!(c.getContext('webgl')||c.getContext('experimental-webgl')); }catch(e){glOK=false}
+  if(!glOK) return;
+
+  // procedural environment: navy sky, gold floor glow — gives the metal something to reflect
+  function makeEnv(){
+    const size=128, faces=[];
+    for(let i=0;i<6;i++){
+      const cv=document.createElement('canvas'); cv.width=cv.height=size; const g=cv.getContext('2d');
+      let grad;
+      if(i===2){ grad=g.createRadialGradient(size/2,size/2,4,size/2,size/2,size*.7); grad.addColorStop(0,'#fff4d6'); grad.addColorStop(.35,'#c8a34b'); grad.addColorStop(1,'#0b1f3f'); }
+      else if(i===3){ grad=g.createRadialGradient(size/2,size/2,4,size/2,size/2,size*.7); grad.addColorStop(0,'#7a5f24'); grad.addColorStop(1,'#03070f'); }
+      else { grad=g.createLinearGradient(0,0,0,size); grad.addColorStop(0,'#1a3a6e'); grad.addColorStop(.5,'#081a33'); grad.addColorStop(1,'#03070f'); }
+      g.fillStyle=grad; g.fillRect(0,0,size,size);
+      // a couple of soft "studio lights"
+      g.globalAlpha=.55; g.fillStyle='#ead9ac';
+      const lx=(i*37)%size, ly=(i*53)%size; g.beginPath(); g.ellipse(lx,ly,size*.22,size*.08,0,0,Math.PI*2); g.fill();
+      faces.push(cv);
+    }
+    const tex=new THREE.CubeTexture(faces); tex.needsUpdate=true; return tex;
+  }
+  const env=makeEnv();
+  const gold=()=>new THREE.MeshStandardMaterial({color:0xC8A34B, metalness:1, roughness:.28, envMap:env, envMapIntensity:1.4});
+
+  function scene(el){
+    const r=new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:'high-performance'}); r.setPixelRatio(Math.min(devicePixelRatio,2)); r.outputEncoding=THREE.sRGBEncoding;
+    el.appendChild(r.domElement); el.querySelector('.fallback')?.remove();
+    const s=new THREE.Scene(); const cam=new THREE.PerspectiveCamera(32,1,.1,100); cam.position.set(0,0,9);
+    s.add(new THREE.AmbientLight(0x33456a,.9));
+    const key=new THREE.DirectionalLight(0xfff1cc,1.6); key.position.set(4,6,6); s.add(key);
+    const rim=new THREE.DirectionalLight(0xc8a34b,1.2); rim.position.set(-6,-2,-4); s.add(rim);
+    const back=new THREE.DirectionalLight(0xffe9bd,1.15); back.position.set(-3,4,-7); s.add(back);
+    const fill=new THREE.PointLight(0x5b7fc0,.8,30); fill.position.set(-4,3,4); s.add(fill);
+    const size=()=>{ const w=el.clientWidth, h=el.clientHeight||w; r.setSize(w,h,false); cam.aspect=w/h; cam.updateProjectionMatrix(); };
+    size(); addEventListener('resize',size);
+    let vis=true; new IntersectionObserver(e=>{vis=e[0].isIntersecting},{threshold:0}).observe(el);
+    return {r,s,cam,isVisible:()=>vis};
+  }
+
+  // pointer (shared)
+  const P={x:0,y:0,tx:0,ty:0}; addEventListener('pointermove',e=>{P.tx=(e.clientX/innerWidth-.5)*2; P.ty=(e.clientY/innerHeight-.5)*2;},{passive:true});
+  addEventListener('deviceorientation',e=>{ if(e.gamma!=null){P.tx=Math.max(-1,Math.min(1,e.gamma/30)); P.ty=Math.max(-1,Math.min(1,(e.beta-45)/30));} },{passive:true});
+
+  /* ---- TRIDENT ---- */
+  const tEl=document.getElementById('trident');
+  let trident=null;
+  if(tEl){
+    const T=scene(tEl); T.cam.position.set(0,0,12.5); const g=new THREE.Group(); T.s.add(g);
+    const m=gold();
+    const add=(geo,x,y,z,rx,ry,rz)=>{ const mesh=new THREE.Mesh(geo,m); mesh.position.set(x,y,z); if(rx!=null) mesh.rotation.set(rx,ry,rz); g.add(mesh); return mesh; };
+    // the ELC trident — extruded from the traced brand mark, not primitives
+    const PT=[[0.0,3.3],[0.0897,3.0885],[0.1218,2.9989],[0.1356,2.9759],[0.1678,2.8862],[0.292,2.592],[0.2966,2.5667],[0.2943,0.7161],[0.2989,0.7023],[0.3172,0.6908],[0.5862,0.6908],[0.6161,0.7023],[0.7103,0.7989],[0.8046,0.9276],[0.8736,1.0494],[0.9195,1.1621],[0.9471,1.2517],[0.9701,1.369],[0.9862,1.5782],[0.9862,1.7414],[0.9632,2.231],[1.0115,2.4172],[1.1333,2.9598],[1.154,3.0103],[1.1655,3.0103],[1.1724,2.992],[1.1793,2.9437],[1.1954,2.8908],[1.2023,2.8425],[1.2184,2.792],[1.2253,2.746],[1.3057,2.4149],[1.3333,2.2747],[1.354,2.2218],[1.3563,2.0448],[1.3747,1.7506],[1.3747,1.5736],[1.354,1.323],[1.3057,1.0954],[1.2391,0.9138],[1.1931,0.8195],[1.131,0.7207],[1.131,0.7023],[1.1379,0.6931],[1.223,0.6885],[1.2299,0.6793],[1.2299,0.6609],[1.0414,0.1299],[1.0115,0.1161],[0.2759,0.1161],[0.2598,0.0954],[0.1241,-3.2839],[0.1103,-3.2977],[-0.1103,-3.3],[0.1103,-3.3],[-0.1103,-3.2977],[-0.1241,-3.2839],[-0.2598,0.0954],[-0.2759,0.1161],[-1.0115,0.1161],[-1.0414,0.1299],[-1.2299,0.6609],[-1.2299,0.6793],[-1.223,0.6885],[-1.1379,0.6931],[-1.131,0.7023],[-1.131,0.7207],[-1.1931,0.8195],[-1.2391,0.9138],[-1.3057,1.0954],[-1.354,1.323],[-1.3747,1.5736],[-1.3747,1.7506],[-1.3563,2.0448],[-1.354,2.2218],[-1.3333,2.2747],[-1.3057,2.4149],[-1.2253,2.746],[-1.2184,2.792],[-1.2023,2.8425],[-1.1954,2.8908],[-1.1793,2.9437],[-1.1724,2.992],[-1.1655,3.0103],[-1.154,3.0103],[-1.1333,2.9598],[-1.0115,2.4172],[-0.9632,2.231],[-0.9862,1.7414],[-0.9862,1.5782],[-0.9701,1.369],[-0.9471,1.2517],[-0.9195,1.1621],[-0.8736,1.0494],[-0.8046,0.9276],[-0.7103,0.7989],[-0.6161,0.7023],[-0.5862,0.6908],[-0.3172,0.6908],[-0.2989,0.7023],[-0.2943,0.7161],[-0.2966,2.5667],[-0.292,2.592],[-0.1678,2.8862],[-0.1356,2.9759],[-0.1218,2.9989],[-0.0897,3.0885]];
+    const s=new THREE.Shape(); s.moveTo(PT[0][0],PT[0][1]);
+    for(let i=1;i<PT.length;i++) s.lineTo(PT[i][0],PT[i][1]);
+    s.closePath();
+    const geo=new THREE.ExtrudeGeometry(s,{depth:.20,bevelEnabled:true,bevelThickness:.085,bevelSize:.075,bevelOffset:0,bevelSegments:6});
+    geo.center();
+    const gm=new THREE.MeshStandardMaterial({color:0xC8A34B,metalness:.78,roughness:.26,envMap:env,envMapIntensity:.62,side:THREE.DoubleSide});
+    const mark=new THREE.Mesh(geo,gm); g.add(mark);
+    g.position.y=.05; g.scale.setScalar(.76);
+    // gold dust
+    const n=220, pos=new Float32Array(n*3); for(let i=0;i<n*3;i++) pos[i]=(Math.random()-.5)*9;
+    const pg=new THREE.BufferGeometry(); pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
+    const dust=new THREE.Points(pg,new THREE.PointsMaterial({color:0xEAD9AC,size:.035,transparent:true,opacity:.55})); T.s.add(dust);
+    // assemble animation
+    const parts=g.children; parts.forEach(p=>{ p.userData.to=p.position.clone(); p.userData.from=p.position.clone().add(new THREE.Vector3(0,-1.1,-6)); p.userData.ry=p.rotation.x; p.userData.rf=p.rotation.x-1.15; p.position.copy(p.userData.from); p.rotation.x=p.userData.rf; });
+    let t0=performance.now(), assembled=rm;
+    if(rm) parts.forEach(p=>{p.position.copy(p.userData.to); p.rotation.x=p.userData.ry;});
+    trident={T,g,dust,parts,t0,assembled};
+  }
+
+  /* ---- BOOK ---- */
+  const bEl=document.getElementById('book3d'); let book=null;
+  if(bEl){
+    const B=scene(bEl); B.cam.position.set(0,0,9.2);
+    const cover=new THREE.TextureLoader().load("assets/bookcover.webp"); cover.encoding=THREE.sRGBEncoding;
+    const paper=new THREE.MeshStandardMaterial({color:0xEFEAE1,roughness:.9,metalness:0});
+    const navy=new THREE.MeshStandardMaterial({color:0x0B2247,roughness:.55,metalness:.1});
+    const front=new THREE.MeshStandardMaterial({map:cover,roughness:.5,metalness:.05});
+    const w=3.2,h=4.8,d=.55;
+    const mats=[navy,navy,paper,paper,front,navy]; // +x -x +y -y +z(front) -z
+    const mesh=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mats); B.s.add(mesh);
+    // spine text stand-in: thin gold band
+    const band=new THREE.Mesh(new THREE.BoxGeometry(.02,h*.6,d*.9),gold()); band.position.x=-w/2-.005; mesh.add(band);
+    const band2=new THREE.Mesh(new THREE.BoxGeometry(w*.9,.02,d*.9),gold()); band2.position.y=h/2+.005; mesh.add(band2);
+    mesh.rotation.y=-.35; mesh.rotation.x=.08;
+    book={B,mesh};
+  }
+
+  /* ---- LOOP ---- */
+  let last=0;
+  function tick(now){
+    requestAnimationFrame(tick); if(now-last<16) return; last=now;
+    P.x+=(P.tx-P.x)*.06; P.y+=(P.ty-P.y)*.06;
+    const sy=window.scrollY;
+    if(trident && trident.T.isVisible()){
+      const {T,g,dust,parts}=trident; const t=(now-trident.t0)/1000;
+      if(!trident.assembled){ let done=true; parts.forEach((p,i)=>{ const k=Math.min(1,Math.max(0,(t-.15-i*.06)/1.3)); const e=1-Math.pow(1-k,3); p.position.lerpVectors(p.userData.from,p.userData.to,e); p.rotation.x=p.userData.rf+(p.userData.ry-p.userData.rf)*e; if(k<1) done=false; }); if(done) trident.assembled=true; }
+      g.rotation.y = (rm?0:t*.42) + P.x*.30 + sy*.0006;
+      g.rotation.x = P.y*.10 + Math.sin(t*.8)*.03; g.rotation.z = -.03 + Math.sin(t*.5)*.02;
+      g.position.y = .2 + Math.sin(t*1.1)*.12;
+      dust.rotation.y = t*.03; dust.position.y = -sy*.0006;
+      T.r.render(T.s,T.cam);
+    }
+    if(book && book.B.isVisible()){
+      const {B,mesh}=book; const t=now/1000;
+      mesh.rotation.y += ((-.35 + P.x*.6 + (rm?0:Math.sin(t*.5)*.18)) - mesh.rotation.y)*.06;
+      mesh.rotation.x += ((.08 + P.y*.25) - mesh.rotation.x)*.06;
+      mesh.position.y = Math.sin(t*1.3)*.08;
+      B.r.render(B.s,B.cam);
+    }
+  }
+  requestAnimationFrame(tick);
+})();
+
+
+/* ===== SHOP — cart + Stripe Checkout via the portal API ===== */
+(function(){
+  const API = (LEA.SHOP_API || "https://portal.leadeliteacademy.com").replace(/\/$/,"");
+  if (LEA.SHOW_PRICES === false) document.body.classList.add("noprice");
+  const TBD = LEA.PRICES_TBD === true; if (TBD) document.body.classList.add("tbd");
+  const MERCH = ["tee","tee_slogan","tee_cream","hat","hat_dad"];
+  if (LEA.SHOW_MERCH === false) document.body.classList.add("nomerch");
+  // Fallback prices only — the live ones come from /api/shop/catalog (Stripe).
+  const CAT = {
+    tee:        { name:"Trident Tee", price:3400, sizes:["S","M","L","XL","2XL"], ships:true },
+    tee_slogan: { name:"Casualness Creates Casualties Tee", price:3400, sizes:["S","M","L","XL","2XL"], ships:true },
+    tee_cream:  { name:"LEA Cream Tee", price:3400, sizes:["S","M","L","XL","2XL"], ships:true },
+    hat:        { name:"Structured Cap", price:3200, ships:true },
+    hat_dad:    { name:"Lead Elite Dad Hat", price:3200, ships:true },
+    paperback: { name:"The ELITE Leadership Blueprint — paperback", price:2499, ships:true },
+    ebook:     { name:"The Blueprint — ebook (PDF)", price:1299 },
+    audiobook: { name:"The Blueprint — audiobook", price:3900 },
+    bundle:    { name:"Paperback + Audiobook bundle", price:4900, ships:true }
+  };
+  const FREE_AT = 6000, SHIP = 600;
+  const $ = s => document.querySelector(s);
+  const fmt = c => TBD ? "TBD" : "$" + (c/100).toFixed(2).replace(/\.00$/,"");
+  const load = () => { try { const c = JSON.parse(localStorage.getItem("lea_cart")||"[]"); return Array.isArray(c) ? c.filter(l=>CAT[l.sku] && !(LEA.SHOW_MERCH === false && MERCH.includes(l.sku))) : []; } catch(e){ return []; } };
+  let cart = load();
+  const save = () => { try { localStorage.setItem("lea_cart", JSON.stringify(cart)); } catch(e){} };
+  let stock = {}; // "tee-L" -> count (physical only)
+
+  // --- nav cart button (desktop + mobile), Shop link in menus ---------------
+  const navWrap = document.querySelector(".nav .wrap"), burger = $("#burger");
+  const cartBtn = document.createElement("button");
+  cartBtn.className = "cartbtn"; cartBtn.id = "cartbtn"; cartBtn.type = "button"; cartBtn.setAttribute("aria-label","Open cart");
+  cartBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 8h-12z"/><path d="M6 6L5 3H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg><span class="n" id="cartn"></span>';
+  navWrap.insertBefore(cartBtn, burger);
+  // --- drawer ----------------------------------------------------------------
+  const open = () => { render(); document.body.classList.add("cart-open"); $("#cart").setAttribute("aria-hidden","false"); };
+  const close = () => { document.body.classList.remove("cart-open"); $("#cart").setAttribute("aria-hidden","true"); };
+  cartBtn.onclick = open; $("#cartx").onclick = close; $("#cartov").onclick = close;
+  addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+
+  let toastT; const toast = m => { const t=$("#toast"); t.textContent=m; t.classList.add("on"); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove("on"),2200); };
+
+  const count = () => cart.reduce((n,l)=>n+l.qty,0);
+  const subtotal = () => cart.reduce((n,l)=>n+CAT[l.sku].price*l.qty,0);
+  const ships = () => cart.some(l=>CAT[l.sku].ships);
+
+  function render(){
+    const n = count(); $("#cartn").textContent = n ? String(n) : "";
+    const box = $("#clines");
+    if (!cart.length) { box.innerHTML = '<div class="cempty">Your cart is empty.</div>'; }
+    else box.innerHTML = cart.map((l,i)=>{
+      const p = CAT[l.sku];
+      return '<div class="cline"><div><b>'+p.name+'</b>'+(l.size?'<small>Size '+l.size+'</small>':'')+
+        '<div class="qty"><button type="button" data-q="-1" data-i="'+i+'" aria-label="Fewer">−</button><span>'+l.qty+'</span><button type="button" data-q="1" data-i="'+i+'" aria-label="More">+</button></div></div>'+
+        '<div><div class="amt">'+fmt(p.price*l.qty)+'</div></div>'+
+        '<span></span><button type="button" class="rm" data-rm="'+i+'">Remove</button></div>';
+    }).join("");
+    const sub = subtotal(); $("#csub").textContent = fmt(sub);
+    $("#cship").textContent = !cart.length ? "" : !ships() ? "Digital order — nothing to ship. Delivered by email." :
+      sub >= FREE_AT ? "Free US shipping on this order." : "Shipping "+fmt(SHIP)+" · add "+fmt(FREE_AT-sub)+" more for free shipping.";
+    $("#checkout").disabled = !cart.length || TBD;
+    $("#cerr").textContent = TBD && cart.length ? "Pricing is being finalized — checkout opens as soon as it is. Email admin@leadeliteacademy.com to reserve yours." : "";
+    box.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{ const l=cart[+b.dataset.i]; l.qty=Math.max(1,Math.min(10,l.qty+(+b.dataset.q))); save(); render(); });
+    box.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{ cart.splice(+b.dataset.rm,1); save(); render(); });
+  }
+
+  function add(sku,size){
+    const line = cart.find(l=>l.sku===sku && (l.size||null)===(size||null));
+    if (line) line.qty = Math.min(10, line.qty+1); else cart.push({ sku, size: size||null, qty:1 });
+    save(); render(); toast("Added to cart"); if (window.fbq) fbq("track","AddToCart");
+  }
+
+  if (TBD) document.querySelectorAll("#pgrid [data-price]").forEach(e=>e.textContent="TBD");
+  // --- product cards -----------------------------------------------------------
+  document.querySelectorAll("#pgrid .prod").forEach(card=>{
+    const sku = card.dataset.sku, sizes = card.querySelectorAll(".sizes button"), addB = card.querySelector("[data-add]");
+    let size = null;
+    sizes.forEach(b=>{ b.setAttribute("role","radio"); b.setAttribute("aria-checked","false"); b.onclick=()=>{ size=b.dataset.size; sizes.forEach(x=>x.setAttribute("aria-checked",x===b)); addB.textContent="Add to cart"; }; });
+    addB.onclick = () => {
+      if (sizes.length && !size) { addB.textContent = "Pick a size"; card.querySelector(".sizes").scrollIntoView({block:"nearest"}); return; }
+      add(sku, size);
+    };
+  });
+
+  // --- live prices + stock from the portal (Stripe is the source of truth) ---
+  fetch(API+"/api/shop/catalog").then(r=>r.ok?r.json():null).then(j=>{
+    if (!j || !j.products) return;
+    for (const sku in j.products) {
+      const p = j.products[sku]; if (!CAT[sku] || typeof p.price !== "number") continue;
+      CAT[sku].price = p.price;
+      const card = document.querySelector('#pgrid .prod[data-sku="'+sku+'"]'); if (!card) continue;
+      card.querySelector("[data-price]").textContent = fmt(p.price);
+      if (p.stock) {
+        Object.assign(stock, p.stock);
+        const sizeBtns = card.querySelectorAll(".sizes button");
+        if (sizeBtns.length) {
+          let any=false; sizeBtns.forEach(b=>{ const ok=(p.stock[sku+"-"+b.dataset.size]||0)>0; b.disabled=!ok; if(ok) any=true; });
+          if (!any) soldOut(card);
+        } else if (Object.values(p.stock).every(n=>!(n>0))) soldOut(card);
+      }
+    }
+    render();
+  }).catch(()=>{});
+  function soldOut(card){ const b=card.querySelector("[data-add]"); b.textContent="Sold out"; b.classList.add("soldout"); b.disabled=true; }
+
+  // --- checkout ------------------------------------------------------------------
+  $("#checkout").onclick = async () => {
+    const btn = $("#checkout"), err = $("#cerr");
+    if (!cart.length) return;
+    btn.disabled = true; btn.textContent = "Opening secure checkout…"; err.textContent = "";
+    try {
+      const r = await fetch(API+"/api/shop/checkout", { method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({ items: cart.map(l=>({ sku:l.sku, size:l.size||undefined, qty:l.qty })) }) });
+      const j = await r.json().catch(()=>({}));
+      if (r.ok && j.url) { if (window.fbq) fbq("track","InitiateCheckout"); location.href = j.url; return; }
+      err.textContent = (r.status >= 500 || !j.error) ? "Checkout is being switched on — check back shortly, or email admin@leadeliteacademy.com to reserve yours." : j.error;
+    } catch(e) {
+      err.textContent = "Couldn't reach checkout. Check your connection and try again.";
+    }
+    btn.disabled = false; btn.innerHTML = 'Checkout <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>';
+  };
+
+  // --- back from Stripe --------------------------------------------------------------
+  const q = new URLSearchParams(location.search), o = q.get("order");
+  if (o === "success") { cart = []; save(); $("#orderok").hidden = false; if (window.fbq) fbq("track","Purchase"); }
+  else if (o === "cancel") { $("#ordercancel").hidden = false; }
+  if (o) { history.replaceState(null, "", location.pathname + "#shop"); setTimeout(()=>{ const s=$("#shop"); if(s) s.scrollIntoView(); }, 50); }
+
+  render();
+})();
+
+/* Logo / Home: scroll to top instead of reloading, so the 3D trident doesn't re-assemble */
+(function(){
+  document.querySelectorAll('a[href="/"]').forEach(a=>a.addEventListener('click',e=>{
+    if(/^\/(index\.html)?$/.test(location.pathname)){ e.preventDefault(); history.replaceState(null,'','/'); window.scrollTo({top:0,behavior:'smooth'}); document.getElementById('mobile')?.classList.remove('open'); }
+  }));
+})();
+
+</script>
+</body>
+</html>
