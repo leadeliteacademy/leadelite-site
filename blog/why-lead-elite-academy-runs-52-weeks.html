@@ -211,6 +211,26 @@ footer small{display:block;font-family:var(--imp);letter-spacing:.3em;text-trans
 .anext{padding:0 var(--pad)}
 .related{background:var(--deep);padding:56px 0 80px}
 .related h2{font-size:clamp(1.5rem,2.6vw,2rem);margin:.5rem 0 1.6rem}
+
+/* nav v3: Who it's for dropdown + hover grow/glow */
+.links{align-items:center}
+.nav .links{gap:1.7em}
+.links>a,.links .dd-t{display:inline-block;transform-origin:50% 60%;transition:transform .22s cubic-bezier(.2,.8,.2,1),color .22s ease,text-shadow .22s ease}
+.links>a:hover,.links>a:focus-visible,.links .dd:hover>.dd-t,.links .dd:focus-within>.dd-t{transform:scale(1.25);color:#FFF4D6;text-shadow:0 0 6px rgba(234,217,172,.95),0 0 16px rgba(217,188,119,.85),0 0 32px rgba(200,163,75,.6)}
+.links .dd{position:relative;display:flex;align-items:center}
+.links .dd-t{white-space:nowrap}
+.links .dd-c{width:9px;height:6px;margin-left:.5em;fill:none;stroke:currentColor;stroke-width:1.6;vertical-align:middle;transition:transform .22s}
+.links .dd:hover .dd-c,.links .dd:focus-within .dd-c{transform:rotate(180deg)}
+.links .dd::after{content:"";position:absolute;left:-12px;right:-12px;top:100%;height:16px}
+.links .dd-m{position:absolute;top:100%;left:50%;transform:translate(-50%,10px);min-width:200px;padding:8px;margin-top:10px;background:rgba(3,10,22,.97);border:1px solid var(--line);border-radius:10px;box-shadow:0 18px 40px rgba(0,0,0,.55);display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease,visibility .2s;z-index:80}
+.links .dd:hover .dd-m,.links .dd:focus-within .dd-m{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.links .dd-m a{display:block;padding:11px 14px;border-radius:6px;color:var(--cream-70);transition:background .2s,color .2s,text-shadow .2s}
+.links .dd-m a::after{display:none}
+.links .dd-m a:hover,.links .dd-m a:focus-visible,.links .dd-m a.on{background:rgba(200,163,75,.12);color:var(--gold-xl);text-shadow:0 0 10px rgba(217,188,119,.6)}
+.links .dd.on>.dd-t,.links>a.on{color:var(--gold-xl)}
+.mobile a.sub{font-size:.78em;opacity:.85}
+.mobile a.sub::before{content:"\2014\00a0";color:var(--gold)}
+@media (prefers-reduced-motion:reduce){.links>a,.links .dd-t{transition:none}.links>a:hover,.links .dd:hover>.dd-t{transform:none}}
 </style>
 <meta property="article:published_time" content="2026-10-01">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Why Lead Elite Academy Runs 52 Weeks", "description": "Fifty-two weeks sounds like a long commitment. What a week actually asks of a leader, and why the year is the point.", "image": "https://www.leadeliteacademy.com/blog/img/why-lead-elite-academy-runs-52-weeks-share.jpg", "datePublished": "2026-10-01", "dateModified": "2026-10-01", "author": {"@type": "Person", "name": "Brandon Thornhill", "url": "https://brandonthornhill.com"}, "publisher": {"@type": "Organization", "name": "Lead Elite Academy", "logo": {"@type": "ImageObject", "url": "https://www.leadeliteacademy.com/apple-touch-icon.png"}}, "mainEntityOfPage": "https://www.leadeliteacademy.com/blog/why-lead-elite-academy-runs-52-weeks", "articleSection": "The Program", "wordCount": 630}</script>
@@ -219,11 +239,11 @@ footer small{display:block;font-family:var(--imp);letter-spacing:.3em;text-trans
 <div class="strip" id="strip">Casualness <span>Creates</span> Casualties</div>
 <nav class="nav" id="nav"><div class="wrap">
   <a class="brand" href="/"><svg class="mark" viewBox="-60.8 -1 121.6 289.1" fill="#C8A34B" aria-hidden="true"><path d="M0.0,0.0L3.9,9.2L5.3,13.1L5.9,14.1L7.3,18.0L12.7,30.8L12.9,31.9L12.8,112.4L13.0,113.0L13.8,113.5L25.5,113.5L26.8,113.0L30.9,108.8L35.0,103.2L38.0,97.9L40.0,93.0L41.2,89.1L42.2,84.0L42.9,74.9L42.9,67.8L41.9,46.5L44.0,38.4L49.3,14.8L50.2,12.6L50.7,12.6L51.0,13.4L51.3,15.5L52.0,17.8L52.3,19.9L53.0,22.1L53.3,24.1L56.8,38.5L58.0,44.6L58.9,46.9L59.0,54.6L59.8,67.4L59.8,75.1L58.9,86.0L56.8,95.9L53.9,103.8L51.9,107.9L49.2,112.2L49.2,113.0L49.5,113.4L53.2,113.6L53.5,114.0L53.5,114.8L45.3,137.9L44.0,138.5L12.0,138.5L11.3,139.4L5.4,286.4L4.8,287.0L-4.8,287.1L4.8,287.1L-4.8,287.0L-5.4,286.4L-11.3,139.4L-12.0,138.5L-44.0,138.5L-45.3,137.9L-53.5,114.8L-53.5,114.0L-53.2,113.6L-49.5,113.4L-49.2,113.0L-49.2,112.2L-51.9,107.9L-53.9,103.8L-56.8,95.9L-58.9,86.0L-59.8,75.1L-59.8,67.4L-59.0,54.6L-58.9,46.9L-58.0,44.6L-56.8,38.5L-53.3,24.1L-53.0,22.1L-52.3,19.9L-52.0,17.8L-51.3,15.5L-51.0,13.4L-50.7,12.6L-50.2,12.6L-49.3,14.8L-44.0,38.4L-41.9,46.5L-42.9,67.8L-42.9,74.9L-42.2,84.0L-41.2,89.1L-40.0,93.0L-38.0,97.9L-35.0,103.2L-30.9,108.8L-26.8,113.0L-25.5,113.5L-13.8,113.5L-13.0,113.0L-12.8,112.4L-12.9,31.9L-12.7,30.8L-7.3,18.0L-5.9,14.1L-5.3,13.1L-3.9,9.2Z"/></svg><span>Lead <b>Elite</b> Academy</span></a>
-  <div class="links"><a href="/#elite">The framework</a><a href="/#year">The year</a><a href="/#trainer">Brandon</a><a href="/#book">The book</a><a href="/automotive/">Dealerships</a><a href="/insurance/">Insurance</a><a href="/recruiting/">Recruiting</a><a href="/blog/" class="on" style="color:var(--gold-xl)">Blog</a></div>
+  <div class="links"><a href="/#elite">The framework</a><a href="/#year">The year</a><a href="/#trainer">Brandon</a><a href="/#book">The book</a><a href="/#shop">Shop</a><div class="dd"><a href="/#who" class="dd-t" aria-haspopup="true">Who it’s for<svg class="dd-c" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></a><div class="dd-m"><a href="/automotive/">Dealerships</a><a href="/insurance/">Insurance</a></div></div><a href="/recruiting/">Recruiting</a><a href="/blog/" class="on">Blog</a></div>
   <div class="navbtns cta"><a class="btn ghost" href="https://portal.leadeliteacademy.com/hub">Member portal</a></div>
   <button class="burger" id="burger" aria-label="Open menu">☰</button>
 </div></nav>
-<div class="mobile" id="mobile"><button class="x" id="mx" aria-label="Close menu">✕</button><a class="btn" href="#call" data-book style="font-size:.8rem">Book a call</a><a href="/#elite">The framework</a><a href="/#year">The year</a><a href="/#trainer">Brandon</a><a href="/#book">The book</a><a href="/automotive/">Dealerships</a><a href="/insurance/">Insurance</a><a href="/recruiting/">Recruiting</a><a href="/blog/" style="color:var(--gold-xl)">Blog</a><a href="https://portal.leadeliteacademy.com/hub" style="font-family:var(--imp);font-size:1rem;letter-spacing:.2em;color:var(--gold)">MEMBER PORTAL</a></div>
+<div class="mobile" id="mobile"><button class="x" id="mx" aria-label="Close menu">✕</button><a class="btn" href="#call" data-book style="font-size:.8rem">Book a call</a><a href="/#elite">The framework</a><a href="/#year">The year</a><a href="/#trainer">Brandon</a><a href="/#book">The book</a><a href="/#shop">Shop</a><a href="/#who">Who it’s for</a><a class="sub" href="/automotive/">Dealerships</a><a class="sub" href="/insurance/">Insurance</a><a href="/recruiting/">Recruiting</a><a href="/blog/" style="color:var(--gold-xl)">Blog</a><a href="https://portal.leadeliteacademy.com/hub" style="font-family:var(--imp);font-size:1rem;letter-spacing:.2em;color:var(--gold)">MEMBER PORTAL</a></div>
 
 <header class="ahero"><div class="wrap"><div class="in">
   <div class="crumb"><a href="/blog/">Blog</a> &nbsp;/&nbsp; The Program</div>
