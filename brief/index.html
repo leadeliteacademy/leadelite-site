@@ -53,6 +53,7 @@ em{font-style:italic;color:var(--gold-l)}
 .field label{display:block;font-family:var(--imp);letter-spacing:.2em;text-transform:uppercase;font-size:.66rem;color:var(--gold-xl);margin-bottom:.35rem}
 .field input{width:100%;font:inherit;font-size:16px;color:var(--cream);background:rgba(3,10,22,.7);border:1px solid rgba(239,234,225,.18);padding:.85em 1em;border-radius:0;outline:none;transition:border-color .2s}
 .field input:focus{border-color:var(--gold)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .field .opt{color:var(--cream-45);letter-spacing:.1em}
 .check{display:flex;gap:.65rem;align-items:flex-start;font-size:.8rem;color:var(--cream-45);line-height:1.45;margin:.2rem 0 1.1rem}
 .check input{margin-top:.2rem;accent-color:var(--gold);width:16px;height:16px;flex:none}
@@ -137,7 +138,7 @@ footer a{color:var(--cream-70)}
       <form id="optin" novalidate>
         <h3>Get the ELITE Brief</h3>
         <p class="sub">Join leaders who get Brandon's lessons first.</p>
-        <div class="field"><label for="fn">First name</label><input id="fn" name="first_name" autocomplete="given-name" required></div>
+        <div class="row2"><div class="field"><label for="fn">First name</label><input id="fn" name="first_name" autocomplete="given-name" required></div><div class="field"><label for="ln">Last name</label><input id="ln" name="last_name" autocomplete="family-name" required></div></div>
         <div class="field"><label for="em">Email</label><input id="em" name="email" type="email" autocomplete="email" inputmode="email" required></div>
         <div class="field"><label for="co">Company <span class="opt">· optional</span></label><input id="co" name="company_name" autocomplete="organization"></div>
         <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
@@ -238,13 +239,14 @@ var OPTIN_ENDPOINT = "https://services.leadconnectorhq.com/hooks/1e7NJPIJNC2COca
   f.addEventListener('submit', function(e){
     e.preventDefault();
     msg.className = 'msg';
-    var fn = f.first_name.value.trim(), em = f.email.value.trim();
+    var fn = f.first_name.value.trim(), ln = f.last_name.value.trim(), em = f.email.value.trim();
     if (f.website.value) return; // bot
     if (!fn) return fail('Add your first name.');
+    if (!ln) return fail('Add your last name.');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) return fail('That email doesn\'t look right.');
     if (!document.getElementById('ok').checked) return fail('Check the box so we can email you.');
     var data = {
-      first_name: fn, email: em, company_name: f.company_name.value.trim(),
+      first_name: fn, last_name: ln, email: em, company_name: f.company_name.value.trim(),
       source: 'LEA ELITE Brief opt-in', lead_source: src, tags: 'elite-brief,newsletter,optin-' + src,
       email_consent: 'yes', consent_text: 'Yes, email me leadership lessons and updates from Lead Elite Academy. Unsubscribe anytime.',
       page: location.href.split('#')[0], submitted_at: new Date().toISOString()
