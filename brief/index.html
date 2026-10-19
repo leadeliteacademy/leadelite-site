@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The ELITE Brief · Lead Elite Academy</title>
+<meta name="description" content="Free leadership lessons from former Navy SEAL Brandon Thornhill, straight to your inbox. Build leaders who don't need you.">
+<meta property="og:title" content="The ELITE Brief · Lead Elite Academy">
+<meta property="og:description" content="Free leadership lessons from former Navy SEAL Brandon Thornhill, straight to your inbox.">
+<meta property="og:image" content="https://www.leadeliteacademy.com/assets/brandon-stage.png">
+<meta name="theme-color" content="#030A16">
+<link rel="icon" href="https://www.leadeliteacademy.com/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Oswald:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#081A33;--deep:#050F1F;--abyss:#030A16;--gold:#C8A34B;--gold-l:#D9BC77;--gold-xl:#EAD9AC;--cream:#EFEAE1;--cream-70:rgba(239,234,225,.72);--cream-45:rgba(239,234,225,.45);--line:rgba(200,163,75,.22);
+--display:'Playfair Display',Georgia,serif;--imp:'Oswald','Arial Narrow',sans-serif;--body:'Source Sans 3','Segoe UI',system-ui,sans-serif;--max:1100px;--pad:clamp(16px,5vw,56px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--abyss);color:var(--cream);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.eyebrow{font-family:var(--imp);font-weight:500;letter-spacing:.32em;text-transform:uppercase;font-size:.72rem;color:var(--gold)}
+h1,h2{font-family:var(--display);font-weight:700;line-height:1.08;letter-spacing:-.01em}
+h1{font-size:clamp(2.3rem,7vw,4.2rem)}
+h2{font-size:clamp(1.8rem,4.6vw,2.8rem)}
+em{font-style:italic;color:var(--gold-l)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;font-family:var(--imp);font-weight:500;letter-spacing:.18em;text-transform:uppercase;font-size:.85rem;padding:1.1em 1.9em;border:1px solid var(--gold);color:var(--abyss);background:linear-gradient(180deg,var(--gold-l),var(--gold));cursor:pointer;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px rgba(200,163,75,.6)}
+.btn:disabled{opacity:.6;cursor:wait;transform:none}
+
+/* top */
+.top{position:sticky;top:0;z-index:20;background:rgba(3,10,22,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--imp);letter-spacing:.22em;text-transform:uppercase;font-size:.78rem}
+.brand b{color:var(--gold);font-weight:500}
+.brand .mark{height:28px;width:auto}
+.top .jump{font-family:var(--imp);letter-spacing:.18em;text-transform:uppercase;font-size:.7rem;color:var(--gold);border:1px solid var(--line);padding:.6em 1em}
+
+/* hero */
+.hero{position:relative;padding:clamp(40px,8vw,96px) 0 clamp(48px,8vw,96px);background:radial-gradient(120% 80% at 80% 0%,rgba(200,163,75,.13),transparent 60%),linear-gradient(180deg,var(--navy),var(--abyss))}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,64px);align-items:center}
+.hero p.lede{margin-top:1.1rem;color:var(--cream-70);font-size:1.12rem;max-width:34em}
+.hero h1{margin-top:.9rem}
+.slogan{margin-top:1.4rem;font-family:var(--imp);letter-spacing:.3em;text-transform:uppercase;font-size:.7rem;color:var(--cream-45)}
+
+/* form card */
+.card{background:linear-gradient(180deg,rgba(8,26,51,.95),rgba(5,15,31,.95));border:1px solid var(--line);padding:clamp(22px,4vw,34px);box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.card h3{font-family:var(--display);font-size:1.5rem;line-height:1.2}
+.card .sub{color:var(--cream-70);font-size:.95rem;margin:.4rem 0 1.2rem}
+.field{margin-bottom:.85rem}
+.field label{display:block;font-family:var(--imp);letter-spacing:.2em;text-transform:uppercase;font-size:.66rem;color:var(--gold-xl);margin-bottom:.35rem}
+.field input{width:100%;font:inherit;font-size:16px;color:var(--cream);background:rgba(3,10,22,.7);border:1px solid rgba(239,234,225,.18);padding:.85em 1em;border-radius:0;outline:none;transition:border-color .2s}
+.field input:focus{border-color:var(--gold)}
+.field .opt{color:var(--cream-45);letter-spacing:.1em}
+.check{display:flex;gap:.65rem;align-items:flex-start;font-size:.8rem;color:var(--cream-45);line-height:1.45;margin:.2rem 0 1.1rem}
+.check input{margin-top:.2rem;accent-color:var(--gold);width:16px;height:16px;flex:none}
+.card .btn{width:100%}
+.fine{margin-top:.9rem;font-size:.78rem;color:var(--cream-45);text-align:center}
+.msg{display:none;margin-top:1rem;padding:.9rem 1rem;font-size:.92rem;border:1px solid var(--line)}
+.msg.err{display:block;border-color:rgba(220,120,100,.5);color:#f1c1b6}
+.done{display:none;text-align:center;padding:1rem 0}
+.done .tick{width:54px;height:54px;margin:0 auto 1rem;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold);font-size:1.6rem}
+.done p{color:var(--cream-70);margin-top:.6rem}
+.done .btn{margin-top:1.3rem;width:auto}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* sections */
+section.band{padding:clamp(56px,9vw,110px) 0;border-top:1px solid var(--line)}
+.band.alt{background:var(--deep)}
+.who{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,5vw,64px);align-items:center}
+.who .photo{position:relative;aspect-ratio:4/5;overflow:hidden;border:1px solid var(--line)}
+.who .photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.who .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(3,10,22,.75))}
+.who p{color:var(--cream-70);margin-top:1rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:1.6rem}
+.stats div{background:var(--abyss);padding:1rem .8rem;text-align:center}
+.stats b{display:block;font-family:var(--display);font-size:clamp(1.5rem,4vw,2rem);color:var(--gold-l);line-height:1}
+.stats span{display:block;margin-top:.45rem;font-family:var(--imp);letter-spacing:.14em;text-transform:uppercase;font-size:.6rem;color:var(--cream-45)}
+.head{max-width:40em}
+.head p{color:var(--cream-70);margin-top:.9rem}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:2.2rem}
+.step{border:1px solid var(--line);padding:1.4rem 1.2rem;background:rgba(8,26,51,.4)}
+.step .n{font-family:var(--imp);letter-spacing:.24em;font-size:.68rem;color:var(--gold)}
+.step h4{font-family:var(--display);font-size:1.25rem;margin:.5rem 0 .4rem}
+.step p{font-size:.92rem;color:var(--cream-70);line-height:1.5}
+.posts{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:2.2rem}
+.post{display:flex;flex-direction:column;border:1px solid var(--line);padding:1.3rem 1.3rem 1.1rem;background:rgba(8,26,51,.35);transition:border-color .25s,transform .25s}
+.post:hover{border-color:var(--gold);transform:translateY(-2px)}
+.post .tag{font-family:var(--imp);letter-spacing:.24em;text-transform:uppercase;font-size:.62rem;color:var(--gold)}
+.post h4{font-family:var(--display);font-size:1.22rem;line-height:1.25;margin:.5rem 0 .45rem}
+.post p{font-size:.9rem;color:var(--cream-70);line-height:1.5;flex:1}
+.post .more{margin-top:.9rem;font-family:var(--imp);letter-spacing:.18em;text-transform:uppercase;font-size:.66rem;color:var(--gold-xl)}
+.allposts{margin-top:1.6rem;text-align:center}
+.allposts a{font-family:var(--imp);letter-spacing:.2em;text-transform:uppercase;font-size:.72rem;color:var(--gold);border-bottom:1px solid var(--line);padding-bottom:.2em}
+.closer{text-align:center}
+.closer .quote{font-family:var(--display);font-style:italic;font-size:clamp(1.4rem,3.6vw,2.1rem);line-height:1.3;max-width:24em;margin:0 auto}
+.closer .who-q{margin-top:1rem;font-family:var(--imp);letter-spacing:.24em;text-transform:uppercase;font-size:.68rem;color:var(--gold)}
+.closer .btn{margin-top:2rem}
+footer{border-top:1px solid var(--line);padding:28px 0 calc(28px + env(safe-area-inset-bottom));font-size:.8rem;color:var(--cream-45)}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+footer a{color:var(--cream-70)}
+
+@media (max-width:860px){
+  .hero .wrap,.who{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .who .photo{aspect-ratio:16/11;order:-1}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .steps,.posts{grid-template-columns:1fr}
+  .top .jump{display:none}
+  .stats span{letter-spacing:.08em}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="https://www.leadeliteacademy.com/"><svg class="mark" viewBox="-60.8 -1 121.6 289.1" fill="#C8A34B" aria-hidden="true"><path d="M0.0,0.0L3.9,9.2L5.3,13.1L5.9,14.1L7.3,18.0L12.7,30.8L12.9,31.9L12.8,112.4L13.0,113.0L13.8,113.5L25.5,113.5L26.8,113.0L30.9,108.8L35.0,103.2L38.0,97.9L40.0,93.0L41.2,89.1L42.2,84.0L42.9,74.9L42.9,67.8L41.9,46.5L44.0,38.4L49.3,14.8L50.2,12.6L50.7,12.6L51.0,13.4L51.3,15.5L52.0,17.8L52.3,19.9L53.0,22.1L53.3,24.1L56.8,38.5L58.0,44.6L58.9,46.9L59.0,54.6L59.8,67.4L59.8,75.1L58.9,86.0L56.8,95.9L53.9,103.8L51.9,107.9L49.2,112.2L49.2,113.0L49.5,113.4L53.2,113.6L53.5,114.0L53.5,114.8L45.3,137.9L44.0,138.5L12.0,138.5L11.3,139.4L5.4,286.4L4.8,287.0L-4.8,287.1L4.8,287.1L-4.8,287.0L-5.4,286.4L-11.3,139.4L-12.0,138.5L-44.0,138.5L-45.3,137.9L-53.5,114.8L-53.5,114.0L-53.2,113.6L-49.5,113.4L-49.2,113.0L-49.2,112.2L-51.9,107.9L-53.9,103.8L-56.8,95.9L-58.9,86.0L-59.8,75.1L-59.8,67.4L-59.0,54.6L-58.9,46.9L-58.0,44.6L-56.8,38.5L-53.3,24.1L-53.0,22.1L-52.3,19.9L-52.0,17.8L-51.3,15.5L-51.0,13.4L-50.7,12.6L-50.2,12.6L-49.3,14.8L-44.0,38.4L-41.9,46.5L-42.9,67.8L-42.9,74.9L-42.2,84.0L-41.2,89.1L-40.0,93.0L-38.0,97.9L-35.0,103.2L-30.9,108.8L-26.8,113.0L-25.5,113.5L-13.8,113.5L-13.0,113.0L-12.8,112.4L-12.9,31.9L-12.7,30.8L-7.3,18.0L-5.9,14.1L-5.3,13.1L-3.9,9.2Z"/></svg><span>Lead <b>Elite</b> Academy</span></a>
+    <a class="jump" href="#join">Get the Brief</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">The ELITE Brief · Free</div>
+      <h1>Build leaders who <em>don't need you.</em></h1>
+      <p class="lede">Short, field-tested leadership lessons from former Navy SEAL Brandon Thornhill, delivered to your inbox. One idea you can put to work on your floor this week. No fluff, no theory.</p>
+      <div class="slogan">Casualness creates casualties</div>
+    </div>
+
+    <div class="card" id="join">
+      <form id="optin" novalidate>
+        <h3>Get the ELITE Brief</h3>
+        <p class="sub">Join leaders who get Brandon's lessons first.</p>
+        <div class="field"><label for="fn">First name</label><input id="fn" name="first_name" autocomplete="given-name" required></div>
+        <div class="field"><label for="em">Email</label><input id="em" name="email" type="email" autocomplete="email" inputmode="email" required></div>
+        <div class="field"><label for="co">Company <span class="opt">· optional</span></label><input id="co" name="company_name" autocomplete="organization"></div>
+        <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <label class="check"><input type="checkbox" id="ok" required><span>Yes, email me leadership lessons and updates from Lead Elite Academy. Unsubscribe anytime.</span></label>
+        <button class="btn" type="submit" id="go">Send me the Brief</button>
+        <div class="msg" id="msg" role="alert"></div>
+        <p class="fine">We never sell your info.</p>
+      </form>
+      <div class="done" id="done" aria-live="polite">
+        <div class="tick">✓</div>
+        <h3>You're in, <span id="dn">leader</span>.</h3>
+        <p>Your first Brief is on its way. Can't find it? Check promotions or spam and move it to your inbox.</p>
+        <a class="btn" href="#blog">Read the blog now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap who">
+    <div class="photo"><img src="https://www.leadeliteacademy.com/assets/brandon-stage.png" alt="Brandon Thornhill speaking on stage" loading="lazy"></div>
+    <div>
+      <div class="eyebrow">Who we are</div>
+      <h2>Brandon Thornhill</h2>
+      <p>Former Navy SEAL and nine-figure sales architect. Fourteen years in the Navy, twelve as a SEAL, and three years teaching First Phase at BUD/S, the course that decides who becomes a SEAL. He then built a sales organization that produced more than $100 million in revenue using the same systems.</p>
+      <p>He's the author of <em>The ELITE Leadership Blueprint</em> and the founder of Lead Elite Academy.</p>
+      <div class="stats">
+        <div><b>12</b><span>Years a SEAL</span></div>
+        <div><b>3</b><span>Combat deployments</span></div>
+        <div><b>$100M+</b><span>Sales org built</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">What we do</div>
+      <h2>A 52-week leadership operating system.</h2>
+      <p>Most managers were promoted for their numbers, not trained to lead, so every decision still lands on the owner's desk. Lead Elite Academy fixes that with one weekly rhythm your leaders run inside your business, until running the place without you is the default.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">01 · Watch</div><h4>A lesson from Brandon</h4><p>A short video plus the matching chapter from the book, in his own voice.</p></div>
+      <div class="step"><div class="n">02 · Execute</div><h4>One order</h4><p>Something specific each manager does on the floor this week.</p></div>
+      <div class="step"><div class="n">03 · Debrief</div><h4>What happened</h4><p>What worked, what got in the way, what changes next week. In writing.</p></div>
+      <div class="step"><div class="n">04 · Muster</div><h4>Every fourth week</h4><p>The whole company closes a mission together and resets the standard.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="blog">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">From the blog</div>
+      <h2>Start reading now.</h2>
+      <p>Three-minute reads on the problems every leader runs into.</p>
+    </div>
+    <div class="posts">
+      <a class="post" href="https://www.leadeliteacademy.com/blog/you-promoted-your-best-producer"><span class="tag">New managers</span><h4>You Promoted Your Best Producer. Who Taught Them to Lead?</h4><p>Selling is one skill and leading is another. Why most managers were never taught the second one.</p><span class="more">Read · 3 min →</span></a>
+      <a class="post" href="https://www.leadeliteacademy.com/blog/why-every-problem-ends-up-on-your-desk"><span class="tag">Empowerment</span><h4>Why Every Problem Ends Up on Your Desk</h4><p>When your leaders are buried in questions their people could answer, you probably trained it without meaning to.</p><span class="more">Read · 3 min →</span></a>
+      <a class="post" href="https://www.leadeliteacademy.com/blog/what-you-allow-becomes-your-culture"><span class="tag">Standards</span><h4>What You Allow Becomes Your Culture</h4><p>A lesson from Afghanistan on how standards slip while the numbers still look good.</p><span class="more">Read · 3 min →</span></a>
+      <a class="post" href="https://www.leadeliteacademy.com/blog/the-four-tests-of-a-system"><span class="tag">Systems</span><h4>The Four Tests of a System</h4><p>A five-minute check to find out if you have a system or one manager doing everything alone.</p><span class="more">Read · 3 min →</span></a>
+      <a class="post" href="https://www.leadeliteacademy.com/blog/why-be-more-disciplined-never-fixed-a-team"><span class="tag">Discipline</span><h4>Why "Be More Disciplined" Has Never Fixed a Team</h4><p>Discipline is a personal fix for an organizational problem. Here's what to build instead.</p><span class="more">Read · 3 min →</span></a>
+      <a class="post" href="https://www.leadeliteacademy.com/blog/bought-a-sales-course-nobody-used-it"><span class="tag">Installation</span><h4>We Bought a $50K Sales Course and Nobody Used It</h4><p>Why the training you paid for never stuck, and what has to exist around a program first.</p><span class="more">Read · 3 min →</span></a>
+    </div>
+    <div class="allposts"><a href="https://www.leadeliteacademy.com/blog/">See every post →</a></div>
+  </div>
+</section>
+
+<section class="band closer">
+  <div class="wrap">
+    <p class="quote">"You don't rise to the level of your motivation. You default to the strength of your systems."</p>
+    <div class="who-q">Brandon Thornhill</div>
+    <a class="btn" href="#join">Get the ELITE Brief</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Elite Leadership Consulting Group · Lead Elite Academy</span>
+    <span><a href="https://www.leadeliteacademy.com/">leadeliteacademy.com</a> · <a href="mailto:admin@leadeliteacademy.com">admin@leadeliteacademy.com</a></span>
+  </div>
+</footer>
+
+<script>
+// Where opt-ins go. Set to the GHL (TRIBL) LEA sub-account inbound webhook URL.
+var OPTIN_ENDPOINT = "https://services.leadconnectorhq.com/hooks/1e7NJPIJNC2COcaD3BTN/webhook-trigger/5a958bb4-ced9-4f02-bde6-9dfba3d25f41";
+
+(function(){
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var qs = new URLSearchParams(location.search);
+  var src = qs.get('src') || qs.get('utm_source') || 'direct';
+  var f = document.getElementById('optin'), go = document.getElementById('go'), msg = document.getElementById('msg');
+
+  function fail(t){ msg.textContent = t; msg.className = 'msg err'; }
+
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    msg.className = 'msg';
+    var fn = f.first_name.value.trim(), em = f.email.value.trim();
+    if (f.website.value) return; // bot
+    if (!fn) return fail('Add your first name.');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) return fail('That email doesn\'t look right.');
+    if (!document.getElementById('ok').checked) return fail('Check the box so we can email you.');
+    var data = {
+      first_name: fn, email: em, company_name: f.company_name.value.trim(),
+      source: 'LEA ELITE Brief opt-in', lead_source: src, tags: 'elite-brief,newsletter,optin-' + src,
+      email_consent: 'yes', consent_text: 'Yes, email me leadership lessons and updates from Lead Elite Academy. Unsubscribe anytime.',
+      page: location.href.split('#')[0], submitted_at: new Date().toISOString()
+    };
+    if (!OPTIN_ENDPOINT) return fail('Sign-up isn\'t connected yet. Email admin@leadeliteacademy.com and we\'ll add you.');
+    go.disabled = true; go.textContent = 'Sending…';
+    fetch(OPTIN_ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) })
+      .then(function(r){ if (!r.ok) throw new Error(r.status); })
+      .then(function(){
+        document.getElementById('dn').textContent = fn;
+        f.style.display = 'none'; document.getElementById('done').style.display = 'block';
+      })
+      .catch(function(){
+        go.disabled = false; go.textContent = 'Send me the Brief';
+        fail('Something went wrong. Try again, or email admin@leadeliteacademy.com.');
+      });
+  });
+})();
+</script>
+</body>
+</html>
