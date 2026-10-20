@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Leadership Pulse | Lead Elite Academy</title>
+<link rel="icon" href="https://www.leadeliteacademy.com/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Oswald:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#081A33;--deep:#050F1F;--gold:#C8A34B;--gold-l:#D9BC77;--cream:#EFEAE1;--ink:#0E1B2E;--muted:#5A6577;--paper:#FBF9F5;--rule:#E3DCCD;--err:#A3322A;
+--display:'Playfair Display',Georgia,serif;--imp:'Oswald','Arial Narrow',sans-serif;--body:'Source Sans 3','Segoe UI',system-ui,sans-serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--body);padding-bottom:env(safe-area-inset-bottom,0px)}
+header{background:var(--navy);color:var(--cream);padding:calc(28px + env(safe-area-inset-top,0px)) 20px 34px;border-bottom:3px solid var(--gold)}
+.wrap{max-width:720px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--imp);font-weight:500;letter-spacing:.06em;color:var(--gold-l);font-size:.95rem}
+.mark{height:30px;width:auto}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(2rem,6vw,2.9rem);line-height:1.08;margin:22px 0 12px;color:#fff}
+.lede{font-size:1.06rem;color:#D6D2C8;max-width:60ch;margin:0}
+.facts{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;color:var(--gold-l);font-size:.95rem}
+main{padding:8px 20px 60px}
+.card{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:22px 20px;margin-top:22px}
+label.f{display:block;font-weight:600;margin-bottom:6px}
+.hint{color:var(--muted);font-size:.92rem;margin:0 0 10px}
+input[type=text],select,textarea{width:100%;font:inherit;color:var(--ink);background:#fff;border:1px solid #C9C2B3;border-radius:6px;padding:11px 12px}
+textarea{min-height:96px;resize:vertical}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.row2{grid-template-columns:1fr}}
+.pillar{margin-top:34px}
+.pillar h2{font-family:var(--display);font-size:1.55rem;margin:0;color:var(--navy)}
+.pillar .q{color:var(--muted);margin:4px 0 0;font-style:italic}
+.item{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:18px 18px 14px;margin-top:14px;transition:border-color .2s}
+.item.done{border-color:#CDBB8C}
+.item.missing{border-color:var(--err);box-shadow:0 0 0 2px rgba(163,50,42,.12)}
+.item p{margin:0 0 12px;font-weight:600}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.scale button,.unseen{font:600 1rem var(--body);border:1px solid #C9C2B3;background:#fff;color:var(--ink);border-radius:6px;padding:10px 0;cursor:pointer;min-height:44px}
+.scale button[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:#fff}
+.ends{display:flex;justify-content:space-between;color:var(--muted);font-size:.82rem;margin-top:6px}
+.unseen{display:block;width:100%;margin-top:10px;font-weight:400;font-size:.92rem;color:var(--muted);padding:8px 0;min-height:40px}
+.unseen[aria-pressed=true]{background:#EEE9DF;color:var(--ink);border-color:#B9AF9A}
+.bar{position:sticky;bottom:0;background:rgba(251,249,245,.96);backdrop-filter:blur(6px);border-top:1px solid var(--rule);padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px));margin:30px -20px -60px}
+.bar .wrap{display:flex;align-items:center;gap:16px;justify-content:space-between}
+.count{font-size:.95rem;color:var(--muted)}
+.count b{color:var(--ink)}
+.go{font:600 1.05rem var(--imp);letter-spacing:.04em;background:var(--gold);color:var(--deep);border:0;border-radius:6px;padding:14px 22px;cursor:pointer}
+.go:disabled{opacity:.6;cursor:wait}
+.msg{color:var(--err);font-weight:600;margin:14px 0 0}
+.done-view{text-align:center;padding:60px 10px}
+.done-view h2{font-family:var(--display);font-size:2rem;color:var(--navy);margin:0 0 10px}
+.loading{padding:40px 0;color:var(--muted)}
+.hp{position:absolute;left:-9999px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="brand"><svg class="mark" viewBox="-60.8 -1 121.6 289.1" fill="#C8A34B" aria-hidden="true"><path d="M0.0,0.0L3.9,9.2L5.3,13.1L5.9,14.1L7.3,18.0L12.7,30.8L12.9,31.9L12.8,112.4L13.0,113.0L13.8,113.5L25.5,113.5L26.8,113.0L30.9,108.8L35.0,103.2L38.0,97.9L40.0,93.0L41.2,89.1L42.2,84.0L42.9,74.9L42.9,67.8L41.9,46.5L44.0,38.4L49.3,14.8L50.2,12.6L50.7,12.6L51.0,13.4L51.3,15.5L52.0,17.8L52.3,19.9L53.0,22.1L53.3,24.1L56.8,38.5L58.0,44.6L58.9,46.9L59.0,54.6L59.8,67.4L59.8,75.1L58.9,86.0L56.8,95.9L53.9,103.8L51.9,107.9L49.2,112.2L49.2,113.0L49.5,113.4L53.2,113.6L53.5,114.0L53.5,114.8L45.3,137.9L44.0,138.5L12.0,138.5L11.3,139.4L5.4,286.4L4.8,287.0L-4.8,287.1L4.8,287.1L-4.8,287.0L-5.4,286.4L-11.3,139.4L-12.0,138.5L-44.0,138.5L-45.3,137.9L-53.5,114.8L-53.5,114.0L-53.2,113.6L-49.5,113.4L-49.2,113.0L-49.2,112.2L-51.9,107.9L-53.9,103.8L-56.8,95.9L-58.9,86.0L-59.8,75.1L-59.8,67.4L-59.0,54.6L-58.9,46.9L-58.0,44.6L-56.8,38.5L-53.3,24.1L-53.0,22.1L-52.3,19.9L-52.0,17.8L-51.3,15.5L-51.0,13.4L-50.7,12.6L-50.2,12.6L-49.3,14.8L-44.0,38.4L-41.9,46.5L-42.9,67.8L-42.9,74.9L-42.2,84.0L-41.2,89.1L-40.0,93.0L-38.0,97.9L-35.0,103.2L-30.9,108.8L-26.8,113.0L-25.5,113.5L-13.8,113.5L-13.0,113.0L-12.8,112.4L-12.9,31.9L-12.7,30.8L-7.3,18.0L-5.9,14.1L-5.3,13.1L-3.9,9.2Z"/></svg><span>Lead Elite Academy</span></div>
+  <h1 id="title">Leadership Pulse</h1>
+  <p class="lede">Rate the leader you report to. Your answers are anonymous: no name, no email, no login. Results are only reported in groups.</p>
+  <div class="facts"><span>25 statements</span><span>About 5 minutes</span><span>Anonymous</span></div>
+</div></header>
+<main><div class="wrap" id="app"><p class="loading">Loading the questions…</p></div></main>
+<script>
+const SB='https://xhoeshbwsdogqebgdfhq.supabase.co', KEY='sb_publishable_8z-j3a-VtSTr2tf_jhnTzg_T4Qxu-Bd', SLUG='sunrun';
+const rpc=(fn,body)=>fetch(SB+'/rest/v1/rpc/'+fn,{method:'POST',headers:{apikey:KEY,'Content-Type':'application/json'},body:JSON.stringify(body)}).then(async r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()});
+const app=document.getElementById('app');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function deviceId(){try{let d=localStorage.getItem('lea_pulse_dev');if(!d){d=crypto.getRandomValues(new Uint32Array(4)).join('-')+'-'+Date.now();localStorage.setItem('lea_pulse_dev',d)}return d}catch(e){return crypto.getRandomValues(new Uint32Array(4)).join('-')+'-'+Date.now()}}
+function already(){try{return localStorage.getItem('lea_pulse_done_'+SLUG)==='1'}catch(e){return false}}
+function markDone(){try{localStorage.setItem('lea_pulse_done_'+SLUG,'1')}catch(e){}}
+function thanks(again){app.innerHTML='<div class="done-view"><h2>'+(again?'You’ve already answered':'Thank you')+'</h2><p>'+(again?'This browser already sent a response, so there’s nothing more to do.':'Your answers are in. Nothing you wrote is tied to your name.')+'</p></div>';window.scrollTo(0,0)}
+const answers={};
+async function start(){
+  if(already())return thanks(true);
+  let info;
+  try{info=await rpc('pulse_info',{p_slug:SLUG})}catch(e){app.innerHTML='<p class="msg">The survey couldn’t load. Check your connection and refresh the page.</p>';return}
+  if(!info){app.innerHTML='<p class="msg">This survey link isn’t active.</p>';return}
+  if(!info.open){app.innerHTML='<div class="done-view"><h2>This survey is closed</h2><p>Thanks for checking in.</p></div>';return}
+  document.getElementById('title').textContent=(info.company?info.company+' ':'')+(info.title||'Leadership Pulse');
+  const items=info.items||[], written=info.written||[];
+  let h='<div class="card"><div class="row2"><div><label class="f" for="region">Your region or market</label><p class="hint">Optional. Used to compare regions with 5+ responses.</p><input type="text" id="region" maxlength="60" autocomplete="off" placeholder="e.g. Southeast"></div>'+
+   '<div><label class="f" for="tenure">How long have you reported to this leader?</label><p class="hint">Optional.</p><select id="tenure"><option value="">Choose one</option><option>Under 3 months</option><option>3-12 months</option><option>1-2 years</option><option>2+ years</option></select></div></div></div>'+
+   '<p class="hint" style="margin-top:22px">For each statement, pick 1 (strongly disagree) to 5 (strongly agree). If you truly haven’t seen it, choose “Haven’t seen enough to say.”</p>';
+  for(const p of (info.pillars||[])){
+    const its=items.filter(i=>i.pillar===p.code); if(!its.length)continue;
+    h+='<section class="pillar"><h2>'+esc(p.name)+'</h2>';
+    for(const it of its){
+      h+='<div class="item" id="it-'+esc(it.id)+'" data-id="'+esc(it.id)+'"><p id="lbl-'+esc(it.id)+'">'+esc(it.text)+'</p><div class="scale" role="group" aria-labelledby="lbl-'+esc(it.id)+'">'+
+      [1,2,3,4,5].map(n=>'<button type="button" data-v="'+n+'" aria-pressed="false" aria-label="'+n+' of 5">'+n+'</button>').join('')+
+      '</div><div class="ends" aria-hidden="true"><span>Strongly disagree</span><span>Strongly agree</span></div><button type="button" class="unseen" data-v="null" aria-pressed="false">Haven’t seen enough to say</button></div>';
+    }
+    h+='</section>';
+  }
+  h+='<section class="pillar"><h2>In your words</h2><p class="q">Optional. Leave out names and anything that would identify you.</p>';
+  written.forEach((w,i)=>{h+='<div class="card"><label class="f" for="w'+i+'">'+esc(w.text)+'</label><textarea id="w'+i+'" maxlength="1000"></textarea></div>'});
+  h+='</section><input class="hp" type="text" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true">'+
+     '<div class="bar"><div class="wrap"><span class="count" id="count"><b>0</b> of '+items.length+' answered</span><button class="go" id="go" type="button">Submit my answers</button></div><div class="wrap"><p class="msg" id="msg" hidden></p></div></div>';
+  app.innerHTML=h;
+  const total=items.length, countEl=document.getElementById('count');
+  const upd=()=>{countEl.innerHTML='<b>'+Object.keys(answers).length+'</b> of '+total+' answered'};
+  app.addEventListener('click',e=>{
+    const b=e.target.closest('button[data-v]'); if(!b)return;
+    const box=b.closest('.item'), id=box.dataset.id;
+    box.querySelectorAll('button[data-v]').forEach(x=>x.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true');
+    answers[id]=b.dataset.v==='null'?null:Number(b.dataset.v);
+    box.classList.add('done');box.classList.remove('missing');upd();
+  });
+  document.getElementById('go').addEventListener('click',async()=>{
+    const msg=document.getElementById('msg'); msg.hidden=true;
+    if(document.getElementById('hp').value)return thanks(false);
+    const miss=items.filter(i=>!(i.id in answers));
+    if(miss.length){miss.forEach(i=>document.getElementById('it-'+i.id).classList.add('missing'));
+      msg.textContent=miss.length===1?'One statement still needs an answer. It’s outlined in red.':miss.length+' statements still need an answer. They’re outlined in red.';msg.hidden=false;
+      document.getElementById('it-'+miss[0].id).scrollIntoView({behavior:'smooth',block:'center'});return}
+    if(!items.some(i=>answers[i.id]!==null)){msg.textContent='Rate at least one statement from 1 to 5.';msg.hidden=false;return}
+    const btn=document.getElementById('go');btn.disabled=true;btn.textContent='Sending…';
+    try{
+      const r=await rpc('pulse_submit',{p_slug:SLUG,p_answers:answers,p_region:document.getElementById('region').value,p_tenure:document.getElementById('tenure').value,
+        p_keep:(document.getElementById('w0')||{}).value||'',p_start:(document.getElementById('w1')||{}).value||'',p_device:deviceId()});
+      if(r==='ok'){markDone();return thanks(false)}
+      if(r==='duplicate'){markDone();return thanks(true)}
+      if(r==='closed'){app.innerHTML='<div class="done-view"><h2>This survey is closed</h2></div>';return}
+      throw new Error(r);
+    }catch(e){msg.textContent='Your answers didn’t send. Check your connection and tap Submit again.';msg.hidden=false;btn.disabled=false;btn.textContent='Submit my answers'}
+  });
+}
+start();
+</script>
+</body>
+</html>
