@@ -57,3 +57,17 @@
     }
   });
 })();
+
+
+// TRIBL chat widget (Lead Elite Academy), added Nov 19 2026. Loads on every page that includes this file.
+(function () {
+  function load() {
+    if (document.querySelector('script[data-widget-id="6aff6833e6cd500e96913ddd"]')) return;
+    var s = document.createElement('script');
+    s.src = 'https://widgets.leadconnectorhq.com/loader.js';
+    s.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
+    s.setAttribute('data-widget-id', '6aff6833e6cd500e96913ddd');
+    document.body.appendChild(s);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', load); else load();
+})();
